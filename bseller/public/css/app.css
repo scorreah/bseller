@@ -1,0 +1,39 @@
+nav {
+	background-color: #333;
+	color: #fff;
+	font-size: 1.2em;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav li {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+nav a {
+	color: #fff;
+	text-decoration: none;
+	padding: 10px;
+}
+
+nav a:hover {
+	background-color: #fff;
+	color: #333;
+}
+
+h1 {
+	font-size: 2em;
+	text-align: center;
+	margin-top: 50px;
+}
+
+p {
+	font-size: 1.5em;
+	text-align: center;
+	margin-top: 30px;
+}

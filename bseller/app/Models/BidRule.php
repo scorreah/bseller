@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BidRule extends Model
 {
     use HasFactory;
+
     /**
      * BIDRULE ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
@@ -16,8 +17,7 @@ class BidRule extends Model
      * $this->attributes['status'] - string - contains the current status of the bid rule
      * $this->attributes['start_date'] - dateTime - contains the starting date of the bid rule
      * $this->attributes['end_date'] - dateTime - contains the ending date of the bid rule
-    */
-
+     */
     protected $fillable = ['initial_price', 'current_price', 'status', 'start_date', 'end_date'];
 
     public function getId(): int
@@ -79,5 +79,4 @@ class BidRule extends Model
     {
         $this->attributes['end_date'] = $date;
     }
-
 }

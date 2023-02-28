@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\View\View;
-use Illuminate\Http\Request;
 use App\Models\BidRule;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class BidRuleController extends Controller
 {
@@ -13,18 +13,18 @@ class BidRuleController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData["title"] = "Bid Page - BSeller";
+        $viewData['title'] = 'Bid Page - BSeller';
 
-        return view('bid.index')->with("viewData", $viewData);
+        return view('bid.index')->with('viewData', $viewData);
     }
 
     // Method for rendering create page
     public function create(): View
     {
         $viewData = [];
-        $viewData["title"] = "Create Bid - BSeller";
+        $viewData['title'] = 'Create Bid - BSeller';
 
-        return view('bid.create')->with("viewData", $viewData);
+        return view('bid.create')->with('viewData', $viewData);
     }
 
     // Method for storing new BidRule
@@ -61,20 +61,20 @@ class BidRuleController extends Controller
     public function list(): View
     {
         $viewData = [];
-        $viewData["title"] = "List Bids - BSeller";
-        $viewData["bids"] = BidRule::all();
+        $viewData['title'] = 'List Bids - BSeller';
+        $viewData['bids'] = BidRule::all();
 
-        return view('bid.list')->with("viewData", $viewData);
+        return view('bid.list')->with('viewData', $viewData);
     }
 
     // Method for rendering bid detail page
     public function show(string $id): View
     {
         $viewData = [];
-        $viewData["title"] = "Show Bid - BSeller";
-        $viewData["bid"] = BidRule::findOrFail($id);
+        $viewData['title'] = 'Show Bid - BSeller';
+        $viewData['bid'] = BidRule::findOrFail($id);
 
-        return view('bid.show')->with("viewData", $viewData);
+        return view('bid.show')->with('viewData', $viewData);
     }
 
     // Method for deleting a bid
@@ -87,5 +87,4 @@ class BidRuleController extends Controller
 
         return redirect()->route('bid.list');
     }
-
 }

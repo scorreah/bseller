@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 
 class BidRuleController extends Controller
 {
+    // Method for rendering index page
     public function index(): View
     {
         $viewData = [];
@@ -17,6 +18,7 @@ class BidRuleController extends Controller
         return view('bid.index')->with("viewData", $viewData);
     }
 
+    // Method for rendering create page
     public function create(): View
     {
         $viewData = [];
@@ -25,6 +27,7 @@ class BidRuleController extends Controller
         return view('bid.create')->with("viewData", $viewData);
     }
 
+    // Method for storing new BidRule
     public function store(Request $request): RedirectResponse
     {
         // Validate data before store
@@ -54,6 +57,7 @@ class BidRuleController extends Controller
         return redirect()->route('bid.show', ['id' => $bidRule->id]);
     }
 
+    // Method for rendering bid list page
     public function list(): View
     {
         $viewData = [];
@@ -63,6 +67,7 @@ class BidRuleController extends Controller
         return view('bid.list')->with("viewData", $viewData);
     }
 
+    // Method for rendering bid detail page
     public function show(string $id): View
     {
         $viewData = [];
@@ -72,6 +77,7 @@ class BidRuleController extends Controller
         return view('bid.show')->with("viewData", $viewData);
     }
 
+    // Method for deleting a bid
     public function delete(BidRule $bid): RedirectResponse
     {
         BidRule::destroy($bid->id);

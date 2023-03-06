@@ -1,6 +1,18 @@
 @extends('layouts.app')
 @section('title', 'Home Page - BSeller')
 @section('content')
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <p>Errors</p>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="container">        
     <h1>Add a new Shoe</h1>
     <p>Here you can add a new shoe to the available list</p>        

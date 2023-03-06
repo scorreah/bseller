@@ -1,0 +1,39 @@
+----------------------------SETUP--------------------------
+Despues de descomprimir el archivo .zip, se deben seguir los siguientes pasos:
+
+CONFIGURAR BASE DE DATOS:
+
+Nota: En el archivo .env se encuentra las variables de entorno ya definidas para el uso de la base de datos.
+Mas concretamente, se indican cual es el puerto por el que se conecta a la base de datos (3306), el nombre 
+de la base de datos y el nombre del usuario.
+1. Correr XAMPP y habilitar el modulo de Apache y luego el de Mysql
+2. En el browser colcar la siguiente dirección IP: http://127.0.0.1/phpmyadmin.
+3. Ya dentro del administrador de la base de datos, crea una base de datos con el siguiente nombre: bseller
+4. Finalmente, dirijase a la carpeta bseller y dentro de ella ejecute el siguiente comando:
+	php artisan migrate
+  De esta manera creara las tablas necesarias para el correcto funcionamiento de la aplicacion
+
+CORRER APLICACIÓN:
+
+1. Ejecutar el siguiente comando por consola:
+	php artisan serve
+2. Dirijase a la siguiente URL: http://127.0.0.1:8000/shoe
+3. Una vez alli, selecciona la opcion de "Add shoe"
+4. Una vez la seleccione, realiza el registro de 1 o más shoes, para una mejor interaccion con la aplicacion
+
+NOTA: Por fines practicos, dentro de la carpeta  /public/img/shoe se encuentran algunas imagenes se sneaker para
+que las utilice en caso de ser necesario.
+
+
+URLS DE INTERES:
+
+1. http://127.0.0.1:8000/shoe -> url donde de se encuentra el indice del taller (alli se encuentra los botones de 
+redireccion)
+2. http://127.0.0.1:8000/shoe/create -> url con el formulario para el registro de un sneaker
+3. http://127.0.0.1:8000/shoe/{id} -> url con la informacion del sneaker seleccionado
+4. http://127.0.0.1:8000/shoe/list -> url con los sneakers que actualmente se encuentran en la base de datos
+5. http://127.0.0.1:8000/shoe/delete/{id} -> url que permite eliminar el sneaker seleccionado
+
+NOTA IMPORTANTE
+Es posible que el puerto por el cual su aplicacion este corriendo no sea el mismo que el mencionado en 
+este documento. Cambielo de ser necesario

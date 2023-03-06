@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Shoes;
+use Illuminate\Support\Facades\Storage;
+
 
 class ShoeController extends Controller
 {
@@ -43,7 +45,7 @@ class ShoeController extends Controller
     public function delete(Shoes $id)
     {
         $dir = $id->image;
-        \Storage::disk('local')->delete($dir);
+        Storage::disk('local')->delete($dir);
         Shoes::destroy($id->id);
         session()->flash('status', 'Shoe deleted Success');
         return redirect()->route('shoe.list');
@@ -51,24 +53,21 @@ class ShoeController extends Controller
 
     public function save(Request $request)
     {
-        // Validate form input
-        $validatedData = $request->validate([
-            'price' => 'required|numeric|min:0',
-            'size' => 'required|numeric|min:5',
-            'brand' => 'required|string',
-            'model' => 'required|string|max:100',
-        ]);
-
         // Create new newShoe instance with form data
         $newShoe = new Shoes;
+        $validatedData = Shoes::validate($request);
+
+        $nombreImagen = $newShoe->saveImage($request);
+
+        if($nombreImagen == "Error")
+        {
+            return redirect()->back()->withInput()->withErrors(['image.save_error'=>'An error occurred while saving the image was save']);
+        }
+
         $newShoe->price = $validatedData['price'];
         $newShoe->size = $validatedData['size'];
         $newShoe->brand = $validatedData['brand'];
         $newShoe->model = $validatedData['model'];
-
-        $image_shoe = $request->file('image_shoe');
-        $nombreImagen =  "img\shoes\\".time()."_".$image_shoe->getClientOriginalName();
-        \Storage::disk('local')->put($nombreImagen,  \File::get($image_shoe));
         $newShoe->image = $nombreImagen;
 
         // Save new newShoe to database

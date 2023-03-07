@@ -31,21 +31,15 @@ class BidRuleController extends Controller
     public function store(Request $request): RedirectResponse
     {
         // Validate data before store
-        $validatedData = $request->validate([
-            'initial_price' => 'required|integer|min:0',
-            'current_price' => 'required|integer|gte:initial_price',
-            'status' => 'required|string',
-            'start_date' => 'required|date|after_or_equal:today',
-            'end_date' => 'required|date|after:start_date',
-        ]);
+        BidRule::validate($request);
 
         // Create new BidRule instance with form data
         $bidRule = new BidRule;
-        $bidRule->initial_price = $validatedData['initial_price'];
-        $bidRule->current_price = $validatedData['current_price'];
-        $bidRule->status = $validatedData['status'];
-        $bidRule->start_date = $validatedData['start_date'];
-        $bidRule->end_date = $validatedData['end_date'];
+        $bidRule->setInitialPrice($request->input('initial_price'));
+        $bidRule->setCurrentPrice($request->input('current_price'));
+        $bidRule->setStatus($request->input('status'));
+        $bidRule->setStartDate(new DateTime($request->input('start_date')));
+        $bidRule->setEndDate(new DateTime($request->input('end_date')));
 
         // Save new BidRule to database
         $bidRule->save();

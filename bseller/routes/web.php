@@ -22,4 +22,7 @@ Route::get('/bids/create', 'App\Http\Controllers\BidRuleController@create')->nam
 Route::post('/bids/store', 'App\Http\Controllers\BidRuleController@store')->name('bid.store');
 Route::get('/bids/list', 'App\Http\Controllers\BidRuleController@list')->name('bid.list');
 Route::delete('/bids/delete/{bid}', 'App\Http\Controllers\BidRuleController@delete')->name('bid.delete');
-Route::get('/bids/{id}', 'App\Http\Controllers\BidRuleController@show')->name('bid.show');
+Route::get('/bids/{id}', 'App\Http\Controllers\BidRuleController@show')
+    ->where('id', '[0-9]+')
+    ->name('bid.show');
+

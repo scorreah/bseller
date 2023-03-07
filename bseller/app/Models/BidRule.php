@@ -20,12 +20,23 @@ class BidRule extends Model
      */
     protected $fillable = ['initial_price', 'current_price', 'status', 'start_date', 'end_date'];
 
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'initial_price' => 'required|integer|min:0',
+            'current_price' => 'required|integer|gte:initial_price',
+            'status' => 'required|string',
+            'start_date' => 'required|date|after_or_equal:today',
+            'end_date' => 'required|date|after:start_date',
+        ]);
+    }
+
     public function getId(): int
     {
         return $this->attributes['id'];
     }
 
-    public function setId($id): void
+    public function setId(int $id): void
     {
         $this->attributes['id'] = $id;
     }
@@ -35,7 +46,7 @@ class BidRule extends Model
         return $this->attributes['initial_price'];
     }
 
-    public function setInitialPrice($price): void
+    public function setInitialPrice(int $price): void
     {
         $this->attributes['initial_price'] = $price;
     }
@@ -45,7 +56,7 @@ class BidRule extends Model
         return $this->attributes['current_price'];
     }
 
-    public function setCurrentPrice($price): void
+    public function setCurrentPrice(int $price): void
     {
         $this->attributes['current_price'] = $price;
     }
@@ -55,7 +66,7 @@ class BidRule extends Model
         return $this->attributes['status'];
     }
 
-    public function setStatus($status): void
+    public function setStatus(string $status): void
     {
         $this->attributes['status'] = $status;
     }

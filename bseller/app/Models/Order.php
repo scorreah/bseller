@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Orders extends Model
+class Order extends Model
 {
     use HasFactory;
     /**
@@ -27,7 +27,7 @@ class Orders extends Model
     /**
      * Set the order id
      */
-    public function setId($id): void
+    public function setId(int $id): void
     {
         $this->attributes['id'] = $id;
     }
@@ -43,7 +43,7 @@ class Orders extends Model
     /**
      * Set the total price of the order
      */
-    public function setTotalPrice($price): void
+    public function setTotalPrice(int $price): void
     {
         $this->attributes['total_price'] = $price;
     }
@@ -59,7 +59,7 @@ class Orders extends Model
     /**
      * Set the status of the order
      */
-    public function setStatus($status): void
+    public function setStatus(string $status): void
     {
         $this->attributes['status'] = $status;
     }

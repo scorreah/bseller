@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;
-use App\Models\Orders;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
@@ -32,9 +32,9 @@ class OrdersController extends Controller
         ]);
         
         //Crea un una nueva instancia order con el form data
-        $order = new Orders;
-        $order->total_price = $validateData['total_price'];
-        $order->status = $validateData['status'];
+        $order = new Order;
+        $order->setTotal_price = $validateData['total_price'];
+        $order->setStatus = $validateData['status'];
 
 
         // Guarda en el database
@@ -51,7 +51,7 @@ class OrdersController extends Controller
     {
         $viewData = [];
         $viewData["title"] = "list Orders - BSeller";
-        $viewData["orders"] = Orders::all();
+        $viewData["orders"] = Order::all();
 
         return view('orders.list')->with('viewData', $viewData);
         
@@ -60,15 +60,15 @@ class OrdersController extends Controller
     {
         $viewData = [];
         $viewData["title"] = "show orders - BSeller";
-        $viewData["orders"] = Orders::findOrFail($id);
+        $viewData["orders"] = Order::findOrFail($id);
 
         return view('orders.show')->with('viewData', $viewData);
     }
 
 
-    public function delete(Orders $order): RedirectResponse
+    public function delete(Order $order): RedirectResponse
     {
-        Orders::destroy($order->id);
+        Order::destroy($order->id);
 
         //Mensaje de que se elimino la orden
         session()->flash('status', 'Order deleted successfully');

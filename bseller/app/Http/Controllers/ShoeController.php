@@ -41,7 +41,7 @@ class ShoeController extends Controller
         return view('shoe.list')->with("viewData", $viewData);
     }
 
-    public function delete(string $id): Redirect
+    public function delete(string $id): RedirectResponse
     {
         $shoe = Shoe::findOrFail($id);
         $dir = $shoe->getImage();

@@ -27,7 +27,7 @@ class Shoe extends Model
         return $this->attributes['id'];
     }
 
-    public function setId($id) : void
+    public function setId(int $id) : void
     {
         $this->attributes['id'] = $id;
     }
@@ -37,9 +37,9 @@ class Shoe extends Model
         return $this->attributes['price'];
     }
 
-    public function setPrice($name) : void
+    public function setPrice(int $price) : void
     {
-        $this->attributes['price'] = $name;
+        $this->attributes['price'] = $price;
     }
 
     public function getImage(): string
@@ -47,9 +47,9 @@ class Shoe extends Model
         return $this->attributes['image'];
     }
 
-    public function setImage($price) : void
+    public function setImage(string $image) : void
     {
-        $this->attributes['image'] = $price;
+        $this->attributes['image'] = $image;
     }
 
     public function getSize(): float
@@ -57,9 +57,9 @@ class Shoe extends Model
         return $this->attributes['size'];
     }
 
-    public function setSize($price) : void
+    public function setSize(float $size) : void
     {
-        $this->attributes['size'] = $price;
+        $this->attributes['size'] = $size;
     }
 
     public function getBrand(): string
@@ -67,9 +67,9 @@ class Shoe extends Model
         return $this->attributes['brand'];
     }
 
-    public function setBrand($price) : void
+    public function setBrand(string $brand) : void
     {
-        $this->attributes['brand'] = $price;
+        $this->attributes['brand'] = $brand;
     }
 
     public function getModel(): string
@@ -77,9 +77,9 @@ class Shoe extends Model
         return $this->attributes['model'];
     }
 
-    public function setModel($price) : void
+    public function setModel(string $model) : void
     {
-        $this->attributes['model'] = $price;
+        $this->attributes['model'] = $model;
     }
 
     public static function validate(Request $request) : array

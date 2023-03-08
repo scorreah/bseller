@@ -18,6 +18,9 @@ class Shoe extends Model
      * $this->attributes['size'] - float - contains the size of the shoe
      * $this->attributes['brand'] - string - contains the shoe brand
      * $this->attributes['model'] - string - contains the shoe model
+     * $this->attributes['model'] - string - contains the shoe model
+     * $this->attributes['created_at'] - DateTime - contains the day of the creation
+     * $this->attributes['updated_at'] - DateTime - contains the day of the update
     */
 
     protected $fillable = ['price','image','size','brand','model'];
@@ -80,6 +83,16 @@ class Shoe extends Model
     public function setModel(string $model) : void
     {
         $this->attributes['model'] = $model;
+    }
+
+    public function getCreatedAt(): DateTime
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): DateTime
+    {
+        return $this->attributes['updated_at'];
     }
 
     public static function validate(Request $request) : array

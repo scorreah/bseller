@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Shoe;
 use Illuminate\Support\Facades\Storage;
-use Redirect;
+use App\Interfaces\ImageStorage;
 
 
 class ShoeController extends Controller
@@ -55,7 +55,9 @@ class ShoeController extends Controller
     {
         $newShoe = new Shoe;
         $validatedData = Shoe::validate($request);
-        $nameImagen = $newShoe->saveImage($request);
+
+        $storeInterface = app(ImageStorage::class);
+        $nameImagen = $storeInterface->store($request);
 
         if($nameImagen == "Error")
         {

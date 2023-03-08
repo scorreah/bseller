@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Shoe;
 use Illuminate\Support\Facades\Storage;
 use Redirect;
@@ -40,7 +41,7 @@ class ShoeController extends Controller
         return view('shoe.list')->with("viewData", $viewData);
     }
 
-    public function delete(string $id)
+    public function delete(string $id): Redirect
     {
         $shoe = Shoe::findOrFail($id);
         $dir = $shoe->getImage();
@@ -50,12 +51,10 @@ class ShoeController extends Controller
         return redirect()->route('shoe.list');
     }
 
-    public function save(Request $request)
+    public function save(Request $request):RedirectResponse
     {
-        // Create new newShoe instance with form data
         $newShoe = new Shoe;
         $validatedData = Shoe::validate($request);
-        //Try to save a show image in the public directory
         $nameImagen = $newShoe->saveImage($request);
 
         if($nameImagen == "Error")
@@ -69,9 +68,7 @@ class ShoeController extends Controller
         $newShoe->setModel($validatedData['model']);
         $newShoe->setImage($nameImagen);
 
-        // Save new newShoe to database
         $newShoe->save();
-        // Flash success message to the session
         session()->flash('status', 'Shoe created successfully.');
         // Redirect to the new newShoe's detail page
         return redirect()->route('shoe.show', ['id' => $newShoe->getId()]);

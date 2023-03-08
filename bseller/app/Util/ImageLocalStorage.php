@@ -23,4 +23,16 @@ class ImageLocalStorage implements ImageStorage
         }
         return $nombreImagen;
     }
+
+    public function delete(string $dir): bool
+    {
+        try
+        {
+            Storage::disk('local')->delete($dir);
+        }catch(Exception $e)
+        {
+            return FALSE;
+        }
+        return TRUE;
+    }
 }

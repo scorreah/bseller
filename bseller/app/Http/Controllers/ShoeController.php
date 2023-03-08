@@ -44,8 +44,10 @@ class ShoeController extends Controller
     public function delete(string $id): RedirectResponse
     {
         $shoe = Shoe::findOrFail($id);
-        $dir = $shoe->getImage();
-        Storage::disk('local')->delete($dir);
+
+        $storeInterface = app(ImageStorage::class);
+        $nameImagen = $storeInterface->delete($shoe->getImage());
+
         Shoe::destroy($shoe->getId());
         session()->flash('status', 'Shoe deleted Success');
         return redirect()->route('shoe.list');

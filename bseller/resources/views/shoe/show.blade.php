@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('title', $viewData["title"])
-@section('subtitle', $viewData["subtitle"])
 @section('content')
 @if (session('status'))
   <div class="alert alert-success">                
@@ -10,21 +9,21 @@
 <section class="product-section">
   <div class="card-estilo-0">
     <div class="img-container">
-      <img src="{{ asset($viewData["product"]["image"]) }}">
+      <img src="{{ asset($viewData["shoe"]["image"]) }}">
     </div>
     <p class="card-title">
-      Model: {{ $viewData["product"]["model"] }}
+      Model: {{ $viewData["shoe"]->getModel()}}
     </p>
     <p class="card-title">
-      Brand: {{ $viewData["product"]["brand"] }}
+      Brand: {{ $viewData["shoe"]->getBrand()}}
     </p>
     <p class="card-title">
-      Size: {{ $viewData["product"]["size"] }}
+      Size: {{ $viewData["shoe"]->getSize()}}
     </p>
     <p class="card-text">
-      Price: {{ $viewData["product"]["price"] }}
+      Price: {{ $viewData["shoe"]->getPrice()}}
     </p>
-    <form method="POST" action="{{ route('shoe.delete', ['id' => $viewData["product"]["id"]]) }}">                        
+    <form method="POST" action="{{ route('shoe.delete', ['id' => $viewData["shoe"]->getId()])}}">                        
       @csrf
       @method('DELETE')
       <button type="submit" class="btn btn-danger">Delete</button>                    

@@ -15,9 +15,9 @@
         <div class="card mb-4 box-shadow">                    
           <div class="card-body"> 
             <img src="{{ asset($shoe->image) }}">                                            
-            <h4>Model: {{ $shoe->model }}</h4>                        
-            <p class="card-text">Price: {{ $shoe->price }}</p>  
-            <h2><a href="{{ route('shoe.show', ['id'=> $shoe["id"]]) }}" class="btn bg-primary text-white">shoe {{ $shoe["id"] }}</a></h2>                                           
+            <h4>Model: {{ $shoe->getModel() }}</h4>                        
+            <p class="card-text">Price: {{ $shoe->getPrice() }}</p>  
+            <h2><a href="{{ route('shoe.show', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">shoe {{ $shoe->getId() }}</a></h2>                                           
           </div>                
         </div>            
       </div>        

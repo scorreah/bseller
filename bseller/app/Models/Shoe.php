@@ -2,18 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Exception;
 
-class Shoes extends Model
+class Shoe extends Model
 {
-    use HasFactory;
     /**
-     * PRODUCT ATTRIBUTES
+     * SHOE ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
      * $this->attributes['price'] - int - contains the product price
      * $this->attributes['image'] - string - contains the path to the product image
@@ -86,7 +84,6 @@ class Shoes extends Model
 
     public static function validate(Request $request) : array
     {
-        // Validate form input
         $validatedData = $request->validate([
             'price' => 'required|numeric|min:0',
             'size' => 'required|numeric|min:4',
@@ -94,7 +91,6 @@ class Shoes extends Model
             'model' => 'required|string',
             'image_shoe' => 'required|image',
         ]);
-
         return $validatedData;
     }
 
@@ -109,7 +105,6 @@ class Shoes extends Model
         {
             $nombreImagen = "Error";
         }
-        $nombreImagen = "Error";
         return $nombreImagen;
     }
 

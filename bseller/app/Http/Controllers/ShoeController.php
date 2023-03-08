@@ -46,7 +46,10 @@ class ShoeController extends Controller
         $shoe = Shoe::findOrFail($id);
 
         $storeInterface = app(ImageStorage::class);
-        $nameImagen = $storeInterface->delete($shoe->getImage());
+        if(!$storeInterface->delete($shoe->getImage()))
+        {
+            return redirect()->back()->withInput()->withErrors(['image.save_error'=>'An error occurred while deleting the image']);
+        }
 
         Shoe::destroy($shoe->getId());
         session()->flash('status', 'Shoe deleted Success');

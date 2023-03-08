@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Order extends Model
 {
@@ -15,6 +16,13 @@ class Order extends Model
      * $this->attributes['status'] - string - contains the status of the order
     */
     protected $fillable = ['total_price', 'status'];
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'total_price' => 'required|integer',
+            'status' => 'required|string',
+        ]);
+    }
 
     /**
      * Get the order id

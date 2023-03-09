@@ -54,11 +54,14 @@
                                     name="status" required>
                                     <option value="">-- Select Status --</option>
                                     <option value="new" @if (old('status') == 'new') selected @endif>New</option>
-                                    <option value="processing" @if (old('status') == 'processing') selected @endif>Processing
+                                    <option value="processing" @if (old('status') == 'processing') selected @endif>
+                                        Processing
                                     </option>
-                                    <option value="completed" @if (old('status') == 'completed') selected @endif>Completed
+                                    <option value="completed" @if (old('status') == 'completed') selected @endif>
+                                        Completed
                                     </option>
-                                    <option value="cancelled" @if (old('status') == 'cancelled') selected @endif>Cancelled
+                                    <option value="cancelled" @if (old('status') == 'cancelled') selected @endif>
+                                        Cancelled
                                     </option>
                                 </select>
                                 @error('status')

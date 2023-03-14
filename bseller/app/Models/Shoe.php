@@ -18,6 +18,9 @@ class Shoe extends Model
      * $this->attributes['size'] - float - contains the size of the shoe
      * $this->attributes['brand'] - string - contains the shoe brand
      * $this->attributes['model'] - string - contains the shoe model
+     * $this->attributes['model'] - string - contains the shoe model
+     * $this->attributes['created_at'] - DateTime - contains the day of the creation
+     * $this->attributes['updated_at'] - DateTime - contains the day of the update
     */
 
     protected $fillable = ['price','image','size','brand','model'];
@@ -27,7 +30,7 @@ class Shoe extends Model
         return $this->attributes['id'];
     }
 
-    public function setId($id) : void
+    public function setId(int $id) : void
     {
         $this->attributes['id'] = $id;
     }
@@ -37,9 +40,9 @@ class Shoe extends Model
         return $this->attributes['price'];
     }
 
-    public function setPrice($name) : void
+    public function setPrice(int $price) : void
     {
-        $this->attributes['price'] = $name;
+        $this->attributes['price'] = $price;
     }
 
     public function getImage(): string
@@ -47,9 +50,9 @@ class Shoe extends Model
         return $this->attributes['image'];
     }
 
-    public function setImage($price) : void
+    public function setImage(string $image) : void
     {
-        $this->attributes['image'] = $price;
+        $this->attributes['image'] = $image;
     }
 
     public function getSize(): float
@@ -57,9 +60,9 @@ class Shoe extends Model
         return $this->attributes['size'];
     }
 
-    public function setSize($price) : void
+    public function setSize(float $size) : void
     {
-        $this->attributes['size'] = $price;
+        $this->attributes['size'] = $size;
     }
 
     public function getBrand(): string
@@ -67,9 +70,9 @@ class Shoe extends Model
         return $this->attributes['brand'];
     }
 
-    public function setBrand($price) : void
+    public function setBrand(string $brand) : void
     {
-        $this->attributes['brand'] = $price;
+        $this->attributes['brand'] = $brand;
     }
 
     public function getModel(): string
@@ -77,9 +80,19 @@ class Shoe extends Model
         return $this->attributes['model'];
     }
 
-    public function setModel($price) : void
+    public function setModel(string $model) : void
     {
-        $this->attributes['model'] = $price;
+        $this->attributes['model'] = $model;
+    }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
     }
 
     public static function validate(Request $request) : array
@@ -92,20 +105,6 @@ class Shoe extends Model
             'image_shoe' => 'required|image',
         ]);
         return $validatedData;
-    }
-
-    public function saveImage(Request $request) : string
-    {   
-        try
-        {
-            $image_shoe = $request->file('image_shoe');
-            $nombreImagen =  "img\shoes\\".time()."_".$image_shoe->getClientOriginalName();
-            Storage::disk('local')->put($nombreImagen,  File::get($image_shoe));
-        }catch(Exception $e)
-        {
-            $nombreImagen = "Error";
-        }
-        return $nombreImagen;
     }
 
 }

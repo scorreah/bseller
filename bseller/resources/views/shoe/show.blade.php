@@ -6,6 +6,18 @@
     {{ session('status') }}
   </div>        
 @endif
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <p>Errors</p>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <section class="product-section">
   <div class="card-estilo-0">
     <div class="img-container">

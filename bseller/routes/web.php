@@ -18,5 +18,5 @@ Route::get('/shoe', 'App\Http\Controllers\ShoeController@index')->name('shoe.ind
 Route::get('/shoe/create', 'App\Http\Controllers\ShoeController@create')->name('shoe.create');
 Route::get('/shoe/list', 'App\Http\Controllers\ShoeController@list')->name('shoe.list');
 Route::post('/shoe/save', 'App\Http\Controllers\ShoeController@save')->name('shoe.save');
-Route::delete('/shoe/delete/{id}', 'App\Http\Controllers\ShoeController@delete')->name('shoe.delete');
-Route::get('/shoe/{id}', 'App\Http\Controllers\ShoeController@show')->name('shoe.show');
+Route::delete('/shoe/delete/{id}', 'App\Http\Controllers\ShoeController@delete')->where('id', '[0-9]+')->name('shoe.delete');
+Route::get('/shoe/{id}', 'App\Http\Controllers\ShoeController@show')->where('id', '[0-9]+')->name('shoe.show');

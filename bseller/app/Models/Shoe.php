@@ -32,7 +32,7 @@ class Shoe extends Model
         $this->attributes['id'] = $id;
     }
 
-    public function getPrice(): string
+    public function getPrice(): int
     {
         return $this->attributes['price'];
     }

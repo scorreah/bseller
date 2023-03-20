@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\BidRule;
 use Illuminate\Database\Seeder;
+use App\Models\Shoe;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,12 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
         BidRule::factory(5)->create();
+        Shoe::factory(8)->create();
     }
 }

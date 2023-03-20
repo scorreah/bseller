@@ -22,7 +22,12 @@ Route::get('/bids/create', 'App\Http\Controllers\BidRuleController@create')->nam
 Route::post('/bids/store', 'App\Http\Controllers\BidRuleController@store')->name('bid.store');
 Route::get('/bids/list', 'App\Http\Controllers\BidRuleController@list')->name('bid.list');
 Route::delete('/bids/delete/{bid}', 'App\Http\Controllers\BidRuleController@delete')->name('bid.delete');
-Route::get('/bids/{id}', 'App\Http\Controllers\BidRuleController@show')
-    ->where('id', '[0-9]+')
-    ->name('bid.show');
+Route::get('/bids/{id}', 'App\Http\Controllers\BidRuleController@show')->where('id', '[0-9]+')->name('bid.show');
 
+// Shoe Routes
+Route::get('/shoe', 'App\Http\Controllers\ShoeController@index')->name('shoe.index');
+Route::get('/shoe/create', 'App\Http\Controllers\ShoeController@create')->name('shoe.create');
+Route::get('/shoe/list', 'App\Http\Controllers\ShoeController@list')->name('shoe.list');
+Route::post('/shoe/save', 'App\Http\Controllers\ShoeController@save')->name('shoe.save');
+Route::delete('/shoe/delete/{id}', 'App\Http\Controllers\ShoeController@delete')->where('id', '[0-9]+')->name('shoe.delete');
+Route::get('/shoe/{id}', 'App\Http\Controllers\ShoeController@show')->where('id', '[0-9]+')->name('shoe.show');

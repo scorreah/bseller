@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -10,6 +11,8 @@ use App\Models\Exception;
 
 class Shoe extends Model
 {
+    use HasFactory;
+
     /**
      * SHOE ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)

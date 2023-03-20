@@ -2,9 +2,9 @@
 @section('title', $viewData["title"])
 @section('content')
 @if (session('status'))
-  <div class="alert alert-success">                
+  <div class="alert alert-success">
     {{ session('status') }}
-  </div>        
+  </div>
 @endif
 
 @if ($errors->any())
@@ -35,10 +35,10 @@
     <p class="card-text">
       Price: {{ $viewData["shoe"]->getPrice()}}
     </p>
-    <form method="POST" action="{{ route('shoe.delete', ['id' => $viewData["shoe"]->getId()])}}">                        
+    <form method="POST" action="{{ route('shoe.delete', ['id' => $viewData["shoe"]->getId()])}}">
       @csrf
       @method('DELETE')
-      <button type="submit" class="btn btn-danger">Delete</button>                    
+      <button type="submit" class="btn btn-danger">Delete</button>
     </form>
   </div>
 </section>

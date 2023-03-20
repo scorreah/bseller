@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+use DateTime;
 
 class BidRule extends Model
 {
@@ -76,7 +78,7 @@ class BidRule extends Model
         return $this->attributes['start_date'];
     }
 
-    public function setStartDate(string $date): void
+    public function setStartDate(DateTime $date): void
     {
         $this->attributes['start_date'] = $date;
     }
@@ -86,7 +88,7 @@ class BidRule extends Model
         return $this->attributes['end_date'];
     }
 
-    public function setEndDate(string $date): void
+    public function setEndDate(DateTime $date): void
     {
         $this->attributes['end_date'] = $date;
     }

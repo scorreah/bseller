@@ -14,12 +14,14 @@
         <div class="navItem">
             <img src="/img/index/bsellerLogo.png" width="150" height="60" alt="">
         </div>
-		<ul>
-			<li><a href="{{ route('home.index') }}">Home</a></li>
-			<li><a href="{{ route('shoe.index') }}">Shoes</a></li>
-			<li><a href="{{ route('order.index') }}">Orders</a></li>
-			<li><a href="{{ route('bid.index') }}">Bids</a></li>
-		</ul>
+		<div class = "references">
+            <ul>
+			    <li><a href="{{ route('home.index') }}">Home</a></li>
+			    <li><a href="{{ route('shoe.index') }}">Shoes</a></li>
+			    <li><a href="{{ route('order.index') }}">Orders</a></li>
+			    <li><a href="{{ route('bid.index') }}">Bids</a></li>
+		    </ul>
+        </div>
 	</nav>
     @yield('content')
 

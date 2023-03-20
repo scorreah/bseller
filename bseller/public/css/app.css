@@ -1,7 +1,7 @@
 nav {
-	background-color: #333;
-	color: #fff;
-	font-size: 1.2em;
+	background-color: #373bad;
+		color: white;
+		padding: 10px 20px;
 }
 
 nav ul {
@@ -38,6 +38,9 @@ p {
 	margin-top: 30px;
 }
 
+.references {
+	text-align: center;
+}
 .button-container {
     text-align: center;
     margin-top: 20px;
@@ -93,8 +96,20 @@ p {
 }
 
 .card-body img{
+	display: flex;
 	height: 100%;
  	width: 100%;
-	position: relative;
+	position: absolute;
 	object-fit: contain;
+}
+
+.shoeImg {
+	position: relative;
+	top: auto;
+	left: auto;
+	width: 450px;
+	height: 450px;
+	margin: auto;
+	padding: auto;
+	justify-content: center;
 }

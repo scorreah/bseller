@@ -4,17 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
-use App\Models\Exception;
 
 class Shoe extends Model
 {
     /**
      * SHOE ATTRIBUTES
-     * $this->attributes['id'] - int - contains the product primary key (id)
-     * $this->attributes['price'] - int - contains the product price
-     * $this->attributes['image'] - string - contains the path to the product image
+     * $this->attributes['id'] - int - contains the shoe primary key (id)
+     * $this->attributes['price'] - int - contains the shoe price
+     * $this->attributes['image'] - string - contains the path to the shoe image
      * $this->attributes['size'] - float - contains the size of the shoe
      * $this->attributes['brand'] - string - contains the shoe brand
      * $this->attributes['model'] - string - contains the shoe model

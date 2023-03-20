@@ -3,9 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\BidRule;
 use Illuminate\Database\Seeder;
+use App\Models\BidRule;
 use App\Models\Shoe;
+use App\Models\Orders;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,5 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         BidRule::factory(5)->create();
         Shoe::factory(8)->create();
+        Orders::factory(5)->create();
+
     }
 }

@@ -31,3 +31,11 @@ Route::get('/shoe/list', 'App\Http\Controllers\ShoeController@list')->name('shoe
 Route::post('/shoe/save', 'App\Http\Controllers\ShoeController@save')->name('shoe.save');
 Route::delete('/shoe/delete/{id}', 'App\Http\Controllers\ShoeController@delete')->where('id', '[0-9]+')->name('shoe.delete');
 Route::get('/shoe/{id}', 'App\Http\Controllers\ShoeController@show')->where('id', '[0-9]+')->name('shoe.show');
+
+// Order Routes
+Route::get('/orders', 'App\Http\Controllers\OrdersController@index')->name('orders.index');
+Route::get('/orders/create', 'App\Http\Controllers\OrdersController@create')->name('orders.create');
+Route::post('/orders/store', 'App\Http\Controllers\OrdersController@store')->name('orders.store');
+Route::get('/orders/list', 'App\Http\Controllers\OrdersController@list')->name('orders.list');
+Route::delete('/orders/delete/{order}', 'App\Http\Controllers\OrdersController@delete')->name('orders.delete');
+Route::get('/orders/show/{id}', 'App\Http\Controllers\OrdersController@show')->name('orders.show');

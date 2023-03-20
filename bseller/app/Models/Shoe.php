@@ -2,12 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
-use App\Models\Exception;
 
 class Shoe extends Model
 {
@@ -24,16 +21,15 @@ class Shoe extends Model
      * $this->attributes['model'] - string - contains the shoe model
      * $this->attributes['created_at'] - DateTime - contains the day of the creation
      * $this->attributes['updated_at'] - DateTime - contains the day of the update
-    */
-
-    protected $fillable = ['price','image','size','brand','model'];
+     */
+    protected $fillable = ['price', 'image', 'size', 'brand', 'model'];
 
     public function getId(): int
     {
         return $this->attributes['id'];
     }
 
-    public function setId(int $id) : void
+    public function setId(int $id): void
     {
         $this->attributes['id'] = $id;
     }
@@ -43,7 +39,7 @@ class Shoe extends Model
         return $this->attributes['price'];
     }
 
-    public function setPrice(int $price) : void
+    public function setPrice(int $price): void
     {
         $this->attributes['price'] = $price;
     }
@@ -53,7 +49,7 @@ class Shoe extends Model
         return $this->attributes['image'];
     }
 
-    public function setImage(string $image) : void
+    public function setImage(string $image): void
     {
         $this->attributes['image'] = $image;
     }
@@ -63,7 +59,7 @@ class Shoe extends Model
         return $this->attributes['size'];
     }
 
-    public function setSize(float $size) : void
+    public function setSize(float $size): void
     {
         $this->attributes['size'] = $size;
     }
@@ -73,7 +69,7 @@ class Shoe extends Model
         return $this->attributes['brand'];
     }
 
-    public function setBrand(string $brand) : void
+    public function setBrand(string $brand): void
     {
         $this->attributes['brand'] = $brand;
     }
@@ -83,7 +79,7 @@ class Shoe extends Model
         return $this->attributes['model'];
     }
 
-    public function setModel(string $model) : void
+    public function setModel(string $model): void
     {
         $this->attributes['model'] = $model;
     }
@@ -98,7 +94,7 @@ class Shoe extends Model
         return $this->attributes['updated_at'];
     }
 
-    public static function validate(Request $request) : array
+    public static function validate(Request $request): array
     {
         $validatedData = $request->validate([
             'price' => 'required|numeric|min:0',
@@ -107,7 +103,7 @@ class Shoe extends Model
             'model' => 'required|string',
             'image_shoe' => 'required|image',
         ]);
+
         return $validatedData;
     }
-
 }

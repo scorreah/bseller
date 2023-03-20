@@ -3,11 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-use App\Models\BidRule;
 use App\Models\Bid;
-use App\Models\Shoe;
+use App\Models\BidRule;
 use App\Models\Order;
+use App\Models\Shoe;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +20,5 @@ class DatabaseSeeder extends Seeder
         Shoe::factory(8)->create();
         Order::factory(5)->create();
         Bid::factory()->count(20)->create();
-
     }
 }

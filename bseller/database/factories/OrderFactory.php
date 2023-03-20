@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class OrderFactory extends Factory
 {
     protected $model = Order::class;
+
     /**
      * Define the model's default state.
      *
@@ -22,6 +23,5 @@ class OrderFactory extends Factory
             'total_price' => $this->faker->numberBetween(10, 100),
             'status' => $this->faker->randomElement(['pending', 'processing', 'completed']),
         ];
-
     }
 }

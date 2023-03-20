@@ -7,8 +7,8 @@
             <tbody>
                 @foreach ($viewData['orders'] as $order)
                     <tr>
-                        <td>         
-                            <a href="{{ route('orders.show', ['id'=> $order["id"]]) }}" class="btn bg-primary text-white">Order ID {{ $order["id"] }}</a>
+                        <td>
+                            <a href="{{ route('order.show', ['id'=> $order["id"]]) }}" class="btn bg-primary text-white">Order ID {{ $order["id"] }}</a>
                             </form>
                             <p class="card-text">Total Price: {{ $order->total_price }}</p>
                             <p class="card-text">Status: {{ $order->status }}</p>

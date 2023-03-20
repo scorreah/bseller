@@ -18,7 +18,6 @@ class BidRule extends Model
      * $this->attributes['start_date'] - dateTime - contains the starting date of the bid rule
      * $this->attributes['end_date'] - dateTime - contains the ending date of the bid rule
      */
-
     protected $fillable = ['initial_price', 'current_price', 'status', 'start_date', 'end_date'];
 
     public static function validate(Request $request): void

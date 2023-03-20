@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use DateTime;
 
 use App\Models\BidRule;
+use DateTime;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;

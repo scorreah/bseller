@@ -14,7 +14,6 @@ class Bid extends Model
      * $this->attributes['id'] - int - contains the primary key (id) of the bid
      * $this->attributes['price'] - int - contains the price of the bid
      */
-
     protected $fillable = ['price'];
 
     public static function validate(Request $request): void

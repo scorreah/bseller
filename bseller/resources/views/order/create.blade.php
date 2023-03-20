@@ -38,7 +38,7 @@
                         }
                     </style>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('orders.store') }}">
+                        <form method="POST" action="{{ route('order.store') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="total_price">Total Price:</label>

@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\ImageStorage;
+use App\Models\Shoe;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
-use App\Models\Shoe;
-use Illuminate\Support\Facades\Storage;
-use App\Interfaces\ImageStorage;
-
 
 class ShoeController extends Controller
 {
     public function index(): View
     {
         $viewData = [];
-        $viewData["title"] = "Products - Bseller";
-        $viewData["shoes"] = Shoe::all();
-        return view('shoe.index')->with("viewData", $viewData);
+        $viewData['title'] = 'Products - Bseller';
+        $viewData['shoes'] = Shoe::all();
+
+        return view('shoe.index')->with('viewData', $viewData);
     }
 
     public function show(string $id): View
     {
-        $viewData=[];
+        $viewData = [];
         $shoeInfo = Shoe::findOrFail($id);
-        $viewData["title"] = "Products - Bseller";
-        $viewData["shoe"] = $shoeInfo;
-        return view('shoe.show')->with("viewData", $viewData);
+        $viewData['title'] = 'Products - Bseller';
+        $viewData['shoe'] = $shoeInfo;
+
+        return view('shoe.show')->with('viewData', $viewData);
     }
 
     public function create(): View
@@ -35,10 +35,11 @@ class ShoeController extends Controller
     }
 
     public function list(): View
-    {   
-        $viewData=[];
+    {
+        $viewData = [];
         $viewData['shoes'] = Shoe::all();
-        return view('shoe.list')->with("viewData", $viewData);
+
+        return view('shoe.list')->with('viewData', $viewData);
     }
 
     public function delete(string $id): RedirectResponse
@@ -46,17 +47,17 @@ class ShoeController extends Controller
         $shoe = Shoe::findOrFail($id);
 
         $storeInterface = app(ImageStorage::class);
-        if(!$storeInterface->delete($shoe->getImage()))
-        {
-            return redirect()->back()->withInput()->withErrors(['image.save_error'=>'An error occurred while deleting the image']);
+        if (! $storeInterface->delete($shoe->getImage())) {
+            return redirect()->back()->withInput()->withErrors(['image.save_error' => 'An error occurred while deleting the image']);
         }
 
         Shoe::destroy($shoe->getId());
         session()->flash('status', 'Shoe deleted Success');
+
         return redirect()->route('shoe.list');
     }
 
-    public function save(Request $request):RedirectResponse
+    public function save(Request $request): RedirectResponse
     {
         $newShoe = new Shoe;
         $validatedData = Shoe::validate($request);
@@ -64,9 +65,8 @@ class ShoeController extends Controller
         $storeInterface = app(ImageStorage::class);
         $nameImagen = $storeInterface->store($request);
 
-        if($nameImagen == "Error")
-        {
-            return redirect()->back()->withInput()->withErrors(['image.save_error'=>'An error occurred while saving the image']);
+        if ($nameImagen == 'Error') {
+            return redirect()->back()->withInput()->withErrors(['image.save_error' => 'An error occurred while saving the image']);
         }
 
         $newShoe->setPrice($validatedData['price']);

@@ -12,31 +12,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <style>
-                        .title {
-                            display: flex;
-                            text-align: left;
-                            vertical-align: top;
-                            top: 0;
-                            left: 0;
-                            padding: 5px;
-                        }
-
-                        .card {
-                            display: flex;
-                            width: 40%;
-                            margin: 15% auto;
-                            border: solid 1px transparent;
-                        }
-
-                        button{
-                            margin-top: 10px;
-                        }
-                        form {
-                            width: 50%;
-                            margin: 0 auto;
-                        }
-                    </style>
                     <div class="card-body">
                         <form method="POST" action="{{ route('order.store') }}">
                             @csrf

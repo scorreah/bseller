@@ -34,12 +34,12 @@ Route::delete('/shoes/delete/{id}', 'App\Http\Controllers\ShoeController@delete'
 Route::get('/shoes/{id}', 'App\Http\Controllers\ShoeController@show')->where('id', '[0-9]+')->name('shoe.show');
 
 // Order Routes
-Route::get('/orders', 'App\Http\Controllers\OrdersController@index')->name('orders.index');
-Route::get('/orders/create', 'App\Http\Controllers\OrdersController@create')->name('orders.create');
-Route::post('/orders/store', 'App\Http\Controllers\OrdersController@store')->name('orders.store');
-Route::get('/orders/list', 'App\Http\Controllers\OrdersController@list')->name('orders.list');
-Route::delete('/orders/delete/{order}', 'App\Http\Controllers\OrdersController@delete')->name('orders.delete');
-Route::get('/orders/show/{id}', 'App\Http\Controllers\OrdersController@show')->name('orders.show');
+Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order.index');
+Route::get('/orders/create', 'App\Http\Controllers\OrderController@create')->name('order.create');
+Route::post('/orders/store', 'App\Http\Controllers\OrderController@store')->name('order.store');
+Route::get('/orders/list', 'App\Http\Controllers\OrderController@list')->name('order.list');
+Route::delete('/orders/delete/{order}', 'App\Http\Controllers\OrderController@delete')->name('order.delete');
+Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->name('order.show');
 
 Auth::routes();
 

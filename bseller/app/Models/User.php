@@ -56,6 +56,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function orders(): HasMany
+    {
+        return this->hasMany(Order::class);
+    }
+
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -76,7 +81,7 @@ class User extends Authenticatable
         $this->attributes['name'] = $name;
     }
 
-    public function getEmail(): string 
+    public function getEmail(): string
     {
         return $this->attributes['email'];
     }
@@ -110,7 +115,7 @@ class User extends Authenticatable
     {
         return $this->attributes['balance'];
     }
-    
+
     public function setBalance(int $balance){
         $this->attributes['balance'] = $balance;
     }

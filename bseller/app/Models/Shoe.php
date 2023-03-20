@@ -12,13 +12,14 @@ class Shoe extends Model
 
     /**
      * SHOE ATTRIBUTES
-     * $this->attributes['id'] - int - contains the product primary key (id)
-     * $this->attributes['price'] - int - contains the product price
-     * $this->attributes['image'] - string - contains the path to the product image
+     * $this->attributes['id'] - int - contains the shoe primary key (id)
+     * $this->attributes['price'] - int - contains the shoe price
+     * $this->attributes['image'] - string - contains the path to the shoe image
      * $this->attributes['size'] - float - contains the size of the shoe
      * $this->attributes['brand'] - string - contains the shoe brand
      * $this->attributes['model'] - string - contains the shoe model
      * $this->attributes['model'] - string - contains the shoe model
+     * $this->attributes['is_bid'] - boolean - indicates if the shoe is bidable
      * $this->attributes['created_at'] - DateTime - contains the day of the creation
      * $this->attributes['updated_at'] - DateTime - contains the day of the update
      */
@@ -82,6 +83,16 @@ class Shoe extends Model
     public function setModel(string $model): void
     {
         $this->attributes['model'] = $model;
+    }
+
+    public function getIsBid(): bool
+    {
+        return $this->attributes['is_bid'];
+    }
+
+    public function setIsBid(bool $is_bid) : void
+    {
+        $this->attributes['is_bid'] = $is_bid;
     }
 
     public function getCreatedAt(): string

@@ -10,6 +10,17 @@
     <title>@yield('title', 'BSeller')</title>
 </head>
 <body>
+    <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+    @guest
+        <a class="nav-link active" href="{{ route('login') }}">Login</a>
+        <a class="nav-link active" href="{{ route('register') }}">Register</a>
+    @else
+        <form id="logout" action="{{ route('logout') }}" method="POST">
+            <a role="button" class="nav-link active"onclick="document.getElementById('logout').submit();">Logout</a>
+            @csrf
+        </form>
+    @endguest
+    </div>
     <nav>
         <div class="navItem">
             <img src="/img/index/bsellerLogo.png" width="150" height="60" alt="">

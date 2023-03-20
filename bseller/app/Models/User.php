@@ -12,6 +12,19 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    /*** USER ATTRIBUTES
+     * $this->attributes['id'] -int -contains the user primary key (id) 
+     * $this->attributes['name'] -string -contains the user name
+     * $this->attributes['email'] -string -contains the user email
+     * $this->attributes['email_verified_at'] -timestamp -contains the user email verification date
+     * $this->attributes['password'] -string -contains the user password
+     * $this->attributes['remember_token'] -string -contains the user password
+     * $this->attributes['isAdmin'] -boolean -determines if the user is an admin
+     * $this->attributes['balance'] -int -contains the user balance
+     * $this->attributes['created_at'] -timestamp -contains the user creation date
+     * $this->attributes['updated_at'] -timestamp -contains the user update date
+    */
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +34,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'balance',
     ];
 
     /**
@@ -41,4 +55,74 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getId(): int
+    {
+        return $this->attributes['id'];
+    }
+
+    public function setId(int $id)
+    {
+        $this->attributes['id'] = $id;
+    }
+
+    public function getName(): string
+    {
+        return $this->attributes['name'];
+    }
+
+    public function setName(string $name)
+    {
+        $this->attributes['name'] = $name;
+    }
+
+    public function getEmail(): string 
+    {
+        return $this->attributes['email'];
+    }
+
+    public function setEmail(string $email)
+    {
+        $this->attributes['email'] = $email;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->attributes['password'];
+    }
+
+    public function setPassword(string $password)
+    {
+        $this->attributes['password'] = $password;
+    }
+
+    public function getIsAdmin(): bool
+    {
+        return $this->attributes['isAdmin'];
+    }
+
+    public function setIsAdmin(bool $isAdmin)
+    {
+        $this->attributes['isAdmin'] = $isAdmin;
+    }
+
+    public function getBalance(): int
+    {
+        return $this->attributes['balance'];
+    }
+    
+    public function setBalance(int $balance){
+        $this->attributes['balance'] = $balance;
+    }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
+
 }

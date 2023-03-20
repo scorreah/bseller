@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Order;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
     /*** USER ATTRIBUTES
-     * $this->attributes['id'] -int -contains the user primary key (id) 
+     * $this->attributes['id'] -int -contains the user primary key (id)
      * $this->attributes['name'] -string -contains the user name
      * $this->attributes['email'] -string -contains the user email
      * $this->attributes['email_verified_at'] -timestamp -contains the user email verification date
@@ -55,11 +55,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function orders(): HasMany
-    {
-        return this->hasMany(Order::class);
-    }
 
     public function getId(): int
     {
@@ -130,4 +125,18 @@ class User extends Authenticatable
         return $this->attributes['updated_at'];
     }
 
+    public function orders(): HasMany
+    {
+        return this->hasMany(Order::class);
+    }
+
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function setOrders(Collection $orders): void
+    {
+        $this->orders = $orders;
+    }
 }

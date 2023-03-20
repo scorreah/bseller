@@ -14,7 +14,7 @@
 			<li><a href="{{ route('home.index') }}">Home</a></li>
 			<li><a href="#">Shoes</a></li>
 			<li><a href="#">Orders</a></li>
-			<li><a href="#">Bids</a></li>
+			<li><a href="{{ route('bid.index') }}">Bids</a></li>
 		</ul>
 	</nav>
     @yield('content')

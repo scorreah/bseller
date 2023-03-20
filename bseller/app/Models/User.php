@@ -142,6 +142,7 @@ class User extends Authenticatable
     {
         $this->winBids = $winBids;
     }
+
     public function orders(): HasMany
     {
         return this->hasMany(Order::class);
@@ -155,5 +156,20 @@ class User extends Authenticatable
     public function setOrders(Collection $orders): void
     {
         $this->orders = $orders;
+    }
+
+    public function bids(): HasMany
+    {
+        return this->hasMany(Bid::class);
+    }
+
+    public function getBids(): Collection
+    {
+        return $this->bids;
+    }
+
+    public function setBids(Collection $bids): void
+    {
+        $this->bids = $bids;
     }
 }

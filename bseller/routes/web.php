@@ -42,4 +42,3 @@ Route::get('/orders/show/{id}', 'App\Http\Controllers\OrdersController@show')->n
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

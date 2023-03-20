@@ -39,3 +39,7 @@ Route::post('/orders/store', 'App\Http\Controllers\OrdersController@store')->nam
 Route::get('/orders/list', 'App\Http\Controllers\OrdersController@list')->name('orders.list');
 Route::delete('/orders/delete/{order}', 'App\Http\Controllers\OrdersController@delete')->name('orders.delete');
 Route::get('/orders/show/{id}', 'App\Http\Controllers\OrdersController@show')->name('orders.show');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

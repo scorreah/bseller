@@ -11,6 +11,9 @@
 </head>
 <body>
     <nav>
+        <div class="navItem">
+            <img src="/img/index/bsellerLogo.png" width="150" height="60" alt="">
+        </div>
 		<ul>
 			<li><a href="{{ route('home.index') }}">Home</a></li>
 			<li><a href="{{ route('shoe.index') }}">Shoes</a></li>

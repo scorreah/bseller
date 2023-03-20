@@ -14,15 +14,18 @@
       <div class="col-md-4">
         <div class="card mb-4 box-shadow">
           <div class="card-body">
-            <img src="{{ asset($shoe->image) }}">
-            <h4>Model: {{ $shoe->getModel() }}</h4>
-            <p class="card-text">Price: {{ $shoe->getPrice() }}</p>
-            <h2><a href="{{ route('shoe.show', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">shoe {{ $shoe->getId() }}</a></h2>
+            <div class = "shoeImg">
+              <img src="{{ asset($shoe->image) }}">
+            </div>
+            <div class = "shoeDesc">
+              <h4>Model: {{ $shoe->getModel() }}</h4>
+              <p class="card-text">Price: {{ $shoe->getPrice() }}</p>
+              <h2><a href="{{ route('shoe.show', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">shoe {{ $shoe->getId() }}</a></h2>
+            </div>
           </div>
         </div>
       </div>
       @endforeach
     </div>
-    <a class="fcc-btn" href="{{ route('shoe.list') }}">List of the available shoes</a>
 </div>
 @endsection

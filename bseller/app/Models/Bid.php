@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\User;
+use App\Models\BidRule;
 
 class Bid extends Model
 {
@@ -46,5 +49,35 @@ class Bid extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+    public function bidRule(): BelongsTo
+    {
+        return $this->belongsTo(BidRule::class);
+    }
+
+    public function getBidRule(): BidRule
+    {
+        return $this->bidRule;
+    }
+
+    public function setBidRule(BidRule $bidRule)
+    {
+        $this->bidRule = $bidRule;
     }
 }

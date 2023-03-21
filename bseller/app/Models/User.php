@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\Shoe;
+use App\Models\BidRule;
 use App\Models\Order;
+use App\Models\Bid;
 
 class User extends Authenticatable
 {
@@ -125,6 +130,26 @@ class User extends Authenticatable
         return $this->attributes['updated_at'];
     }
 
+    public function wishlist(): BelongsToMany
+    {
+        return $this->belongsToMany(Shoe::class);
+    }
+
+    public function winBids(): HasMany
+    {
+        return this->hasMany(BidRule::class);
+    }
+
+    public function getWinBids(): Collection
+    {
+        return $this->winBids;
+    }
+
+    public function setWinBids(Collection $winBids): void
+    {
+        $this->winBids = $winBids;
+    }
+
     public function orders(): HasMany
     {
         return this->hasMany(Order::class);
@@ -138,5 +163,20 @@ class User extends Authenticatable
     public function setOrders(Collection $orders): void
     {
         $this->orders = $orders;
+    }
+
+    public function bids(): HasMany
+    {
+        return this->hasMany(Bid::class);
+    }
+
+    public function getBids(): Collection
+    {
+        return $this->bids;
+    }
+
+    public function setBids(Collection $bids): void
+    {
+        $this->bids = $bids;
     }
 }

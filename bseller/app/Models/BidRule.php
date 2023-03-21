@@ -5,7 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use DateTime;
+use App\Models\User;
+use App\Models\Shoe;
+use App\Models\Bid;
 
 class BidRule extends Model
 {
@@ -101,5 +107,50 @@ class BidRule extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function lastUser(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getLastUser(): User
+    {
+        return $this->lastUser;
+    }
+
+    public function setLastUser(User $user)
+    {
+        $this->lastUser = $user;
+    }
+
+    public function shoe(): HasOne
+    {
+        return $this->hasOne(Phone::class);
+    }
+
+    public function getShoe(): Shoe
+    {
+        return $this->shoe;
+    }
+
+    public function setShoe(Shoe $shoe): void
+    {
+        $this->shoe = $shoe;
+    }
+
+    public function bids(): HasMany
+    {
+        return this->hasMany(Bid::class);
+    }
+
+    public function getBids(): Collection
+    {
+        return $this->bids;
+    }
+
+    public function setBids(Collection $bids): void
+    {
+        $this->bids = $bids;
     }
 }

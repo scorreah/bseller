@@ -12,10 +12,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('isAdmin')->default(FALSE);
+            $table->boolean('isAdmin')->default(false);
             $table->integer('balance');
         });
     }
+
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {

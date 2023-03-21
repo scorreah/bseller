@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminAuthMiddleware;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,4 +42,3 @@ Route::delete('/orders/delete/{order}', 'App\Http\Controllers\OrderController@de
 Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->name('order.show');
 
 Auth::routes();
-

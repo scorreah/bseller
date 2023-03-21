@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\Order;
 use App\Models\User;
 use App\Models\BidRule;
 
@@ -139,5 +140,20 @@ class Shoe extends Model
     public function setBidRule(BidRule $bidRule)
     {
         $this->bidRule = $bidRule;
+    }
+
+    public function order(): BelongsTo
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    public function getOrder(): Order
+    {
+        return $this->order;
+    }
+
+    public function setOrder(Order $order)
+    {
+        $this->order = $order;
     }
 }

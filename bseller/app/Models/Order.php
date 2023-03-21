@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\User;
+use App\Models\Shoe;
 
 class Order extends Model
 {
@@ -76,5 +77,20 @@ class Order extends Model
     public function setUser(User $user)
     {
         $this->user = $user;
+    }
+
+    public function shoes(): HasMany
+    {
+        return this->hasMany(Shoe::class);
+    }
+
+    public function getShoes(): Collection
+    {
+        return $this->shoes;
+    }
+
+    public function setShoes(Collection $shoes): void
+    {
+        $this->shoes = $shoes;
     }
 }

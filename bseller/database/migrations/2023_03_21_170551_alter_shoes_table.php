@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('shoes', function (Blueprint $table) {
-            // User's relation
-            $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')
+            $table->foreignId('order_id')
+                   ->nullable()
                    ->references('id')
                    ->on('orders')
                    ->onDelete('cascade')

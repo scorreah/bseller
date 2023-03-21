@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::table('shoes', function (Blueprint $table) {
             // User's relation
-            $table->unsignedBigInteger('shoe_id');
-            $table->foreign('shoe_id')
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')
                    ->references('id')
-                   ->on('shoes')
+                   ->on('orders')
                    ->onDelete('cascade')
                    ->onUpdate('cascade');
         });
@@ -29,7 +29,7 @@ return new class extends Migration
     {
         Schema::table('shoes', function (Blueprint $table) {
             // User's relation
-            $table->dropColumn('shoe_id');
+            $table->dropColumn('order_id');
         });
     }
 };

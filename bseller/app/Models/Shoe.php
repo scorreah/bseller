@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Models\User;
+use App\Models\BidRule;
 
 class Shoe extends Model
 {
@@ -123,5 +124,20 @@ class Shoe extends Model
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function bidRule(): BelongsTo
+    {
+        return $this->belongsTo(BidRule::class);
+    }
+
+    public function getBidRule(): BidRule
+    {
+        return $this->bidRule;
+    }
+
+    public function setBidRule(BidRule $bidRule)
+    {
+        $this->bidRule = $bidRule;
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminAuthMiddleware;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,4 +47,3 @@ Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
 
 Auth::routes();
-

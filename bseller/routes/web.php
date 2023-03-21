@@ -19,7 +19,7 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index')
 
 // Bid Routes
 Route::get('/bids', 'App\Http\Controllers\BidRuleController@index')->name('bid.index');
-Route::get('/bids/create', 'App\Http\Controllers\BidRuleController@create')->name('bid.create')->middleware(AdminAuthMiddleware::class);
+Route::get('/bids/create', 'App\Http\Controllers\BidRuleController@create')->name('bid.create'); //->middleware(AdminAuthMiddleware::class);
 Route::post('/bids/store', 'App\Http\Controllers\BidRuleController@store')->name('bid.store');
 Route::get('/bids/list', 'App\Http\Controllers\BidRuleController@list')->name('bid.list');
 Route::delete('/bids/delete/{bid}', 'App\Http\Controllers\BidRuleController@delete')->name('bid.delete');

@@ -38,14 +38,31 @@ p {
 	margin-top: 30px;
 }
 
-.references {
-	text-align: center;
+.navTop {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
+.references {
+	align-items: center;
+		display: flex;
+		padding: 10px 20px;
+		border-radius: 10px;
+	}
+	
+	.login {
+		display: flex;
+		border-radius: 10px;
+		margin-right: 30px;
+	}
 .button-container {
     text-align: center;
     margin-top: 20px;
 }
 
+.logiin {
+	margin-right: 30px;
+}
 .fcc-btn {
 	background-color: #199319;
 	color: white;

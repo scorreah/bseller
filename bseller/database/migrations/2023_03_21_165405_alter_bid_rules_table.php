@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::table('bid_rules', function (Blueprint $table) {
             // User's relation
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')
+            $table->foreignId('user_id')
+                   ->nullable()
                    ->references('id')
                    ->on('users')
                    ->onDelete('cascade')

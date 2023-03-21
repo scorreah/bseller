@@ -41,5 +41,10 @@ Route::get('/orders/list', 'App\Http\Controllers\OrderController@list')->name('o
 Route::delete('/orders/delete/{order}', 'App\Http\Controllers\OrderController@delete')->name('order.delete');
 Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->name('order.show');
 
+// Cart Routes
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index"); 
+Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("cart.delete"); 
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+
 Auth::routes();
 

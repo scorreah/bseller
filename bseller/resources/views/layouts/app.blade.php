@@ -31,6 +31,7 @@
 			    <li><a href="{{ route('shoe.index') }}">Shoes</a></li>
 			    <li><a href="{{ route('order.index') }}">Orders</a></li>
 			    <li><a href="{{ route('bid.index') }}">Bids</a></li>
+                <li><a href="{{ route('cart.index') }}">Cart</a></li>
 		    </ul>
         </div>
 	</nav>

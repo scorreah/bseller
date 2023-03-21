@@ -128,6 +128,11 @@ class User extends Authenticatable
         return $this->attributes['updated_at'];
     }
 
+    public function wishlist(): BelongsToMany
+    {
+        return $this->belongsToMany(Shoe::class);
+    }
+
     public function winBids(): HasMany
     {
         return this->hasMany(BidRule::class);

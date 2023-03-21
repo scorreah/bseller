@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class Shoe extends Model
 {
@@ -24,6 +25,19 @@ class Shoe extends Model
      * $this->attributes['updated_at'] - DateTime - contains the day of the update
      */
     protected $fillable = ['price', 'image', 'size', 'brand', 'model'];
+
+    public static function validate(Request $request): array
+    {
+        $validatedData = $request->validate([
+            'price' => 'required|numeric|min:0',
+            'size' => 'required|numeric|min:4',
+            'brand' => 'required|string',
+            'model' => 'required|string',
+            'image_shoe' => 'required|image',
+        ]);
+
+        return $validatedData;
+    }
 
     public function getId(): int
     {
@@ -105,16 +119,8 @@ class Shoe extends Model
         return $this->attributes['updated_at'];
     }
 
-    public static function validate(Request $request): array
+    public function users(): BelongsToMany
     {
-        $validatedData = $request->validate([
-            'price' => 'required|numeric|min:0',
-            'size' => 'required|numeric|min:4',
-            'brand' => 'required|string',
-            'model' => 'required|string',
-            'image_shoe' => 'required|image',
-        ]);
-
-        return $validatedData;
+        return $this->belongsToMany(User::class);
     }
 }

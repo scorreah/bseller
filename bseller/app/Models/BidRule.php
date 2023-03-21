@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use DateTime;
 use App\Models\User;
+use App\Models\Bid;
 
 class BidRule extends Model
 {
@@ -117,5 +118,20 @@ class BidRule extends Model
     public function setLastUser(User $user)
     {
         $this->lastUser = $user;
+    }
+
+    public function bids(): HasMany
+    {
+        return this->hasMany(Bid::class);
+    }
+
+    public function getBids(): Collection
+    {
+        return $this->bids;
+    }
+
+    public function setBids(Collection $bids): void
+    {
+        $this->bids = $bids;
     }
 }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\BidRule;
 
 class Bid extends Model
 {
@@ -62,5 +63,20 @@ class Bid extends Model
     public function setUser(User $user)
     {
         $this->user = $user;
+    }
+
+    public function bidRule(): BelongsTo
+    {
+        return $this->belongsTo(BidRule::class);
+    }
+
+    public function getBidRule(): BidRule
+    {
+        return $this->bidRule;
+    }
+
+    public function setBidRule(BidRule $bidRule)
+    {
+        $this->bidRule = $bidRule;
     }
 }

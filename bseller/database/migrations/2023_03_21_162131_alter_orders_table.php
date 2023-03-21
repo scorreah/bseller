@@ -27,7 +27,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // User's relation
-        $table->dropColumn('user_id');
+        Schema::table('orders', function (Blueprint $table) {
+            // User's relation
+            $table->dropColumn('user_id');
+        });
     }
 };

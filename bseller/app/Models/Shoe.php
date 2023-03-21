@@ -4,11 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use App\Models\Order;
-use App\Models\User;
-use App\Models\BidRule;
+use Illuminate\Http\Request;
 
 class Shoe extends Model
 {
@@ -107,7 +104,7 @@ class Shoe extends Model
         return $this->attributes['is_bid'];
     }
 
-    public function setIsBid(bool $is_bid) : void
+    public function setIsBid(bool $is_bid): void
     {
         $this->attributes['is_bid'] = $is_bid;
     }

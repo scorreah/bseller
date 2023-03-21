@@ -3,15 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use App\Models\Shoe;
-use App\Models\BidRule;
-use App\Models\Order;
-use App\Models\Bid;
 
 class User extends Authenticatable
 {
@@ -116,7 +112,8 @@ class User extends Authenticatable
         return $this->attributes['balance'];
     }
 
-    public function setBalance(int $balance){
+    public function setBalance(int $balance)
+    {
         $this->attributes['balance'] = $balance;
     }
 

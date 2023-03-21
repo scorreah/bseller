@@ -157,12 +157,12 @@ class Shoe extends Model
         $this->order = $order;
     }
 
-    public static function sumPrices($shoesInCart) 
-    { 
-        $total = 0; 
-        foreach ($shoesInCart as $shoe) { 
+    public static function sumPrices($shoesInCart)
+    {
+        $total = 0;
+        foreach ($shoesInCart as $shoe) {
             $total = $total + $shoe->getPrice();
-        } 
-        return $total; 
+        }
+        return $total;
     }
 }

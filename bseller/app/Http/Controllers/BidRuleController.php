@@ -14,6 +14,7 @@ class BidRuleController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Bid Page - BSeller';
+        $viewData['bids'] = BidRule::all();
 
         return view('bid.index')->with('viewData', $viewData);
     }

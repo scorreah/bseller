@@ -117,4 +117,13 @@ class Shoe extends Model
 
         return $validatedData;
     }
+
+    public static function sumPrices($shoesInCart) 
+    { 
+        $total = 0; 
+        foreach ($shoesInCart as $shoe) { 
+            $total = $total + $shoe->getPrice();
+        } 
+        return $total; 
+    }
 }

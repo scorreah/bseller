@@ -44,6 +44,17 @@
                 <input type="datetime-local" class="form-control" id="end_date" name="end_date" value="{{ old('end_date') }}" required>
             </div>
 
+            <div class="form-group">
+                <select name="cars" id="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                </select>
+                <label for="end_date">End Date:</label>
+                <input type="datetime-local" class="form-control" id="end_date" name="end_date" value="{{ old('end_date') }}" required>
+            </div>
+
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>

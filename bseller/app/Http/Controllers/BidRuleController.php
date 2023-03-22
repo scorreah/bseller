@@ -45,11 +45,8 @@ class BidRuleController extends Controller
         // Get the selected shoe ID from the form data
         $shoeId = $request->input('shoe_id');
 
-        // Retrieve the shoe model from the database
-        $shoe = Shoe::findOrFail($shoeId);
-
         // Set shoe to bid rule
-        $bidRule->setShoe($shoe);
+        $bidRule->setShoeId($shoeId);
 
         // Save new BidRule to database
         $bidRule->save();

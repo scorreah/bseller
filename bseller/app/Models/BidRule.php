@@ -39,7 +39,7 @@ class BidRule extends Model
             'status' => 'required|string',
             'start_date' => 'required|date|after_or_equal:yesterday',
             'end_date' => 'required|date|after:start_date',
-            'user_id' => 'required|exists:users,id',
+            'shoe_id' => 'required|exists:shoes,id',
         ]);
     }
 
@@ -146,6 +146,16 @@ class BidRule extends Model
     public function setShoe(Shoe $shoe): void
     {
         $this->shoe = $shoe;
+    }
+
+    public function getShoeId(): int
+    {
+        return $this->attributes['shoe_id'];
+    }
+
+    public function setShoeId(int $shoe_id): void
+    {
+        $this->attributes['shoe_id'] = $shoe_id;
     }
 
     public function bids(): HasMany

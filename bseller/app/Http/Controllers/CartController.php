@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shoe; 
+use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller 
 {
@@ -38,5 +40,38 @@ class CartController extends Controller
     { 
         $request->session()->forget('shoes'); 
         return back(); 
+    }
+
+    public function purchase(Request $request)
+    {
+        $shoesInSession = $request->session()->get("shoes"); 
+        if ($shoesInSession) { 
+            $shoesInCart = Shoe::findMany(array_keys($shoesInSession)); 
+            $total = Shoe::sumPrices($shoesInCart);
+            $newBalance = Auth::user()->getBalance() - $total;
+            if($newBalance<0){
+                return redirect()->route('cart.index')->withInput()->withErrors(['Credits' => 'You dont have enough credits']);
+            }
+
+            $userId = Auth::user()->getId();
+            $order = new Order();
+            $order->setUserId($userId);
+            $order->setTotalPrice($total);
+            $order->setStatus('paid');
+            $order->save();
+
+            foreach($shoesInCart as $shoe){
+                $shoe->setOrderId($order->getId());
+                $shoe->save();
+            }
+            
+            Auth::user()->setBalance($newBalance);
+            Auth::user()->save();
+            $request->session()->forget('shoes');
+            session()->flash('status', 'Order created successfully');
+            return redirect()->route('order.list'); 
+        } else {
+            return redirect()->route('cart.index')->withInput()->withErrors(['elements' => 'You dont have any shoe']);
+        }
     }
 }

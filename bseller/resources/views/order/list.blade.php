@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('title', $viewData["title"])
 @section('content')
+
+@if (session('status'))
+  <div class="alert alert-success">
+    {{ session('status') }}
+  </div>
+@endif
+
     <div class="container">
         <h1>Orders List</h1>
         <div class="row">

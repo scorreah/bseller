@@ -134,7 +134,7 @@ class User extends Authenticatable
 
     public function winBids(): HasMany
     {
-        return this->hasMany(BidRule::class);
+        return $this->hasMany(BidRule::class);
     }
 
     public function getWinBids(): Collection
@@ -149,7 +149,7 @@ class User extends Authenticatable
 
     public function orders(): HasMany
     {
-        return this->hasMany(Order::class);
+        return $this->hasMany(Order::class);
     }
 
     public function getOrders(): Collection
@@ -164,7 +164,7 @@ class User extends Authenticatable
 
     public function bids(): HasMany
     {
-        return this->hasMany(Bid::class);
+        return $this->hasMany(Bid::class);
     }
 
     public function getBids(): Collection

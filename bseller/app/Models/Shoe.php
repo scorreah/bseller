@@ -24,7 +24,7 @@ class Shoe extends Model
      * $this->attributes['created_at'] - DateTime - contains the day of the creation
      * $this->attributes['updated_at'] - DateTime - contains the day of the update
      */
-    protected $fillable = ['price', 'image', 'size', 'brand', 'model'];
+    protected $fillable = ['price', 'image', 'size', 'brand', 'model', 'order_id'];
 
     public static function validate(Request $request): array
     {
@@ -149,9 +149,14 @@ class Shoe extends Model
         return $this->order;
     }
 
-    public function setOrder(Order $order)
+    public function setOrderId(int $order_id): void
     {
-        $this->order = $order;
+        $this->attributes['order_id'] = $order_id;
+    }
+
+    public function getOrderId(): int
+    {
+        return $this->attributes['order_id'];
     }
 
     public static function sumPrices($shoesInCart)

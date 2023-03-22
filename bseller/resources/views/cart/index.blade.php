@@ -2,6 +2,18 @@
 @section('title', $viewData["title"]) 
 @section('subtitle', $viewData["subtitle"]) 
 @section('content') 
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <p>Errors</p>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="card"> 
     <div class="card-header"> Shoe in Cart </div> 
     <div class="card-body"> 
@@ -26,10 +38,12 @@
         <div class="row"> 
             <div class="text-end"> 
                 <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> ${{ $viewData["total"] }}</a> 
-                <a class="btn bg-primary text-white mb-2">Purchase</a> 
+                @if (count($viewData["shoes"]) > 0)
+                <a href = "{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">Purchase</a> 
                 <a href="{{ route('cart.delete') }}"> 
                     <button class="btn btn-danger mb-2"> Remove all shoes from Cart </button> 
                 </a> 
+                @endif
             </div> 
         </div> 
     </div> 

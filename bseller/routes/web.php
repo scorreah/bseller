@@ -45,5 +45,6 @@ Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->na
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index"); 
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("cart.delete"); 
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
 
 Auth::routes();

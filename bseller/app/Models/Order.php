@@ -21,13 +21,14 @@ class Order extends Model
      * $this->attributes['total_price'] - int - contains the initial price
      * $this->attributes['status'] - string - contains the status of the order
      */
-    protected $fillable = ['total_price', 'status'];
+    protected $fillable = ['total_price', 'status', 'user_id'];
 
     public static function validate(Request $request): void
     {
         $request->validate([
             'total_price' => 'required|integer',
             'status' => 'required|string',
+            "user_id" => "required|exists:users,id",
         ]);
     }
 
@@ -91,8 +92,13 @@ class Order extends Model
         return $this->shoes;
     }
 
-    public function setShoes(Collection $shoes): void
+    public function setUserId(int $user_id): void
     {
-        $this->shoes = $shoes;
+        $this->attributes['user_id'] = $user_id;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
     }
 }

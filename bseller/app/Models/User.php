@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Shoe;
+use App\Models\BidRule;
+use App\Models\Order;
+use App\Models\Bid;
 
 class User extends Authenticatable
 {

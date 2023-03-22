@@ -23,6 +23,7 @@ class BidRuleController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Create Bid - BSeller';
+        
 
         return view('bid.create')->with('viewData', $viewData);
     }

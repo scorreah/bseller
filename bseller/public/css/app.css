@@ -130,3 +130,9 @@ p {
 	padding: auto;
 	justify-content: center;
 }
+
+.navImage{
+	position: relative;
+	text-align: center;
+	margin-top: 20px;
+}

@@ -6,12 +6,14 @@ use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
     public function index(): View
     {
         $viewData = [];
+        $viewData['orders'] = Auth::user()->getOrders();
         $viewData['title'] = 'Order - BSeller';
 
         return view('order.index')->with('viewData', $viewData);
@@ -27,21 +29,14 @@ class OrderController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        // Validate data before store
         Order::validate($request);
 
-        // Create new Order instance with form data
         $order = new Order;
         $order->setTotalPrice($request->input('total_price'));
         $order->setStatus($request->input('status'));
-
-        // Save new Order to database
         $order->save();
 
-        // Flash success message to the session
         session()->flash('status', 'Order created successfully');
-
-        // Redirect to the new Order's detail page
         return redirect()->route('order.show', ['id' => $order->id]);
     }
 

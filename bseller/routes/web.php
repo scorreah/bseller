@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\AdminAuthMiddleware;
+use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,17 +35,17 @@ Route::delete('/shoes/delete/{id}', 'App\Http\Controllers\ShoeController@delete'
 Route::get('/shoes/{id}', 'App\Http\Controllers\ShoeController@show')->where('id', '[0-9]+')->name('shoe.show');
 
 // Order Routes
-Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order.index');
-Route::get('/orders/create', 'App\Http\Controllers\OrderController@create')->name('order.create');
-Route::post('/orders/store', 'App\Http\Controllers\OrderController@store')->name('order.store');
-Route::get('/orders/list', 'App\Http\Controllers\OrderController@list')->name('order.list');
-Route::delete('/orders/delete/{order}', 'App\Http\Controllers\OrderController@delete')->name('order.delete');
-Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->name('order.show');
+Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order.index')->middleware(Authenticate::class);
+Route::get('/orders/create', 'App\Http\Controllers\OrderController@create')->name('order.create')->middleware(Authenticate::class);
+Route::post('/orders/store', 'App\Http\Controllers\OrderController@store')->name('order.store')->middleware(Authenticate::class);
+Route::get('/orders/list', 'App\Http\Controllers\OrderController@list')->name('order.list')->middleware(Authenticate::class);
+Route::delete('/orders/delete/{order}', 'App\Http\Controllers\OrderController@delete')->name('order.delete')->middleware(Authenticate::class);
+Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->name('order.show')->middleware(Authenticate::class);
 
 // Cart Routes
-Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index"); 
-Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("cart.delete"); 
-Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
-Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index")->middleware(Authenticate::class); 
+Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("cart.delete")->middleware(Authenticate::class); 
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add")->middleware(Authenticate::class);
+Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase")->middleware(Authenticate::class);
 
 Auth::routes();

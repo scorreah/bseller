@@ -4,24 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Models\Bid;
 use App\Models\BidRule;
+use Illuminate\Contracts\Support\ValidatedData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BidController extends Controller
 {
-    protected $fillable = ['id', 'user_id', 'price'];
-    public function store(string $id, $user_id, $price)
+    public function store(Request $request, $id)
     {
         $bidRule = BidRule::findOrFail($id);
 
         $bid = new Bid;
-        $bid->user_id = $user_id;
-        $bid->price = $price;
+        Bid::validate($request);
+        $userPrice = $request->input('price');
 
-        $bidRule->bids()->save($bid);
- 
-        $bid->save();
-        $bidRule->save();
+        if ($userPrice > $bidRule->getCurrentPrice()){
+            $bidRule -> setCurrentPrice($userPrice);
+            $userId = Auth::user()->getId();
+            $bid->setUserId($userId);
+            $bid->setPrice($userPrice);
+            $bid->setBidRuleId($bidRule->getId());
+            $bid->save();
+            $bidRule->save();
 
-        return redirect()->route('bid.show', ['id' => $bidRule ->$id]);
+            session()->flash('status', 'bid created successfully');
+            return redirect()->route('bid.list');
+        }
+        return redirect()->route('bid.list')->withInput()->withErrors(['bid' => 'You cant make a bid, you dont got money']);
     }
 }

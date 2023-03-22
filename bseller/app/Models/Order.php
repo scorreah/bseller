@@ -28,7 +28,6 @@ class Order extends Model
         $request->validate([
             'total_price' => 'required|integer',
             'status' => 'required|string',
-            'user_id' => 'required|exists:users,id',
         ]);
     }
 

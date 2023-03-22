@@ -18,13 +18,17 @@ class Bid extends Model
      * BID ATTRIBUTES
      * $this->attributes['id'] - int - contains the primary key (id) of the bid
      * $this->attributes['price'] - int - contains the price of the bid
+     * $this->user - User - contains the associated User model
+     * $this->bid_rule - BidRule - contains the associate BidRule model
      */
-    protected $fillable = ['price'];
+    protected $fillable = ['price', 'user_id', 'bid_rule_id'];
 
     public static function validate(Request $request): void
     {
         $request->validate([
             'price' => 'required|integer|min:0',
+            'user_id' => 'required|exists:users,id',
+            'bid_rule_id' => 'required|exists:bid_rules,id',
         ]);
     }
 
@@ -63,9 +67,14 @@ class Bid extends Model
         return $this->user;
     }
 
-    public function setUser(User $user)
+    public function getUserId(): int
     {
-        $this->user = $user;
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId(int $user_id): void
+    {
+        $this->attributes['user_id'] = $user_id;
     }
 
     public function bidRule(): BelongsTo
@@ -78,8 +87,13 @@ class Bid extends Model
         return $this->bidRule;
     }
 
-    public function setBidRule(BidRule $bidRule)
+    public function getBidRuleId(): int
     {
-        $this->bidRule = $bidRule;
+        return $this->attributes['bid_rule_id'];
+    }
+
+    public function setBidRuleId(int $bid_rule_id): void
+    {
+        $this->attributes['bid_rule_id'] = $bid_rule_id;
     }
 }

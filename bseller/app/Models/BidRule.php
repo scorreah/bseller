@@ -26,6 +26,9 @@ class BidRule extends Model
      * $this->attributes['status'] - string - contains the current status of the bid rule
      * $this->attributes['start_date'] - dateTime - contains the starting date of the bid rule
      * $this->attributes['end_date'] - dateTime - contains the ending date of the bid rule
+     * $this->user - User - contains the associated User model
+     * $this->shoe - Shoe - contains the associated Shoe model
+     * $this->bids - Bid[] - contains the associated Bid model
      */
     protected $fillable = ['initial_price', 'current_price', 'status', 'start_date', 'end_date', 'shoe_id'];
 
@@ -35,8 +38,9 @@ class BidRule extends Model
             'initial_price' => 'required|integer|min:0',
             'current_price' => 'required|integer|gte:initial_price',
             'status' => 'required|string',
-            'start_date' => 'required|date|after_or_equal:today',
+            'start_date' => 'required|date|after_or_equal:yesterday',
             'end_date' => 'required|date|after:start_date',
+            'user_id' => 'required|exists:users,id',
         ]);
     }
 
@@ -120,9 +124,14 @@ class BidRule extends Model
         return $this->lastUser;
     }
 
-    public function setLastUser(User $user)
+    public function getLastUserId(): int
     {
-        $this->lastUser = $user;
+        return $this->attributes['user_id'];
+    }
+
+    public function setLastUserId(int $user_id): void
+    {
+        $this->attributes['user_id'] = $user_id;
     }
 
     public function shoe(): HasOne

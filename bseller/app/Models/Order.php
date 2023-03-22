@@ -20,6 +20,8 @@ class Order extends Model
      * $this->attributes['id'] - int - contains the product primary key (id)
      * $this->attributes['total_price'] - int - contains the initial price
      * $this->attributes['status'] - string - contains the status of the order
+     * $this->user - User - contains the associated User model
+     * $this->shoes - Shoe[] - contains the associated Shoe model
      */
     protected $fillable = ['total_price', 'status', 'user_id'];
 
@@ -28,7 +30,7 @@ class Order extends Model
         $request->validate([
             'total_price' => 'required|integer',
             'status' => 'required|string',
-            "user_id" => "required|exists:users,id",
+            'user_id' => 'required|exists:users,id',
         ]);
     }
 
@@ -77,9 +79,14 @@ class Order extends Model
         return $this->user;
     }
 
-    public function setUser(User $user)
+    public function getUserId(): int
     {
-        $this->user = $user;
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId(int $user_id): void
+    {
+        $this->attributes['user_id'] = $user_id;
     }
 
     public function shoes(): HasMany
@@ -92,13 +99,9 @@ class Order extends Model
         return $this->shoes;
     }
 
-    public function setUserId(int $user_id): void
+    public function setShoes(Collection $shoes): void
     {
-        $this->attributes['user_id'] = $user_id;
+        $this->shoes = $shoes;
     }
 
-    public function getUserId(): int
-    {
-        return $this->attributes['user_id'];
-    }
 }

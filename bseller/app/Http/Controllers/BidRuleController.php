@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BidRule;
 use DateTime;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\BidRule;
+use App\Models\Shoe;
 
 class BidRuleController extends Controller
 {
@@ -23,7 +24,7 @@ class BidRuleController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Create Bid - BSeller';
-        
+        $viewData['shoes'] = Shoe::where('is_bid', false)->get();
 
         return view('bid.create')->with('viewData', $viewData);
     }
@@ -40,6 +41,15 @@ class BidRuleController extends Controller
         $bidRule->setStatus($request->input('status'));
         $bidRule->setStartDate(new DateTime($request->input('start_date')));
         $bidRule->setEndDate(new DateTime($request->input('end_date')));
+
+        // Get the selected shoe ID from the form data
+        $shoeId = $request->input('shoe_id');
+
+        // Retrieve the shoe model from the database
+        $shoe = Shoe::findOrFail($shoeId);
+
+        // Set shoe to bid rule
+        $bidRule->setShoe($shoe);
 
         // Save new BidRule to database
         $bidRule->save();

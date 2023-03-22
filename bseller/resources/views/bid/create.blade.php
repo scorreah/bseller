@@ -11,6 +11,12 @@
             </div>
         @endif
 
+        @if ($errors->any())
+            <ul id="errors" class="alert alert-danger list-unstyled"> 
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach </ul>
+        @endif
 
         <form method="POST" action="{{ route('bid.store') }}">
             @csrf
@@ -45,15 +51,15 @@
             </div>
 
             <div class="form-group">
-                <select name="cars" id="cars">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                <label for="shoe_id">Choose a Shoe:</label>
+                <select class="form-control" id="shoe_id" name="shoe_id" required>
+                    <option value="">-- Select a Shoe --</option>
+                    @foreach ($viewData['shoes'] as $shoe)
+                        <option value="{{ $shoe->getId() }}" {{ old('shoe_id') == $shoe->id ? 'selected' : '' }}>{{ $shoe->getBrand() }} {{ $shoe->getModel() }}</option>
+                    @endforeach
                 </select>
-                <label for="end_date">End Date:</label>
-                <input type="datetime-local" class="form-control" id="end_date" name="end_date" value="{{ old('end_date') }}" required>
             </div>
+
 
             <button type="submit" class="btn btn-primary">Create</button>
         </form>

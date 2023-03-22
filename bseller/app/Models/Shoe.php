@@ -27,6 +27,9 @@ class Shoe extends Model
      * $this->attributes['is_bid'] - boolean - indicates if the shoe is bidable
      * $this->attributes['created_at'] - DateTime - contains the day of the creation
      * $this->attributes['updated_at'] - DateTime - contains the day of the update
+     * $this->order - Order - contains the associated Order model
+     * $this->user - User[] - contains the associated User model
+     * $this->bidRule - BidRule - contains the associated BidRule model
      */
     protected $fillable = ['price', 'image', 'size', 'brand', 'model', 'order_id'];
 
@@ -38,6 +41,7 @@ class Shoe extends Model
             'brand' => 'required|string',
             'model' => 'required|string',
             'image_shoe' => 'required|image',
+            'order_id' => 'required|exists:orders,id',
         ]);
 
         return $validatedData;
@@ -153,14 +157,14 @@ class Shoe extends Model
         return $this->order;
     }
 
-    public function setOrderId(int $order_id): void
-    {
-        $this->attributes['order_id'] = $order_id;
-    }
-
     public function getOrderId(): int
     {
         return $this->attributes['order_id'];
+    }
+
+    public function setOrderId(int $order_id): void
+    {
+        $this->attributes['order_id'] = $order_id;
     }
 
     public static function sumPrices($shoesInCart)

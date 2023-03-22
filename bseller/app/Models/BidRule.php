@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use DateTime;
 use App\Models\User;
 use App\Models\Shoe;
@@ -30,7 +31,7 @@ class BidRule extends Model
      * $this->shoe - Shoe - contains the associated Shoe model
      * $this->bids - Bid[] - contains the associated Bid model
      */
-    protected $fillable = ['initial_price', 'current_price', 'status', 'start_date', 'end_date', 'shoe_id', 'user_id'];
+    protected $fillable = ['initial_price', 'current_price', 'status', 'start_date', 'end_date', 'shoe_id'];
 
     public static function validate(Request $request): void
     {
@@ -161,7 +162,7 @@ class BidRule extends Model
 
     public function bids(): HasMany
     {
-        return this->hasMany(Bid::class);
+        return $this->hasMany(Bid::class);
     }
 
     public function getBids(): Collection

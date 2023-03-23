@@ -137,6 +137,15 @@ p {
 	margin-top: 200px;
 }
 
+.mainSlider {
+	position: absolute;
+	top: 250px;
+	bottom: 0;
+	left: 25%;
+	margin: auto;
+	width: 100%;
+	padding: 10px;
+}
 .mainText {
 	position: absolute;
 	top: 80px;

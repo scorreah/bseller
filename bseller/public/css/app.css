@@ -134,17 +134,29 @@ p {
 .navImage{
 	position: relative;
 	text-align: center;
-	margin-top: 20px;
+	margin-top: 200px;
 }
 
-.span{
+.mainText {
+	position: absolute;
+	top: 80px;
+	bottom: 0;
+	left: 37%;
+	right: 50%;
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+	font-size: 50px;
+}
+
+.secondText {
 	display: block;
 	font-family: monospace;
 	white-space: nowrap;
 	border-right: 4px solid;
-	width: 12ch;
+	width: 20ch;
 
-	animation: typing 5s steps(20), blink .5s infinite;
+	animation: typing 2s steps(12), blink .5s infinite step-end alternate;
 	overflow: hidden;
 
 }

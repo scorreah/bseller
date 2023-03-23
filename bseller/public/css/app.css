@@ -136,3 +136,23 @@ p {
 	text-align: center;
 	margin-top: 20px;
 }
+
+.span{
+	display: block;
+	font-family: monospace;
+	white-space: nowrap;
+	border-right: 4px solid;
+	width: 12ch;
+
+	animation: typing 5s steps(20), blink .5s infinite;
+	overflow: hidden;
+
+}
+
+@keyframes typing{
+	from{ width: 0;}
+}
+
+@keyframes  blink{
+	50% {border-color: transparent;}
+}

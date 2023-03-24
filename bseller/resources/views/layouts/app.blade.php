@@ -17,24 +17,24 @@
             </div>
             <div class = "references">
                 <ul>
-                    <li><a href="{{ route('home.index') }}">Home</a></li>
-                    <li><a href="{{ route('shoe.index') }}">Shoes</a></li>
-                    <li><a href="{{ route('order.index') }}">Orders</a></li>
-                    <li><a href="{{ route('bid.index') }}">Bids</a></li>
-                    <li><a href="{{ route('cart.index') }}">Cart</a></li>
+                    <li><a href="{{ route('home.index') }}">{{ __('home.home') }}</a></li>
+                    <li><a href="{{ route('shoe.index') }}">{{ __('home.shoes') }}</a></li>
+                    <li><a href="{{ route('order.index') }}">{{ __('home.orders') }}</a></li>
+                    <li><a href="{{ route('bid.index') }}">{{ __('home.bids') }}</a></li>
+                    <li><a href="{{ route('cart.index') }}">{{ __('home.cart') }}</a></li>
                 </ul>
             </div>
                 <div class = "login">
                     @guest
                         <div class = "logiin">
-                            <a class="nav-link active" href="{{ route('login') }}">Login</a>
+                            <a class="nav-link active" href="{{ route('login') }}">{{ __('home.login') }}</a>
                         </div>
                         <div class = "Register">
-                            <a class="nav-link active" href="{{ route('register') }}">Register</a>
+                            <a class="nav-link active" href="{{ route('register') }}">{{ __('home.register') }}</a>
                         </div>
                     @else
                         <form id="logout" action="{{ route('logout') }}" method="POST">
-                            <a role="button" class="nav-link active"onclick="document.getElementById('logout').submit();">Logout</a>
+                            <a role="button" class="nav-link active"onclick="document.getElementById('logout').submit();">{{ __('home.logout') }}</a>
                             @csrf
                         </form>
                     @endguest

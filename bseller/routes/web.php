@@ -48,4 +48,7 @@ Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add")->middleware(Authenticate::class);
 Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase")->middleware(Authenticate::class);
 
+// Language Routes
+Route::get('/lang/{locale}', 'App\Http\Controllers\LangController@locale')->name('lang.locale');
+
 Auth::routes();

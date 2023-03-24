@@ -4,7 +4,7 @@
 
 <div class = "mainText">
     <div class="secondText">
-        <span>WELCOME TO BSELLER!</span>
+        <span>{{ __('home.welcome') }}</span>
     </div>
 </div>
 

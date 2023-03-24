@@ -2,9 +2,9 @@
 @section('title', 'Home Page - BSeller')
 @section('content')
 
-<div class="main">
-    <div class = "mainText">
-        <span>WELCOME TO BSELLER!</span>
+<div class = "mainText">
+    <div class="secondText">
+        <span>{{ __('home.welcome') }}</span>
     </div>
     
     <div class = "mainSlider">

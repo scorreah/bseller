@@ -16,7 +16,7 @@
         </ul>
     </div>
 @endif
-<h1>Shoes</h1>
+<h1>{{ __('shoes.title') }}</h1>
 <p>Here you can find all the current available Shoes!</p>
 <div class="botton-position">
   <div class="row">

@@ -71,7 +71,9 @@ class BidRuleController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Show Bid - BSeller';
-        $viewData['bid'] = BidRule::findOrFail($id);
+        $bid = BidRule::findOrFail($id);
+        $viewData['bid'] = $bid;
+        $viewData['min_price'] = $bid->getCurrentPrice()+1;
 
         return view('bid.show')->with('viewData', $viewData);
     }

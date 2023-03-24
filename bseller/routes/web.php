@@ -25,6 +25,7 @@ Route::post('/bids/store', 'App\Http\Controllers\BidRuleController@store')->name
 Route::get('/bids/list', 'App\Http\Controllers\BidRuleController@list')->name('bid.list');
 Route::delete('/bids/delete/{bid}', 'App\Http\Controllers\BidRuleController@delete')->name('bid.delete');
 Route::get('/bids/{id}', 'App\Http\Controllers\BidRuleController@show')->where('id', '[0-9]+')->name('bid.show');
+Route::post('/bids/bidup/{id}', 'App\Http\Controllers\BidController@store')->where('id', '[0-9]+')->name('bid.up');
 
 // Shoe Routes
 Route::get('/shoes', 'App\Http\Controllers\ShoeController@index')->name('shoe.index');
@@ -47,5 +48,8 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.ind
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("cart.delete")->middleware(Authenticate::class); 
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add")->middleware(Authenticate::class);
 Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase")->middleware(Authenticate::class);
+
+// Language Routes
+Route::post('/lang', 'App\Http\Controllers\LangController@locale')->name('lang.locale');
 
 Auth::routes();

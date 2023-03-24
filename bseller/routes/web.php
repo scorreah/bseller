@@ -29,10 +29,6 @@ Route::post('/bids/bidup/{id}', 'App\Http\Controllers\BidController@store')->whe
 
 // Shoe Routes
 Route::get('/shoes', 'App\Http\Controllers\ShoeController@index')->name('shoe.index');
-Route::get('/shoes/create', 'App\Http\Controllers\ShoeController@create')->name('shoe.create');
-Route::get('/shoes/list', 'App\Http\Controllers\ShoeController@list')->name('shoe.list');
-Route::post('/shoes/save', 'App\Http\Controllers\ShoeController@save')->name('shoe.save');
-Route::delete('/shoes/delete/{id}', 'App\Http\Controllers\ShoeController@delete')->where('id', '[0-9]+')->name('shoe.delete');
 Route::get('/shoes/{id}', 'App\Http\Controllers\ShoeController@show')->where('id', '[0-9]+')->name('shoe.show');
 
 // Order Routes
@@ -48,5 +44,12 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.ind
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("cart.delete")->middleware(Authenticate::class); 
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add")->middleware(Authenticate::class);
 Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase")->middleware(Authenticate::class);
+
+// Admin routes
+Route::get('/admin/shoes/create', 'App\Http\Controllers\AdminShoeController@create')->name('admin.shoeCreate')->middleware(AdminAuthMiddleware::class);
+Route::get('/admin/shoes/list', 'App\Http\Controllers\AdminShoeController@list')->name('admin.shoeList')->middleware(AdminAuthMiddleware::class);
+Route::post('/admin/shoes/save', 'App\Http\Controllers\AdminShoeController@save')->name('admin.shoeSave')->middleware(AdminAuthMiddleware::class);
+Route::delete('/admin/shoes/delete/{id}', 'App\Http\Controllers\AdminShoeController@delete')->where('id', '[0-9]+')->name('admin.shoeDelete')->middleware(AdminAuthMiddleware::class);
+Route::get('/admin/shoes/{id}', 'App\Http\Controllers\AdminShoeController@show')->where('id', '[0-9]+')->name('admin.shoeShow')->middleware(AdminAuthMiddleware::class);
 
 Auth::routes();

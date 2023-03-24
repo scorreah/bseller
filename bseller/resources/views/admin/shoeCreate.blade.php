@@ -16,7 +16,7 @@
 <div class="container">
     <h1>Add a new Shoe</h1>
     <p>Here you can add a new shoe to the available list</p>
-    <form method="POST" action="{{ route('shoe.save') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.shoeSave') }}" enctype="multipart/form-data">
         @csrf
             <div class="form-group">
                 <label for="price">Price:</label>

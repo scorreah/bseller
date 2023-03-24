@@ -35,7 +35,11 @@
     <p class="card-text">
       Price: {{ $viewData["shoe"]->getPrice()}}
     </p>
-    <h2><a href="{{ route('cart.add', ['id'=> $viewData['shoe']->getId()]) }}" class="btn bg-primary text-white">Add to cart</a></h2>
+    <form method="POST" action="{{ route('admin.shoeDelete', ['id' => $viewData["shoe"]->getId()])}}">
+      @csrf
+      @method('DELETE')
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
   </div>
 </section>
 @endsection

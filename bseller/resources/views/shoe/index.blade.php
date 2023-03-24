@@ -17,7 +17,7 @@
     </div>
 @endif
 <h1>{{ __('shoes.title') }}</h1>
-<p>Here you can find all the current available Shoes!</p>
+<p>{{ __('shoes.welcome') }}</p>
 <div class="botton-position">
   <div class="row">
     @foreach($viewData['shoes'] as $shoe)
@@ -30,8 +30,8 @@
             <div class = "shoeDesc">
               <h4>Model: {{ $shoe->getModel() }}</h4>
               <p class="card-text">Price: {{ $shoe->getPrice() }}</p>
-              <h2><a href="{{ route('shoe.show', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">shoe {{ $shoe->getId() }}</a></h2>
-              <h2><a href="{{ route('cart.add', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">Add to cart</a></h2>
+              <h2><a href="{{ route('shoe.show', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">{{ __('shoes.Shoe') }} {{ $shoe->getId() }}</a></h2>
+              <h2><a href="{{ route('cart.add', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">{{ __('shoes.cart') }}</a></h2>
             </div>
           </div>
         </div>

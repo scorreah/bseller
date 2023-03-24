@@ -9,20 +9,20 @@
 @endif
 
     <div class="container">
-        <h1>Orders List</h1>
-        <p>In this page you're gonna see all your orders made!</p>
+        <h1>{{ __('orders.title') }}</h1>
+        <p>{{ __('orders.welcome') }}</p>
         <div class="row">
             <tbody>
                 @if(count($viewData['orders'])<=0)
-                    <p>At the moment you dont have any order :(</p>
+                    <p>{{ __('orders.no_orders') }}</p>
                 @else
                     @foreach ($viewData['orders'] as $order)
                         <tr>
                             <td>
-                                <a href="{{ route('order.show', ['id'=> $order["id"]]) }}" class="btn bg-primary text-white">Order ID {{ $order["id"] }}</a>
+                                <a href="{{ route('order.show', ['id'=> $order["id"]]) }}" class="btn bg-primary text-white">{{ __('orders.id') }} {{ $order["id"] }}</a>
                                 </form>
-                                <p class="card-text">Total Price: {{ $order->total_price }}</p>
-                                <p class="card-text">Status: {{ $order->status }}</p>
+                                <p class="card-text">{{ __('orders.tot_price') }}: {{ $order->total_price }}</p>
+                                <p class="card-text">{{ __('orders.status') }}: {{ $order->status }}</p>
                             </td>
                         </tr>
                     @endforeach

@@ -24,16 +24,16 @@
       <img src="{{ asset($viewData["shoe"]["image"]) }}">
     </div>
     <p class="card-title">
-      Model: {{ $viewData["shoe"]->getModel()}}
+      {{ __('shoes.model') }}: {{ $viewData["shoe"]->getModel()}}
     </p>
     <p class="card-title">
-      Brand: {{ $viewData["shoe"]->getBrand()}}
+      {{ __('shoes.brand') }}: {{ $viewData["shoe"]->getBrand()}}
     </p>
     <p class="card-title">
-      Size: {{ $viewData["shoe"]->getSize()}}
+      {{ __('shoes.size') }}: {{ $viewData["shoe"]->getSize()}}
     </p>
     <p class="card-text">
-      Price: {{ $viewData["shoe"]->getPrice()}}
+      {{ __('shoes.price') }}: {{ $viewData["shoe"]->getPrice()}}
     </p>
     <form method="POST" action="{{ route('shoe.delete', ['id' => $viewData["shoe"]->getId()])}}">
       @csrf

@@ -13,7 +13,6 @@ class BidController extends Controller
     public function store(Request $request, $id)
     {
         $bidRule = BidRule::findOrFail($id);
-
         $bid = new Bid;
         Bid::validate($request);
         $userPrice = $request->input('price');
@@ -28,8 +27,8 @@ class BidController extends Controller
             $bidRule->save();
 
             session()->flash('status', 'bid created successfully');
-            return redirect()->route('bid.list');
+            return back();
         }
-        return redirect()->route('bid.list')->withInput()->withErrors(['bid' => 'You cant make a bid, you dont got money']);
+        return back()->withInput()->withErrors(['bid' => 'You cant make a bid, you dont got money']);
     }
 }

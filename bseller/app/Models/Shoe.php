@@ -156,7 +156,7 @@ class Shoe extends Model
         return $this->order;
     }
 
-    public function getOrderId(): int
+    public function getOrderId(): int|null
     {
         return $this->attributes['order_id'];
     }

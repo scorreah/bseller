@@ -3,13 +3,24 @@
 @section('content')
 <div class="container">
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <p>Errors</p>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     @if (session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
         </div>
     @endif
 
-    <h1>Bid {{ $viewData["bid"]->id }}</h1>
+    <h1>Bid {{ $viewData["bid"]->getId() }}</h1>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mb-4 box-shadow">
@@ -18,10 +29,10 @@
                     <p class="card-text">Initial Price: ${{ $viewData["bid"]->getInitialPrice() }}</p>
                     <p class="card-text">Status: {{ $viewData["bid"]->getStatus() }}</p>
                     <p class="card-text">Available Dates: ({{ $viewData["bid"]->getStartDate() }}) - ({{ $viewData["bid"]->getEndDate() }})</p>
-                    <form method="POST" action="{{ route('bid.delete', ['bid' => $viewData["bid"]->getId()]) }}">
+                    <form method="POST" action="{{ route('bid.up', ['id' => $viewData["bid"]->getId()]) }}">
                         @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <input name="price" id="price" type="number" min="{{ $viewData["min_price"]}}" value="{{ $viewData["min_price"]}}">
+                        <button type="submit" class="btn btn-warning">Bid up</button>
                     </form>
                 </div>
             </div>

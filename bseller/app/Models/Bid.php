@@ -27,7 +27,6 @@ class Bid extends Model
     {
         $request->validate([
             'price' => 'required|integer|min:0',
-            'bid_rule_id' => 'required|exists:bid_rules,id',
         ]);
     }
 

@@ -25,6 +25,7 @@ Route::post('/bids/store', 'App\Http\Controllers\BidRuleController@store')->name
 Route::get('/bids/list', 'App\Http\Controllers\BidRuleController@list')->name('bid.list');
 Route::delete('/bids/delete/{bid}', 'App\Http\Controllers\BidRuleController@delete')->name('bid.delete');
 Route::get('/bids/{id}', 'App\Http\Controllers\BidRuleController@show')->where('id', '[0-9]+')->name('bid.show');
+Route::post('/bids/bidup/{id}', 'App\Http\Controllers\BidController@store')->where('id', '[0-9]+')->name('bid.up');
 
 // Shoe Routes
 Route::get('/shoes', 'App\Http\Controllers\ShoeController@index')->name('shoe.index');

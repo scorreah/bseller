@@ -16,7 +16,7 @@
 <div class="container">
     <h1>{{ __('shoes.add') }}</h1>
     <p>{{ __('shoes.add_desc') }}</p>
-    <form method="POST" action="{{ route('shoe.save') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.shoeSave') }}" enctype="multipart/form-data">
         @csrf
             <div class="form-group">
                 <label for="price">{{ __('shoes.price') }}:</label>

@@ -24,18 +24,22 @@
       <img src="{{ asset($viewData["shoe"]["image"]) }}">
     </div>
     <p class="card-title">
-      {{ __('shoes.model') }}: {{ $viewData["shoe"]->getModel()}}
+      Model: {{ $viewData["shoe"]->getModel()}}
     </p>
     <p class="card-title">
-      {{ __('shoes.brand') }}: {{ $viewData["shoe"]->getBrand()}}
+      Brand: {{ $viewData["shoe"]->getBrand()}}
     </p>
     <p class="card-title">
-      {{ __('shoes.size') }}: {{ $viewData["shoe"]->getSize()}}
+      Size: {{ $viewData["shoe"]->getSize()}}
     </p>
     <p class="card-text">
-      {{ __('shoes.price') }}: {{ $viewData["shoe"]->getPrice()}}
+      Price: {{ $viewData["shoe"]->getPrice()}}
     </p>
-    <h2><a href="{{ route('cart.add', ['id'=> $viewData['shoe']->getId()]) }}" class="btn bg-primary text-white">Add to cart</a></h2>
+    <form method="POST" action="{{ route('admin.shoeDelete', ['id' => $viewData["shoe"]->getId()])}}">
+      @csrf
+      @method('DELETE')
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
   </div>
 </section>
 @endsection

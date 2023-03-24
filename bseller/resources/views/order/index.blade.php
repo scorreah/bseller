@@ -20,7 +20,6 @@
                         <tr>
                             <td>
                                 <a href="{{ route('order.show', ['id'=> $order["id"]]) }}" class="btn bg-primary text-white">{{ __('orders.id') }} {{ $order["id"] }}</a>
-                                </form>
                                 <p class="card-text">{{ __('orders.tot_price') }}: {{ $order->total_price }}</p>
                                 <p class="card-text">{{ __('orders.status') }}: {{ $order->status }}</p>
                             </td>

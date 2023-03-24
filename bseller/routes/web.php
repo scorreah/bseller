@@ -33,10 +33,6 @@ Route::get('/shoes/{id}', 'App\Http\Controllers\ShoeController@show')->where('id
 
 // Order Routes
 Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order.index')->middleware(Authenticate::class);
-Route::get('/orders/create', 'App\Http\Controllers\OrderController@create')->name('order.create')->middleware(Authenticate::class);
-Route::post('/orders/store', 'App\Http\Controllers\OrderController@store')->name('order.store')->middleware(Authenticate::class);
-Route::get('/orders/list', 'App\Http\Controllers\OrderController@list')->name('order.list')->middleware(Authenticate::class);
-Route::delete('/orders/delete/{order}', 'App\Http\Controllers\OrderController@delete')->name('order.delete')->middleware(Authenticate::class);
 Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->name('order.show')->middleware(Authenticate::class);
 
 // Cart Routes
@@ -48,11 +44,18 @@ Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->na
 // Language Routes
 Route::post('/lang', 'App\Http\Controllers\LangController@locale')->name('lang.locale');
 
-// Admin routes
+// Admin routes-shoe
 Route::get('/admin/shoes/create', 'App\Http\Controllers\AdminShoeController@create')->name('admin.shoeCreate')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/shoes/list', 'App\Http\Controllers\AdminShoeController@list')->name('admin.shoeList')->middleware(AdminAuthMiddleware::class);
 Route::post('/admin/shoes/save', 'App\Http\Controllers\AdminShoeController@save')->name('admin.shoeSave')->middleware(AdminAuthMiddleware::class);
 Route::delete('/admin/shoes/delete/{id}', 'App\Http\Controllers\AdminShoeController@delete')->where('id', '[0-9]+')->name('admin.shoeDelete')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/shoes/{id}', 'App\Http\Controllers\AdminShoeController@show')->where('id', '[0-9]+')->name('admin.shoeShow')->middleware(AdminAuthMiddleware::class);
+
+// Admin routes-Order
+Route::get('/admin/orders/create', 'App\Http\Controllers\AdminOrderController@create')->name('admin.orderCreate')->middleware(AdminAuthMiddleware::class);
+Route::post('/admin/orders/store', 'App\Http\Controllers\AdminOrderController@store')->name('admin.orderStore')->middleware(AdminAuthMiddleware::class);
+Route::get('/admin/orders/list', 'App\Http\Controllers\AdminOrderController@list')->name('admin.orderList')->middleware(AdminAuthMiddleware::class);
+Route::delete('/admin/orders/delete/{order}', 'App\Http\Controllers\AdminOrderController@delete')->name('admin.orderDelete')->middleware(AdminAuthMiddleware::class);
+Route::get('/admin/orders/show/{id}', 'App\Http\Controllers\AdminOrderController@show')->name('admin.orderShow')->middleware(AdminAuthMiddleware::class);
 
 Auth::routes();

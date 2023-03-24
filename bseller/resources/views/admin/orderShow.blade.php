@@ -15,6 +15,11 @@
             <strong>ID:</strong> {{ $viewData["orders"]->id}}<br>
             <strong>{{ __('orders.tot_price') }}:</strong> ${{ $viewData["orders"]->total_price }}<br>
             <strong>{{ __('orders.status') }}:</strong> {{ $viewData["orders"]->status }}<br>
+            <form method="POST" action="{{ route('admin.orderDelete', ['order' => $viewData["orders"]->id]) }}">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">{{ __('orders.delete') }}</button>
+            </form>
         </div>
     </div>
 </div>

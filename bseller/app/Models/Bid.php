@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\BidRule;
+
 
 class Bid extends Model
 {
@@ -25,7 +27,6 @@ class Bid extends Model
     {
         $request->validate([
             'price' => 'required|integer|min:0',
-            'user_id' => 'required|exists:users,id',
             'bid_rule_id' => 'required|exists:bid_rules,id',
         ]);
     }

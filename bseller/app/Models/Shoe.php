@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\User;
@@ -30,7 +31,7 @@ class Shoe extends Model
      * $this->user - User[] - contains the associated User model
      * $this->bidRule - BidRule - contains the associated BidRule model
      */
-    protected $fillable = ['price', 'image', 'size', 'brand', 'model', 'order_id'];
+    protected $fillable = ['price', 'image', 'size', 'brand', 'model'];
 
     public static function validate(Request $request): array
     {
@@ -40,7 +41,6 @@ class Shoe extends Model
             'brand' => 'required|string',
             'model' => 'required|string',
             'image_shoe' => 'required|image',
-            'order_id' => 'required|exists:orders,id',
         ]);
 
         return $validatedData;

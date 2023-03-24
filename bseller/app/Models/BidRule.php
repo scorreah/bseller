@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use DateTime;
 use App\Models\User;
@@ -29,7 +30,7 @@ class BidRule extends Model
      * $this->shoe - Shoe - contains the associated Shoe model
      * $this->bids - Bid[] - contains the associated Bid model
      */
-    protected $fillable = ['initial_price', 'current_price', 'status', 'start_date', 'end_date', 'shoe_id', 'user_id'];
+    protected $fillable = ['initial_price', 'current_price', 'status', 'start_date', 'end_date', 'shoe_id'];
 
     public static function validate(Request $request): void
     {
@@ -39,7 +40,7 @@ class BidRule extends Model
             'status' => 'required|string',
             'start_date' => 'required|date|after_or_equal:yesterday',
             'end_date' => 'required|date|after:start_date',
-            'user_id' => 'required|exists:users,id',
+            'shoe_id' => 'required|exists:shoes,id',
         ]);
     }
 
@@ -148,9 +149,19 @@ class BidRule extends Model
         $this->shoe = $shoe;
     }
 
+    public function getShoeId(): int
+    {
+        return $this->attributes['shoe_id'];
+    }
+
+    public function setShoeId(int $shoe_id): void
+    {
+        $this->attributes['shoe_id'] = $shoe_id;
+    }
+
     public function bids(): HasMany
     {
-        return this->hasMany(Bid::class);
+        return $this->hasMany(Bid::class);
     }
 
     public function getBids(): Collection

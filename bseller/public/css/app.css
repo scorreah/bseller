@@ -130,3 +130,50 @@ p {
 	padding: auto;
 	justify-content: center;
 }
+
+.navImage{
+	position: relative;
+	text-align: center;
+	margin-top: 200px;
+}
+
+.mainSlider {
+	position: absolute;
+	top: 250px;
+	bottom: 0;
+	left: 25%;
+	margin: auto;
+	width: 100%;
+	padding: 10px;
+}
+.mainText {
+	position: absolute;
+	top: 80px;
+	bottom: 0;
+	left: 37%;
+	right: 50%;
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+	font-size: 50px;
+}
+
+.secondText {
+	display: block;
+	font-family: monospace;
+	white-space: nowrap;
+	border-right: 4px solid;
+	width: 20ch;
+
+	animation: typing 2s steps(12), blink .5s infinite step-end alternate;
+	overflow: hidden;
+
+}
+
+@keyframes typing{
+	from{ width: 0;}
+}
+
+@keyframes  blink{
+	50% {border-color: transparent;}
+}

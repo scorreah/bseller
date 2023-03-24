@@ -29,10 +29,15 @@ class CartController extends Controller
 
     public function add(Request $request, $id)
     {
-        $shoes = $request->session()->get("shoes"); 
+        $shoes = $request->session()->get("shoes");
+        $shoe = Shoe::FindOrFail($id);
+
+        if($shoe->getOrderId()!=null){
+            return redirect()->route('shoe.index')->withInput()->withErrors(['Invalid' => 'This shoe doesnt be available']);
+        }
+
         $shoes[$id] = $id; 
         $request->session()->put('shoes', $shoes); 
-
         return redirect()->route('cart.index');
     }
 

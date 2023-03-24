@@ -2,38 +2,82 @@
 @section('title', 'Home Page - BSeller')
 @section('content')
 
-<div class = "mainText">
-    <div class="secondText">
+<div class="main">
+    <div class = "mainText">
         <span>WELCOME TO BSELLER!</span>
     </div>
-</div>
+    
+    <div class = "mainSlider">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/img/index/navImageNB.svg" class="d-block" alt="">
+              </div>
+              <div class="carousel-item">
+                <img src="/img/index/navImageJordan.svg" class="d-block" alt="">
+              </div>
+              <div class="carousel-item">
+                <img src="/img/index/navImageTrending.svg" class="d-block" alt="">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
 
-<div class = "mainSlider">
-    <div id="carouselExampleIndicators" class="carousel slide w-50" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <div class="brandSpace">
+        <div class="tituloFila">
+            <b>Nuestras marcas</b>
         </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="/img/index/navImageNB.svg" class="d-block w-100" alt="">
-          </div>
-          <div class="carousel-item">
-            <img src="/img/index/navImagePurple.svg" class="d-block w-100" alt="">
-          </div>
-          <div class="carousel-item">
-            <img src="/img/index/navImageTrending.svg" class="d-block w-100" alt="">
-          </div>
+        <div class="espacioFila">
+            <div class="fila">
+                <div class="columnaC4">
+                    <img src="/img/index/womenNike.jpg">
+                </div>
+                <div class="columnaC4">
+                    <img src="/img/index/menJordan.jpg">
+                </div>
+                <div class="columnaC4">
+                    <img src="/img/index/menNewBalance.jpg">
+                </div>
+                <div class="columnaC4">
+                    <img src="/img/index/womenReebok.jpg">
+                </div>
+            </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+    </div>
+
+    <div class="ourStore">
+        <div class="tituloFila">
+            <b>Nuestras tiendas</b>
+        </div>
+        <div class="espacioFila">
+            <div class="fila">
+                <div class="columnaC3">
+                    <b>HOLAAAAA</b>
+                </div>
+                <div class="columnaC3">
+                    <img src="/img/index/pereiraStore.jpg">
+                </div>
+                <div class="columnaC3">
+                    <img src="/img/index/medellinStore.jpg">
+                </div>
+                <div class="columnaC3">
+                    <img src="">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

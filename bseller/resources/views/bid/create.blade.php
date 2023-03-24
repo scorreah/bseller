@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Create Bid Rule</h1>
+        <h1>{{ __('bids.create') }}</h1>
 
         @if (session('status'))
             <div class="alert alert-success">
@@ -22,38 +22,38 @@
             @csrf
 
             <div class="form-group">
-                <label for="initial_price">Initial Price:</label>
+                <label for="initial_price">{{ __('bids.initial_p') }}:</label>
                 <input type="number" class="form-control" id="initial_price" name="initial_price" value="{{ old('initial_price') }}" required>
             </div>
 
             <div class="form-group">
-                <label for="current_price">Current Price:</label>
+                <label for="current_price">{{ __('bids.current_p') }}:</label>
                 <input type="number" class="form-control" id="current_price" name="current_price" value="{{ old('current_price') }}" required>
             </div>
 
             <div class="form-group">
-                <label for="status">Status:</label>
+                <label for="status">{{ __('bids.status') }}:</label>
                 <select class="form-control" id="status" name="status" required>
-                    <option value="">-- Select Status --</option>
-                    <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Active</option>
-                    <option value="closed" {{ old('status') == 'closed' ? 'selected' : '' }}>Closed</option>
+                    <option value="">-- {{ __('bids.select') }} --</option>
+                    <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>{{ __('bids.active') }}</option>
+                    <option value="closed" {{ old('status') == 'closed' ? 'selected' : '' }}>{{ __('bids.closed') }}</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="start_date">Start Date:</label>
+                <label for="start_date">{{ __('bids.start') }}:</label>
                 <input type="datetime-local" class="form-control" id="start_date" name="start_date" value="{{ old('start_date') }}" required>
             </div>
 
             <div class="form-group">
-                <label for="end_date">End Date:</label>
+                <label for="end_date">{{ __('bids.end') }}:</label>
                 <input type="datetime-local" class="form-control" id="end_date" name="end_date" value="{{ old('end_date') }}" required>
             </div>
 
             <div class="form-group">
-                <label for="shoe_id">Choose a Shoe:</label>
+                <label for="shoe_id">{{ __('bids.choose') }}:</label>
                 <select class="form-control" id="shoe_id" name="shoe_id" required>
-                    <option value="">-- Select a Shoe --</option>
+                    <option value="">-- {{ __('bids.select') }} --</option>
                     @foreach ($viewData['shoes'] as $shoe)
                         <option value="{{ $shoe->getId() }}" {{ old('shoe_id') == $shoe->id ? 'selected' : '' }}>{{ $shoe->getBrand() }} {{ $shoe->getModel() }}</option>
                     @endforeach
@@ -61,7 +61,7 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">{{ __('bids.Create') }}</button>
         </form>
     </div>
 @endsection

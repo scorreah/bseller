@@ -26,9 +26,9 @@
             <div class="card mb-4 box-shadow">
                 <div class="card-body">
                     <h2>Current Price: ${{ $viewData["bid"]->getCurrentPrice() }}</h2>
-                    <p class="card-text">Initial Price: ${{ $viewData["bid"]->getInitialPrice() }}</p>
-                    <p class="card-text">Status: {{ $viewData["bid"]->getStatus() }}</p>
-                    <p class="card-text">Available Dates: ({{ $viewData["bid"]->getStartDate() }}) - ({{ $viewData["bid"]->getEndDate() }})</p>
+                    <p class="card-text">{{ __('bids.initial_p') }}: ${{ $viewData["bid"]->getInitialPrice() }}</p>
+                    <p class="card-text">{{ __('bids.status') }}: {{ $viewData["bid"]->getStatus() }}</p>
+                    <p class="card-text">{{ __('bids.avail') }}: ({{ $viewData["bid"]->getStartDate() }}) - ({{ $viewData["bid"]->getEndDate() }})</p>
                     <form method="POST" action="{{ route('bid.up', ['id' => $viewData["bid"]->getId()]) }}">
                         @csrf
                         <input name="price" id="price" type="number" min="{{ $viewData["min_price"]}}" value="{{ $viewData["min_price"]}}">

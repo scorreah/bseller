@@ -8,16 +8,16 @@
 @endif
 
 <div class="container">
-  <h1>Shoe List</h1>
+  <h1>{{ __('shoes.list') }}</h1>
   <div class="row">
     @foreach($viewData['shoes'] as $shoe)
       <div class="col-md-4">
         <div class="card mb-4 box-shadow">
           <div class="card-body">
             <img src="{{ asset($shoe->image) }}">
-            <h4>Model: {{ $shoe->getModel() }}</h4>
+            <h4>{{ __('shoes.model') }}: {{ $shoe->getModel() }}</h4>
             <p class="card-text">Price: {{ $shoe->getPrice() }}</p>
-            <h2><a href="{{ route('shoe.show', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">shoe {{ $shoe->getId() }}</a></h2>
+            <h2><a href="{{ route('shoe.show', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">{{ __('shoes.Shoe') }} {{ $shoe->getId() }}</a></h2>
           </div>
         </div>
       </div>

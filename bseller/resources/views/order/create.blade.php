@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-0.5>
             <div class="title">
-                <h2>Create Order </h2>
+                <h2>{{ __('orders.create') }}</h2>
             </div>
             <div class ="d-flex flex-col justify-content-center">
                 <div class="card">
@@ -24,26 +24,26 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="status">Status:</label>
+                                <label for="status">{{ __('orders.status') }}:</label>
                                 <select class="form-control @error('status') is-invalid @enderror" id="status"
                                     name="status" required>
-                                    <option value="">-- Select Status --</option>
-                                    <option value="new" @if (old('status') == 'new') selected @endif>New</option>
+                                    <option value="">-- {{ __('orders.select') }} --</option>
+                                    <option value="new" @if (old('status') == 'new') selected @endif>{{ __('orders.new') }}</option>
                                     <option value="processing" @if (old('status') == 'processing') selected @endif>
-                                        Processing
+                                        {{ __('orders.processing') }}
                                     </option>
                                     <option value="completed" @if (old('status') == 'completed') selected @endif>
-                                        Completed
+                                        {{ __('orders.completed') }}
                                     </option>
                                     <option value="cancelled" @if (old('status') == 'cancelled') selected @endif>
-                                        Cancelled
+                                        {{ __('orders.cancelled') }}
                                     </option>
                                 </select>
                                 @error('status')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-primary">Create</button>
+                            <button type="submit" class="btn btn-primary">{{ __('orders.Create') }}</button>
                         </form>
                     </div>
                 </div>

@@ -121,8 +121,8 @@ return [
 
     'available_locales' => [
         'English' => 'en',
-        'Spanish' => 'es',
-        'Italian' => 'it',
+        'Español' => 'es',
+        'Italiano' => 'it',
     ],
 
     /*

@@ -19,6 +19,30 @@
 <h1>{{ __('shoes.title') }}</h1>
 <p>{{ __('shoes.welcome') }}</p>
 <div class="botton-position">
+  <form method="GET" action="{{ route('shoe.index') }}">
+      <div class="form-group">
+        <label for="brand">{{ __('shoes.brand') }}:</label>
+        <select class="form-control" id="brand" name="brand">
+          <option value="">{{ __('shoes.all_brand') }}</option>
+          @foreach($viewData['brands'] as $brand)
+            <option value="{{ $brand }}">{{ ucfirst($brand) }}</option>
+          @endforeach
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="is_bid">{{ __('shoes.type') }}:</label>
+        <select class="form-control" id="is_bid" name="is_bid">
+          <option value="">{{ __('shoes.all_types') }}</option>
+          <option value="1">{{ __('shoes.bidable') }}</option>
+          <option value="0">{{ __('shoes.nonbidable') }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+            <label for="q">{{ __('shoes.search') }}:</label>
+            <input type="text" class="form-control" id="q" name="q" placeholder="Search for model or brand" value="{{ $request->q ?? '' }}">
+        </div>
+      <button type="submit" class="btn btn-primary">{{ __('shoes.filter') }}</button>
+  </form>
   <div class="row">
     @foreach($viewData['shoes'] as $shoe)
       <div class="col-md-4">

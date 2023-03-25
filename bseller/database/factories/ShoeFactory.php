@@ -10,7 +10,7 @@ class ShoeFactory extends Factory
     {
         return [
             'price' => $this->faker->numberBetween($min = 200, $max = 1000),
-            'image' => $this->faker->randomElement($array = ['air_force.jpg', 'dunk_pandas.jpg', 'forum_low.jpg', 'new_550.jpg', 'supercourt.jpg']),
+            'image' => 'img\\shoes\\'.$this->faker->randomElement($array = ['air_force.jpg', 'dunk_pandas.jpg', 'forum_low.jpg', 'new_550.jpg', 'supercourt.jpg']),
             'size' => $this->faker->numberBetween($min = 5, $max = 13),
             'brand' => $this->faker->randomElement($array = ['nike', 'adidas', 'new balance']),
             'model' => $this->faker->randomElement($array = ['dunk', 'air', '550', '650', 'continental', 'supercout', 'forum']),

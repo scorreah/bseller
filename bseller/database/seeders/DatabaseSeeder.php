@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        BidRule::factory(5)->create();
+        //BidRule::factory(5)->create();
         Shoe::factory(8)->create();
-        Order::factory(5)->create();
-        Bid::factory()->count(20)->create();
+        //Order::factory(5)->create();
+        //Bid::factory()->count(20)->create();
     }
 }

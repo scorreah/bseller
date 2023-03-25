@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Bid;
 use App\Models\BidRule;
-use Illuminate\Contracts\Support\ValidatedData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,8 +16,8 @@ class BidController extends Controller
         Bid::validate($request);
         $userPrice = $request->input('price');
 
-        if ($userPrice > $bidRule->getCurrentPrice()){
-            $bidRule -> setCurrentPrice($userPrice);
+        if ($userPrice > $bidRule->getCurrentPrice()) {
+            $bidRule->setCurrentPrice($userPrice);
             $userId = Auth::user()->getId();
             $bid->setUserId($userId);
             $bid->setPrice($userPrice);
@@ -27,8 +26,10 @@ class BidController extends Controller
             $bidRule->save();
 
             session()->flash('status', 'bid created successfully');
+
             return back();
         }
+
         return back()->withInput()->withErrors(['bid' => 'You cant make a bid, you dont got money']);
     }
 }

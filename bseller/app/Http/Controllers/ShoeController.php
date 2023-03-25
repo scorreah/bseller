@@ -16,6 +16,10 @@ class ShoeController extends Controller
         $viewData['title'] = 'Products - Bseller';
         $viewData['shoes'] = Shoe::all();
 
+        /*if ($filter) {
+            $viewData['shoes']->where('type', $filter);
+        }*/
+
         return view('shoe.index')->with('viewData', $viewData);
     }
 
@@ -79,5 +83,14 @@ class ShoeController extends Controller
         session()->flash('status', 'Shoe created successfully.');
         // Redirect to the new newShoe's detail page
         return redirect()->route('shoe.show', ['id' => $newShoe->getId()]);
+    }
+
+    public function filterByBrand(Request $request)
+    {
+        $brand = $request->input('brand');
+
+        $shoes = Shoe::where('brand', $brand)->get();
+
+        return view('shoes.index', ['shoes' => $shoes]);
     }
 }

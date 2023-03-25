@@ -6,7 +6,7 @@
     <div class="secondText">
         <span>{{ __('home.welcome') }}</span>
     </div>
-    
+
     <div class = "mainSlider">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -16,13 +16,13 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="/img/index/navImageNB.svg" class="d-block" alt="">
+                <img src="{{ asset('img/index/navImageNB.svg') }}" class="d-block" alt="">
               </div>
               <div class="carousel-item">
-                <img src="/img/index/navImageJordan.svg" class="d-block" alt="">
+                <img src="{{ asset('img/index/navImageJordan.svg') }}" class="d-block" alt="">
               </div>
               <div class="carousel-item">
-                <img src="/img/index/navImageTrending.svg" class="d-block" alt="">
+                <img src="{{ asset('img/index/navImageTrending.svg') }}" class="d-block" alt="">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -43,16 +43,16 @@
         <div class="espacioFila">
             <div class="fila">
                 <div class="columnaC4">
-                    <img src="/img/index/womenNike.jpg">
+                    <img src="{{ asset('img/index/womenNike.jpg') }}">
                 </div>
                 <div class="columnaC4">
-                    <img src="/img/index/menJordan.jpg">
+                    <img src="{{ asset('img/index/menJordan.jpg') }}">
                 </div>
                 <div class="columnaC4">
-                    <img src="/img/index/menNewBalance.jpg">
+                    <img src="{{ asset('img/index/menNewBalance.jpg') }}">
                 </div>
                 <div class="columnaC4">
-                    <img src="/img/index/womenReebok.jpg">
+                    <img src="{{ asset('img/index/womenReebok.jpg') }}">
                 </div>
             </div>
         </div>
@@ -68,10 +68,10 @@
                     <b>HOLAAAAA</b>
                 </div>
                 <div class="columnaC3">
-                    <img src="/img/index/pereiraStore.jpg">
+                    <img src="{{ asset('img/index/pereiraStore.jpg') }}">
                 </div>
                 <div class="columnaC3">
-                    <img src="/img/index/medellinStore.jpg">
+                    <img src="{{ asset('img/index/medellinStore.jpg') }}">
                 </div>
                 <div class="columnaC3">
                     <img src="">

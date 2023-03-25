@@ -32,10 +32,10 @@ Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order
 Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->name('order.show')->middleware(Authenticate::class);
 
 // Cart Routes
-Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index")->middleware(Authenticate::class); 
-Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("cart.delete")->middleware(Authenticate::class); 
-Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add")->middleware(Authenticate::class);
-Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase")->middleware(Authenticate::class);
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index')->middleware(Authenticate::class);
+Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cart.delete')->middleware(Authenticate::class);
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add')->middleware(Authenticate::class);
+Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase')->middleware(Authenticate::class);
 
 // Language Routes
 Route::post('/lang', 'App\Http\Controllers\LangController@locale')->name('lang.locale');

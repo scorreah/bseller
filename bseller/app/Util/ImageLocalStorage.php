@@ -14,13 +14,13 @@ class ImageLocalStorage implements ImageStorage
     {
         try {
             $image_shoe = $request->file('image_shoe');
-            $nombreImagen = "img/shoes/".time().'_'.$image_shoe->getClientOriginalName();
+            $nombreImagen = 'img/shoes/'.time().'_'.$image_shoe->getClientOriginalName();
             Storage::disk('public')->put($nombreImagen, File::get($image_shoe));
         } catch(Exception $e) {
             $nombreImagen = 'Error';
         }
 
-        return "storage/".$nombreImagen;
+        return 'storage/'.$nombreImagen;
     }
 
     public function delete(string $dir): bool

@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Interfaces\ImageStorage;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Shoe;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Models\Shoe;
 
 class ShoeController extends Controller
 {
@@ -34,7 +32,7 @@ class ShoeController extends Controller
         // search for model or brand
         if ($request->has('q') and $request->q != null) {
             $searchTerm = $request->q;
-            $shoes->where(function($query) use ($searchTerm) {
+            $shoes->where(function ($query) use ($searchTerm) {
                 $query->where('model', 'LIKE', "%{$searchTerm}%")
                     ->orWhere('brand', 'LIKE', "%{$searchTerm}%");
             });
@@ -55,5 +53,4 @@ class ShoeController extends Controller
 
         return view('shoe.show')->with('viewData', $viewData);
     }
-
 }

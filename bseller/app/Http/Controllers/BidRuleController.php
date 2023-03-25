@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use DateTime;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\View\View;
 use App\Models\BidRule;
-use App\Models\Shoe;
+use Illuminate\View\View;
 
 class BidRuleController extends Controller
 {
@@ -26,7 +22,7 @@ class BidRuleController extends Controller
         $viewData['title'] = 'Show Bid - BSeller';
         $bid = BidRule::findOrFail($id);
         $viewData['bid'] = $bid;
-        $viewData['min_price'] = $bid->getCurrentPrice()+1;
+        $viewData['min_price'] = $bid->getCurrentPrice() + 1;
 
         return view('bid.show')->with('viewData', $viewData);
     }

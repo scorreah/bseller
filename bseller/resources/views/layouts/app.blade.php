@@ -40,7 +40,7 @@
                     @endguest
                 </div>
             </div>
-            <div>
+            <div class = "translator">
                 <form method="POST" action="{{ route('lang.locale') }}">
                     @csrf
                     <select name="locale" onchange="this.form.submit()">

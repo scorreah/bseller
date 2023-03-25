@@ -18,7 +18,7 @@
                 @endforeach </ul>
         @endif
 
-        <form method="POST" action="{{ route('bid.store') }}">
+        <form method="POST" action="{{ route('admin.bidStore') }}">
             @csrf
 
             <div class="form-group">

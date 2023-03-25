@@ -20,10 +20,6 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index')
 
 // Bid Routes
 Route::get('/bids', 'App\Http\Controllers\BidRuleController@index')->name('bid.index');
-Route::get('/bids/create', 'App\Http\Controllers\BidRuleController@create')->name('bid.create'); //->middleware(AdminAuthMiddleware::class);
-Route::post('/bids/store', 'App\Http\Controllers\BidRuleController@store')->name('bid.store');
-Route::get('/bids/list', 'App\Http\Controllers\BidRuleController@list')->name('bid.list');
-Route::delete('/bids/delete/{bid}', 'App\Http\Controllers\BidRuleController@delete')->name('bid.delete');
 Route::get('/bids/{id}', 'App\Http\Controllers\BidRuleController@show')->where('id', '[0-9]+')->name('bid.show');
 Route::post('/bids/bidup/{id}', 'App\Http\Controllers\BidController@store')->where('id', '[0-9]+')->name('bid.up');
 
@@ -57,5 +53,12 @@ Route::post('/admin/orders/store', 'App\Http\Controllers\AdminOrderController@st
 Route::get('/admin/orders/list', 'App\Http\Controllers\AdminOrderController@list')->name('admin.orderList')->middleware(AdminAuthMiddleware::class);
 Route::delete('/admin/orders/delete/{order}', 'App\Http\Controllers\AdminOrderController@delete')->name('admin.orderDelete')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/orders/show/{id}', 'App\Http\Controllers\AdminOrderController@show')->name('admin.orderShow')->middleware(AdminAuthMiddleware::class);
+
+// Admin routes-Bid
+Route::get('/admin/bids/create', 'App\Http\Controllers\AdminBidRuleController@create')->name('admin.bidCreate')->middleware(AdminAuthMiddleware::class);
+Route::post('/admin/bids/store', 'App\Http\Controllers\AdminBidRuleController@store')->name('admin.bidStore')->middleware(AdminAuthMiddleware::class);
+Route::get('/admin/bids/list', 'App\Http\Controllers\AdminBidRuleController@list')->name('admin.bidList')->middleware(AdminAuthMiddleware::class);
+Route::delete('/admin/bids/delete/{id}', 'App\Http\Controllers\AdminBidRuleController@delete')->name('admin.bidDelete')->middleware(AdminAuthMiddleware::class);
+Route::get('/admin/bids/{id}', 'App\Http\Controllers\AdminBidRuleController@show')->where('id', '[0-9]+')->name('admin.bidShow')->middleware(AdminAuthMiddleware::class);
 
 Auth::routes();

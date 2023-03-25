@@ -8,7 +8,7 @@
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
                     <div class="card-body">
-                        <h2><a href="{{ route('bid.show', ['id'=> $bid->getId()]) }}"
+                        <h2><a href="{{ route('admin.bidShow', ['id'=> $bid->getId()]) }}"
           class="btn bg-primary text-white">{{ __('bids.id') }} {{ $bid->getId() }}</a></h2>
                         <h4>{{ __('bids.current_p') }}: {{ $bid->getCurrentPrice() }}</h4>
                         <p class="card-text">{{ __('bids.initial_p') }}: {{ $bid->getInitialPrice() }}</p>

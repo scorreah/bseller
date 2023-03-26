@@ -41,7 +41,26 @@ p {
 body {
 	min-width: 100%;
 	min-height: 5000px;
+	font-family: sans-serif;
+	}
 
+footer {
+	position: absolute;
+	width: 100%;
+	height: 250px;
+	margin: 0 auto;
+	margin-top: 10%;
+	font-size: 25px;
+	background: #302c34;
+	color: white;
+}
+
+p {
+	max-width: 500px;
+	margin: 10px auto;
+	line-height: 28px;
+	font-size: 14px;
+	color: grey;
 }
 
 img {
@@ -72,6 +91,14 @@ img {
     margin-top: 20px;
 }
 
+.footer-content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	margin-top: 10px;
+}
 .logiin {
 	margin-right: 30px;
 }
@@ -202,6 +229,8 @@ img {
 
 * {
 	box-sizing: border-box;
+	margin: 0;
+		padding: 0;
 }
 
 .tituloFila {
@@ -254,10 +283,17 @@ img {
 	height: 100%;
 	overflow: hidden;
 }
+
 .springPic {
 	width: 89.6%;
-	height: 100%;
+	height: 10%;
 	margin: 0 auto;
 	margin-top: 2%;
 	font-size: 25px;
+}
+.springPic img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }

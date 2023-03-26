@@ -85,6 +85,12 @@
             <img src="{{ URL::asset('/storage/img/index/menLacoste.svg') }}">
         </div>
     </div>
+    <footer>
+        <div class="footer-content">
+            <h3>BSeller</h3>
+            <p>Bseller, es una tienda online de reventa de sneakers exclusivos. La cual tendrá como elemento diferenciador un sistema de pujas, con el cual se busca vender al mejor postor sus unidades únicas de sneakers.</p>
+        </div>
+    </footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

@@ -82,12 +82,9 @@
                 <div class="columnaC3">
                     <img src="{{ URL::asset('/storage/img/index/bogotaStore.svg') }}">
                 </div>
-<<<<<<< HEAD
-=======
                 <div class="columnaC3">
                     <img src="{{ URL::asset('/storage/img/index/medellinStore.svg') }}">
                 </div>
->>>>>>> 7603a3ba18353dbbbe642169c8778d3c52b391e7
             </div>
         </div>
     </div>

@@ -284,7 +284,6 @@ img {
 	overflow: hidden;
 }
 
-<<<<<<< HEAD
 .orderscolumm{
     width: 50%;
     height: 100%;
@@ -311,7 +310,8 @@ img {
 .infosectionbutton{
 	width: 20%;
 	height: 100%;
-=======
+
+}
 .springPic {
 	width: 89.6%;
 	height: 10%;
@@ -324,5 +324,4 @@ img {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
->>>>>>> 7603a3ba18353dbbbe642169c8778d3c52b391e7
 }

@@ -33,15 +33,16 @@ Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->na
 Route::get('/orders/bill/{id}', 'App\Http\Controllers\OrderController@downloadPdf')->name('order.pdf')->middleware(Authenticate::class);
 
 // Cart Routes
-Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index")->middleware(Authenticate::class); 
-Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("cart.delete")->middleware(Authenticate::class); 
-Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add")->middleware(Authenticate::class);
-Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase")->middleware(Authenticate::class);
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index')->middleware(Authenticate::class);
+Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cart.delete')->middleware(Authenticate::class);
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add')->middleware(Authenticate::class);
+Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase')->middleware(Authenticate::class);
 
 // Language Routes
 Route::post('/lang', 'App\Http\Controllers\LangController@locale')->name('lang.locale');
 
 // Admin routes-shoe
+Route::get('/admin/dashboard', 'App\Http\Controllers\AdminController@index')->name('admin.dashboard');
 Route::get('/admin/shoes/create', 'App\Http\Controllers\AdminShoeController@create')->name('admin.shoeCreate')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/shoes/list', 'App\Http\Controllers\AdminShoeController@list')->name('admin.shoeList')->middleware(AdminAuthMiddleware::class);
 Route::post('/admin/shoes/save', 'App\Http\Controllers\AdminShoeController@save')->name('admin.shoeSave')->middleware(AdminAuthMiddleware::class);

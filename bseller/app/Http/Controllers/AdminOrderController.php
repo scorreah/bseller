@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class AdminOrderController extends Controller
 {
@@ -30,6 +30,7 @@ class AdminOrderController extends Controller
         $order->save();
 
         session()->flash('status', 'Order created successfully');
+
         return redirect()->route('admin.orderShow', ['id' => $order->id]);
     }
 

@@ -3,21 +3,12 @@
 @section('content')
 
 <div class="main">
-<<<<<<< HEAD
 <div class = "mainText">
     <div class="secondText">
         <span>{{ __('home.welcome') }}</span>
     </div>
 </div>
     
-=======
-    <div class = "mainText">
-        <div class="secondText">
-            <span>{{ __('home.welcome') }}</span>
-        </div>
-    </div>
-
->>>>>>> 7603a3ba18353dbbbe642169c8778d3c52b391e7
     <div class = "mainSlider">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">

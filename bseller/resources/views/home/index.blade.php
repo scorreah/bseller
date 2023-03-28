@@ -45,7 +45,7 @@
         <div class="espacioFila">
             <div class="fila">
                 <div class="columnaC4">
-                    <img src="{{ asset('/img/index/womenNike.jpg') }}">
+                    <img src="{{ asset('/storage/img/index/womenNike.jpg') }}">
                 </div>
                 <div class="columnaC4">
                     <img src="{{ URL::asset('/storage/img/index/menJordan.jpg') }}">

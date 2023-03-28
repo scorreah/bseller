@@ -30,6 +30,7 @@ Route::get('/shoes/{id}', 'App\Http\Controllers\ShoeController@show')->where('id
 // Order Routes
 Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name('order.index')->middleware(Authenticate::class);
 Route::get('/orders/show/{id}', 'App\Http\Controllers\OrderController@show')->name('order.show')->middleware(Authenticate::class);
+Route::get('/orders/bill/{id}', 'App\Http\Controllers\OrderController@downloadPdf')->name('order.pdf')->middleware(Authenticate::class);
 
 // Cart Routes
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index')->middleware(Authenticate::class);

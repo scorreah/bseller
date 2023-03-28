@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', $viewData["title"])
-@section('content')
 
+@section('content')
 @if (session('status'))
   <div class="alert alert-success">
     {{ session('status') }}

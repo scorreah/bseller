@@ -77,8 +77,7 @@ class CartController extends Controller
             Auth::user()->save();
             $request->session()->forget('shoes');
             session()->flash('status', 'Order created successfully');
-
-            return redirect()->route('order.list');
+            return redirect()->route('order.index'); 
         } else {
             return redirect()->route('cart.index')->withInput()->withErrors(['elements' => 'You dont have any shoe']);
         }

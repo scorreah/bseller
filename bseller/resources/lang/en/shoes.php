@@ -22,4 +22,6 @@ return [
     'list' => 'Shoe List',
     'filter' => 'Filter',
     'search' => 'Search',
+    'delete' => 'Delete',
+    'errors' => 'Errors',
 ];

@@ -38,7 +38,7 @@
     <form method="POST" action="{{ route('admin.shoeDelete', ['id' => $viewData["shoe"]->getId()])}}">
       @csrf
       @method('DELETE')
-      <button type="submit" class="btn btn-danger">Delete</button>
+      <button type="submit" class="btn btn-danger">{{ __('shoes.delete') }}</button>
     </form>
   </div>
 </section>

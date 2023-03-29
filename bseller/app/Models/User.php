@@ -25,7 +25,7 @@ class User extends Authenticatable
      * $this->attributes['email_verified_at'] -timestamp -contains the user email verification date
      * $this->attributes['password'] -string -contains the user password
      * $this->attributes['remember_token'] -string -contains the user password
-     * $this->attributes['isAdmin'] -boolean -determines if the user is an admin
+     * $this->attributes['is_admin'] -boolean -determines if the user is an admin
      * $this->attributes['balance'] -int -contains the user balance
      * $this->attributes['created_at'] -timestamp -contains the user creation date
      * $this->attributes['updated_at'] -timestamp -contains the user update date
@@ -104,12 +104,12 @@ class User extends Authenticatable
 
     public function getIsAdmin(): bool
     {
-        return $this->attributes['isAdmin'];
+        return $this->attributes['is_admin'];
     }
 
     public function setIsAdmin(bool $isAdmin)
     {
-        $this->attributes['isAdmin'] = $isAdmin;
+        $this->attributes['is_admin'] = $isAdmin;
     }
 
     public function getBalance(): int

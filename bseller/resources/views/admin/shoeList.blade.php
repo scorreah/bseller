@@ -16,8 +16,8 @@
         </ul>
     </div>
 @endif
-<h1>Shoes</h1>
-<p>Here you can find all the current available Shoes!</p>
+<h1>{{ __('shoes.title') }}</h1>
+<p>{{ __('shoes.welcome') }}</p>
 <div class="botton-position">
   <div class="row">
     @foreach($viewData['shoes'] as $shoe)
@@ -28,9 +28,9 @@
               <img src="{{ asset($shoe->image) }}">
             </div>
             <div class = "shoeDesc">
-              <h4>Model: {{ $shoe->getModel() }}</h4>
-              <p class="card-text">Price: {{ $shoe->getPrice() }}</p>
-              <h2><a href="{{ route('admin.shoeShow', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">shoe {{ $shoe->getId() }}</a></h2>
+              <h4>{{ __('shoes.model') }}: {{ $shoe->getModel() }}</h4>
+              <p class="card-text">{{ __('shoes.price') }} {{ $shoe->getPrice() }}</p>
+              <h2><a href="{{ route('admin.shoeShow', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">{{ __('shoes.shoe') }} {{ $shoe->getId() }}</a></h2>
             </div>
           </div>
         </div>

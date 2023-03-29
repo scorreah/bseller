@@ -21,7 +21,7 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index')
 // Bid Routes
 Route::get('/bids', 'App\Http\Controllers\BidRuleController@index')->name('bid.index');
 Route::get('/bids/{id}', 'App\Http\Controllers\BidRuleController@show')->where('id', '[0-9]+')->name('bid.show');
-Route::post('/bids/bidup/{id}', 'App\Http\Controllers\BidController@store')->where('id', '[0-9]+')->name('bid.up');
+Route::post('/bids/bidup/{id}', 'App\Http\Controllers\BidController@store')->where('id', '[0-9]+')->name('bid.up')->middleware(Authenticate::class);
 
 // Shoe Routes
 Route::get('/shoes', 'App\Http\Controllers\ShoeController@index')->name('shoe.index');

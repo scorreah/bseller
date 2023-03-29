@@ -42,6 +42,10 @@ class AdminBidRuleController extends Controller
         // Save new BidRule to database
         $bidRule->save();
 
+        $shoe = Shoe::findOrFail($shoeId);
+        $shoe->setIsBid(TRUE);
+        $shoe->save();
+
         // Flash success message to the session
         session()->flash('status', 'Bid Rule created successfully.');
 

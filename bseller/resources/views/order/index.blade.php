@@ -8,6 +8,21 @@
   </div>
 @endif
 
+<div class="orderscolumm">
+        <div class="ordertitle">
+            <p>Pedido realizado</p>
+        </div>
+        <div class="infosection">
+            <div class="infosection-text">
+                <p>Pedido #</p>
+                <p>Pedido #</p>
+            </div>
+            <div class="infosectionbutton">
+                <button type="button">
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <h1>{{ __('orders.title') }}</h1>
         <p>{{ __('orders.welcome') }}</p>

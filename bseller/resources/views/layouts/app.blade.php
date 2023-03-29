@@ -13,7 +13,7 @@
     <nav>
         <div class="navTop">
             <div class="navItem">
-                <img src="/img/index/bsellerLogo.png" width="150" height="60" alt="">
+                <img src="{{ asset('/storage/img/index/bsellerLogo.png') }}" width="150" height="60" alt="">
             </div>
             <div class = "references">
                 <ul>

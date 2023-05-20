@@ -5,7 +5,7 @@
 <div class="main">
     <div class = "mainText">
         <div class="secondText">
-            <span>{{ __('home.welcome') }}</span>
+            <span>{{ __('home.welcome') }} - CICD Working</span>
         </div>
     </div>
 

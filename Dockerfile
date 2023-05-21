@@ -15,5 +15,6 @@ RUN composer install \
 RUN php artisan key:generate
 RUN php artisan migrate
 RUN chmod -R 777 storage
+RUN chmod -R 777 public
 RUN a2enmod rewrite
 RUN service apache2 restart

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Home Page - BSeller')
+@section('title', 'Admin - BSeller')
 @section('content')
 
 @if ($errors->any())

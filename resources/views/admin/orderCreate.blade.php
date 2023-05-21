@@ -16,7 +16,7 @@
                         <form method="POST" action="{{ route('admin.orderStore') }}">
                             @csrf
                             <div class="form-group">
-                                <label for="total_price">Total Price:</label>
+                                <label for="total_price">{{ __('orders.tot_price') }}:</label>
                                 <input type="number" class="form-control @error('total_price') is-invalid @enderror"
                                     id="total_price" name="total_price" value="{{ old('total_price') }}" required>
                                 @error('total_price')

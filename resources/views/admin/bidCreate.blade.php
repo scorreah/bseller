@@ -12,7 +12,7 @@
         @endif
 
         @if ($errors->any())
-            <ul id="errors" class="alert alert-danger list-unstyled"> 
+            <ul id="errors" class="alert alert-danger list-unstyled">
                 @foreach($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach </ul>

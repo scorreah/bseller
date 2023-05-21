@@ -6,10 +6,11 @@ use App\Models\Bid;
 use App\Models\BidRule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class BidController extends Controller
 {
-    public function store(Request $request, $id)
+    public function store(Request $request, $id): View
     {
         $bidRule = BidRule::findOrFail($id);
         $bid = new Bid;

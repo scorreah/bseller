@@ -20,8 +20,8 @@ class CartController extends Controller
             $total = Shoe::sumPrices($shoesInCart);
         }
         $viewData = [];
-        $viewData['title'] = 'Cart - Online Store';
-        $viewData['subtitle'] = 'Shopping Cart';
+        $viewData['title'] = __('cart.cart') . ' - Bseller';
+        $viewData['subtitle'] = __('cart.shopping');
         $viewData['total'] = $total;
         $viewData['shoes'] = $shoesInCart;
 
@@ -34,7 +34,7 @@ class CartController extends Controller
         $shoe = Shoe::FindOrFail($id);
 
         if ($shoe->getOrderId() != null) {
-            return redirect()->route('shoe.index')->withInput()->withErrors(['Invalid' => 'This shoe doesnt be available']);
+            return redirect()->route('shoe.index')->withInput()->withErrors(['Invalid' => __('cart.notAvail')]);
         }
 
         $shoes[$id] = $id;
@@ -58,7 +58,7 @@ class CartController extends Controller
             $total = Shoe::sumPrices($shoesInCart);
             $newBalance = Auth::user()->getBalance() - $total;
             if ($newBalance < 0) {
-                return redirect()->route('cart.index')->withInput()->withErrors(['Credits' => 'You dont have enough credits']);
+                return redirect()->route('cart.index')->withInput()->withErrors(['Credits' => __('cart.noCredits')]);
             }
 
             $userId = Auth::user()->getId();
@@ -76,10 +76,10 @@ class CartController extends Controller
             Auth::user()->setBalance($newBalance);
             Auth::user()->save();
             $request->session()->forget('shoes');
-            session()->flash('status', 'Order created successfully');
-            return redirect()->route('order.index'); 
+            session()->flash('status', __('cart.success_order'));
+            return redirect()->route('order.index');
         } else {
-            return redirect()->route('cart.index')->withInput()->withErrors(['elements' => 'You dont have any shoe']);
+            return redirect()->route('cart.index')->withInput()->withErrors(['elements' => __('cart.noOrders')]);
         }
     }
 }

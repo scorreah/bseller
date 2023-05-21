@@ -4,7 +4,7 @@
     <div class="containerr">
         <div class="nameBox">
             <h2>
-                Name:
+            {{ __('auth.name') }}:
             </h2>
             <div class="boxxx">
                 <div class="boxx">
@@ -14,7 +14,7 @@
         </div>
         <div class="emailBox">
             <h2>
-                Email:
+            {{ __('auth.mail') }}:
             </h2>
             <div class="boxxx">
                 <div class="boxx">
@@ -24,7 +24,7 @@
         </div>
         <div class="balanceBox">
             <h2>
-                Balance:
+            {{ __('auth.balance') }}:
             </h2>
             <div class="boxx">
                 {{$viewData['balance']}}

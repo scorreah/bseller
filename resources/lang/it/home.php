@@ -19,4 +19,5 @@ return [
     'identity' => 'Da bseller, sappiamo che più che semplici sneakers, sono una forma di espressione e identità, ecco perché abbiamo i modelli più recenti e i migliori marchi.',
     'bseller' => 'BSeller',
     'us' => 'Bseller è un negozio online di rivendita di sneakers esclusive. Il nostro elemento distintivo è un sistema di offerte, con cui si cerca di vendere all\'offerente più alto le sue unità uniche di sneakers.',
+    'lang' => 'it',
 ];

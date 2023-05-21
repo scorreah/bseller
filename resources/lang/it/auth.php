@@ -9,6 +9,8 @@ return [
     'register' => 'Registrati',
     'name' => 'Nome',
     'email' => 'Indirizzo email',
+    'mail' => 'Email',
+    'balance' => 'Saldo',
     'password' => 'Password',
     'confirm_password' => 'Conferma la password',
     'login' => 'Accedi',

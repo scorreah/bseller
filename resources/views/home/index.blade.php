@@ -82,7 +82,7 @@
 
     <div class="springPic">
         <div class="lacosteMen">
-            <img src="{{ URL::asset('/storage/img/index/menLacoste.svg') }}">
+            <img src="{{ URL::asset('/storage/img/index/menLacoste-'. __('home.lang').'.svg') }}">
         </div>
     </div>
     <footer>

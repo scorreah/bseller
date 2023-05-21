@@ -23,10 +23,10 @@ class Shoe extends Model
      * $this->attributes['size'] - float - contains the size of the shoe
      * $this->attributes['brand'] - string - contains the shoe brand
      * $this->attributes['model'] - string - contains the shoe model
-     * $this->attributes['model'] - string - contains the shoe model
      * $this->attributes['is_bid'] - boolean - indicates if the shoe is bidable
      * $this->attributes['created_at'] - DateTime - contains the day of the creation
      * $this->attributes['updated_at'] - DateTime - contains the day of the update
+     * $this->attributes['order_id'] - int - contains the id associated Order model
      * $this->order - Order - contains the associated Order model
      * $this->user - User[] - contains the associated User model
      * $this->bidRule - BidRule - contains the associated BidRule model

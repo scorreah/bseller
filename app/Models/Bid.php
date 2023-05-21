@@ -18,8 +18,12 @@ class Bid extends Model
      * BID ATTRIBUTES
      * $this->attributes['id'] - int - contains the primary key (id) of the bid
      * $this->attributes['price'] - int - contains the price of the bid
-     * $this->user - User - contains the associated User model
-     * $this->bid_rule - BidRule - contains the associate BidRule model
+     * $this->attributes['user_id'] - int - contains the id associated User model
+     * $this->attributes['bid_rule_id'] - int - contains the id associate BidRule model
+     * $this->attributes['created_at'] - DateTime - contains the day of the creation
+     * $this->attributes['updated_at'] - DateTime - contains the day of the update
+     * $this->order - User- contains the associated Order model
+     * $this->bidRule - BidRule - contains the associated BidRule model
      */
     protected $fillable = ['price', 'user_id', 'bid_rule_id'];
 

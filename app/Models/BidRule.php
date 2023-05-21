@@ -26,6 +26,10 @@ class BidRule extends Model
      * $this->attributes['status'] - string - contains the current status of the bid rule
      * $this->attributes['start_date'] - dateTime - contains the starting date of the bid rule
      * $this->attributes['end_date'] - dateTime - contains the ending date of the bid rule
+     * $this->attributes['shoe_id'] - int - contains the id associated Shoe model
+     * $this->attributes['user_id'] - int - contains the id associated User model
+     * $this->attributes['created_at'] - DateTime - contains the day of the creation
+     * $this->attributes['updated_at'] - DateTime - contains the day of the update
      * $this->user - User - contains the associated User model
      * $this->shoe - Shoe - contains the associated Shoe model
      * $this->bids - Bid[] - contains the associated Bid model

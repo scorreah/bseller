@@ -20,6 +20,9 @@ return [
     'placed' => 'Order placed',
     'order_no' => 'Order #',
     'order' => 'Order',
-    'show_orders' => 'Show Orders',
+    'show' => 'Show Orders',
     'bill' => 'Bill generator',
+    'success_create' => 'Order created successfully',
+    'list_order' => 'List Orders',
+    'success_delete' => 'Order deleted successfully',
 ];

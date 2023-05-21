@@ -20,8 +20,11 @@ class Order extends Model
      * $this->attributes['id'] - int - contains the product primary key (id)
      * $this->attributes['total_price'] - int - contains the initial price
      * $this->attributes['status'] - string - contains the status of the order
+     * $this->attributes['user_id'] - int - contains the id associated User model
      * $this->user - User - contains the associated User model
      * $this->shoes - Shoe[] - contains the associated Shoe model
+     * $this->attributes['created_at'] - DateTime - contains the day of the creation
+     * $this->attributes['updated_at'] - DateTime - contains the day of the update
      */
     protected $fillable = ['total_price', 'status', 'user_id'];
 

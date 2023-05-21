@@ -37,6 +37,10 @@
     33 => 'App\\Providers\\EventServiceProvider',
     34 => 'App\\Providers\\RouteServiceProvider',
     35 => 'App\\Providers\\ImageServiceProvider',
+<<<<<<< HEAD
+=======
+    36 => 'Barryvdh\\DomPDF\\ServiceProvider',
+>>>>>>> main
   ),
   'eager' => 
   array (
@@ -62,6 +66,10 @@
     19 => 'App\\Providers\\EventServiceProvider',
     20 => 'App\\Providers\\RouteServiceProvider',
     21 => 'App\\Providers\\ImageServiceProvider',
+<<<<<<< HEAD
+=======
+    22 => 'Barryvdh\\DomPDF\\ServiceProvider',
+>>>>>>> main
   ),
   'deferred' => 
   array (

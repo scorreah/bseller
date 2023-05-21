@@ -9,7 +9,7 @@
 
 @if ($errors->any())
     <div class="alert alert-danger">
-        <p>Errors</p>
+        <p>{{ __('shoes.errors') }}</p>
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -35,7 +35,7 @@
     <p class="card-text">
       {{ __('shoes.price') }}: {{ $viewData["shoe"]->getPrice()}}
     </p>
-    <h2><a href="{{ route('cart.add', ['id'=> $viewData['shoe']->getId()]) }}" class="btn bg-primary text-white">Add to cart</a></h2>
+    <h2><a href="{{ route('cart.add', ['id'=> $viewData['shoe']->getId()]) }}" class="btn bg-primary text-white">{{ __('shoes.cart') }}</a></h2>
   </div>
 </section>
 @endsection

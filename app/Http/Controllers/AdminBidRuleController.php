@@ -11,6 +11,13 @@ use Illuminate\View\View;
 
 class AdminBidRuleController extends Controller
 {
+    public function index(): View
+    {
+        $viewData = [];
+        $viewData['title'] = __('admin.admin_bids');
+        return view('admin.bids')->with('viewData', $viewData);
+    }
+
     public function create(): View
     {
         $viewData = [];

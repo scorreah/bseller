@@ -19,4 +19,7 @@ return [
     'admin_orders' => 'Admin - Orders',
     'create_order' => 'Create New Order',
     'list_order' => 'Orders List',
+    'admin_bids' => 'Admin - Bids',
+    'create_bid' => 'Create New Bid',
+    'list_bid' => 'Bids List',
 ];

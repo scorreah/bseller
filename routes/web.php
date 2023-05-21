@@ -60,6 +60,7 @@ Route::delete('/admin/orders/delete/{order}', 'App\Http\Controllers\AdminOrderCo
 Route::get('/admin/orders/show/{id}', 'App\Http\Controllers\AdminOrderController@show')->name('admin.orderShow')->middleware(AdminAuthMiddleware::class);
 
 // Admin routes-Bid
+Route::get('/admin/bids', 'App\Http\Controllers\AdminBidRuleController@index')->name('admin.bids')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/bids/create', 'App\Http\Controllers\AdminBidRuleController@create')->name('admin.bidCreate')->middleware(AdminAuthMiddleware::class);
 Route::post('/admin/bids/store', 'App\Http\Controllers\AdminBidRuleController@store')->name('admin.bidStore')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/bids/list', 'App\Http\Controllers\AdminBidRuleController@list')->name('admin.bidList')->middleware(AdminAuthMiddleware::class);

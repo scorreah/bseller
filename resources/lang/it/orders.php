@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'title' => 'Lista degli Ordini',
+    'welcome' => 'In questa pagina vedrai tutti i tuoi ordini effettuati!',
+    'no_orders' => 'Al momento non hai nessun ordine :(',
+    'tot_price' => 'Prezzo Totale',
+    'status' => 'Stato',
+    'id' => 'ID dell\'Ordine',
+    'create' => 'Crea Ordine',
+    'select' => 'Seleziona Stato',
+    'new' => 'Nuovo',
+    'processing' => 'In elaborazione',
+    'completed' => 'Completato',
+    'cancelled' => 'Cancellato',
+    'Create' => 'Crea',
+    'list' => 'Lista degli Ordini',
+    'details' => 'Dettagli dell\'Ordine',
+    'delete' => 'Elimina',
+    'placed' => 'Ordine effettuato',
+    'order_no' => 'Ordine #',
+    'order' => 'Ordine',
+    'show' => 'Mostra Ordini',
+    'bill' => 'Generatore di Fatture',
+    'success_create' => 'Ordine creato con successo',
+    'list_order' => 'Elenco Ordini',
+    'success_delete' => 'Ordine eliminato con successo',
+];

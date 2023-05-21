@@ -25,4 +25,8 @@ return [
     'delete' => 'Delete',
     'errors' => 'Errors',
     'products' => 'Products',
+    'error_delete_img' => 'An error occurred while deleting the image',
+    'success_delete' => 'Shoe deleted successfully.',
+    'error_save_img' => 'An error occurred while saving the image',
+    'success_save' => 'Shoe created successfully.',
 ];

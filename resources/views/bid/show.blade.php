@@ -5,7 +5,7 @@
 
     @if ($errors->any())
         <div class="alert alert-danger">
-            <p>Errors</p>
+            <p>{{ __('bids.errors') }}</p>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -32,7 +32,7 @@
                     <form method="POST" action="{{ route('bid.up', ['id' => $viewData["bid"]->getId()]) }}">
                         @csrf
                         <input name="price" id="price" type="number" min="{{ $viewData["min_price"]}}" value="{{ $viewData["min_price"]}}">
-                        <button type="submit" class="btn btn-warning">Bid up</button>
+                        <button type="submit" class="btn btn-warning">{{ __('bids.bidup') }}</button>
                     </form>
                 </div>
             </div>

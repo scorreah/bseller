@@ -10,7 +10,7 @@ class BidRuleController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Bid Page - BSeller';
+        $viewData['title'] = __('bids.bid_page') . ' - Bseller';
         $viewData['bids'] = BidRule::all();
 
         return view('bid.index')->with('viewData', $viewData);
@@ -19,7 +19,7 @@ class BidRuleController extends Controller
     public function show(string $id): View
     {
         $viewData = [];
-        $viewData['title'] = 'Show Bid - BSeller';
+        $viewData['title'] = __('bids.show_page') . ' - Bseller';
         $bid = BidRule::findOrFail($id);
         $viewData['bid'] = $bid;
         $viewData['min_price'] = $bid->getCurrentPrice() + 1;

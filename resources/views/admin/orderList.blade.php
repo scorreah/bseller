@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', $viewData["title"])
 @section('content')
 
@@ -15,10 +15,10 @@
                 @foreach ($viewData['orders'] as $order)
                     <tr>
                         <td>
-                            <a href="{{ route('admin.orderShow', ['id'=> $order["id"]]) }}" class="btn bg-primary text-white">{{ __('orders.id') }} {{ $order["id"] }}</a>
+                            <a href="{{ route('admin.orderShow', ['id'=> $order["id"]]) }}" class="btn bg-primary text-white">{{ __('orders.id') }} {{ $order->getId() }}</a>
                             </form>
-                            <p class="card-text">{{ __('orders.tot_price') }}: {{ $order->total_price }}</p>
-                            <p class="card-text">{{ __('orders.status') }}: {{ $order->status }}</p>
+                            <p class="card-text">{{ __('orders.tot_price') }}: {{ $order->getTotalPrice() }}</p>
+                            <p class="card-text">{{ __('orders.status') }}: {{ $order->getStatus() }}</p>
                         </td>
                     </tr>
                 @endforeach

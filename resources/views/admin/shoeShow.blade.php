@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', $viewData["title"])
 @section('content')
 @if (session('status'))
@@ -9,7 +9,7 @@
 
 @if ($errors->any())
     <div class="alert alert-danger">
-        <p>Errors</p>
+        <p>{{ __('shoes.errors') }}</p>
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>

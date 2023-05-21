@@ -10,10 +10,17 @@ use Illuminate\View\View;
 
 class AdminOrderController extends Controller
 {
+    public function index(): View
+    {
+        $viewData = [];
+        $viewData['title'] = __('admin.admin_orders');
+        return view('admin.orders')->with('viewData', $viewData);
+    }
+
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Create - BSeller';
+        $viewData['title'] = __('orders.create') . ' - BSeller';
 
         return view('admin.orderCreate')->with('viewData', $viewData);
     }
@@ -29,7 +36,7 @@ class AdminOrderController extends Controller
         $order->setStatus($request->input('status'));
         $order->save();
 
-        session()->flash('status', 'Order created successfully');
+        session()->flash('status', __('orders.success_create'));
 
         return redirect()->route('admin.orderShow', ['id' => $order->id]);
     }
@@ -37,7 +44,7 @@ class AdminOrderController extends Controller
     public function list()
     {
         $viewData = [];
-        $viewData['title'] = 'List Orders - BSeller';
+        $viewData['title'] = __('orders.list_order') . ' - BSeller';
         $viewData['orders'] = Order::all();
 
         return view('admin.orderList')->with('viewData', $viewData);
@@ -46,7 +53,7 @@ class AdminOrderController extends Controller
     public function show(string $id): View
     {
         $viewData = [];
-        $viewData['title'] = 'Show Orders - BSeller';
+        $viewData['title'] = __('orders.show') . ' - BSeller';
         $viewData['orders'] = Order::findOrFail($id);
 
         return view('admin.orderShow')->with('viewData', $viewData);
@@ -57,7 +64,7 @@ class AdminOrderController extends Controller
         Order::destroy($order->id);
 
         // Flash success message to the session
-        session()->flash('status', 'Order deleted successfully');
+        session()->flash('status', __('orders.success_delete'));
 
         $order->delete();
 

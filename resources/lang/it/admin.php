@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'admin_dashboard' => 'Pannello di Amministrazione',
+    'dashboard' => 'Cruscotto',
+    'products' => 'Prodotti',
+    'users' => 'Utenti',
+    'shoes' => 'Scarpe',
+    'orders' => 'Ordini',
+    'bids' => 'Offerte',
+    'welcome' => 'Benvenuto, Admin!',
+    'total_products' => 'Prodotti Totali',
+    'view_products' => 'Vedi Prodotti',
+    'total_users' => 'Utenti Totali',
+    'view_users' => 'Vedi Utenti',
+    'admin_shoes' => 'Admin - Scarpe',
+    'create_shoe' => 'Crea Nuova Scarpa',
+    'list_shoe' => 'Lista Scarpe',
+    'admin_orders' => 'Admin - Ordini',
+    'create_order' => 'Crea Nuovo Ordine',
+    'list_order' => 'Lista Ordini',
+    'admin_bids' => 'Admin - Offerte',
+    'create_bid' => 'Crea Nuova Offerta',
+    'list_bid' => 'Lista Offerte',
+];

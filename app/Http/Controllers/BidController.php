@@ -26,11 +26,11 @@ class BidController extends Controller
             $bid->save();
             $bidRule->save();
 
-            session()->flash('status', 'bid created successfully');
+            session()->flash('status', __('bids.success'));
 
             return back();
         }
 
-        return back()->withInput()->withErrors(['bid' => 'You cant make a bid, you dont got money']);
+        return back()->withInput()->withErrors(['bid' => __('bids.noMoney')]);
     }
 }

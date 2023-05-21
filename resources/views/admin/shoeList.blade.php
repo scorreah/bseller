@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('title', 'Home Page - BSeller')
+@extends('layouts.admin')
+@section('title', 'Admin - BSeller')
 @section('content')
 @if (session('status'))
   <div class="alert alert-success">
@@ -8,7 +8,7 @@
 @endif
 @if ($errors->any())
     <div class="alert alert-danger">
-        <p>Errors</p>
+        <p>{{ __('shoes.errors') }}</p>
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>

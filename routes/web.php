@@ -44,8 +44,10 @@ Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->na
 // Language Routes
 Route::post('/lang', 'App\Http\Controllers\LangController@locale')->name('lang.locale');
 
-// Admin routes-shoe
+// Admin routes
 Route::get('/admin/dashboard', 'App\Http\Controllers\AdminController@index')->name('admin.dashboard');
+// Admin routes-shoe
+Route::get('/admin/shoes', 'App\Http\Controllers\AdminShoeController@index')->name('admin.shoes')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/shoes/create', 'App\Http\Controllers\AdminShoeController@create')->name('admin.shoeCreate')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/shoes/list', 'App\Http\Controllers\AdminShoeController@list')->name('admin.shoeList')->middleware(AdminAuthMiddleware::class);
 Route::post('/admin/shoes/save', 'App\Http\Controllers\AdminShoeController@save')->name('admin.shoeSave')->middleware(AdminAuthMiddleware::class);
@@ -53,6 +55,7 @@ Route::delete('/admin/shoes/delete/{id}', 'App\Http\Controllers\AdminShoeControl
 Route::get('/admin/shoes/{id}', 'App\Http\Controllers\AdminShoeController@show')->where('id', '[0-9]+')->name('admin.shoeShow')->middleware(AdminAuthMiddleware::class);
 
 // Admin routes-Order
+Route::get('/admin/orders', 'App\Http\Controllers\AdminOrderController@index')->name('admin.orders')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/orders/create', 'App\Http\Controllers\AdminOrderController@create')->name('admin.orderCreate')->middleware(AdminAuthMiddleware::class);
 Route::post('/admin/orders/store', 'App\Http\Controllers\AdminOrderController@store')->name('admin.orderStore')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/orders/list', 'App\Http\Controllers\AdminOrderController@list')->name('admin.orderList')->middleware(AdminAuthMiddleware::class);
@@ -60,6 +63,7 @@ Route::delete('/admin/orders/delete/{order}', 'App\Http\Controllers\AdminOrderCo
 Route::get('/admin/orders/show/{id}', 'App\Http\Controllers\AdminOrderController@show')->name('admin.orderShow')->middleware(AdminAuthMiddleware::class);
 
 // Admin routes-Bid
+Route::get('/admin/bids', 'App\Http\Controllers\AdminBidRuleController@index')->name('admin.bids')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/bids/create', 'App\Http\Controllers\AdminBidRuleController@create')->name('admin.bidCreate')->middleware(AdminAuthMiddleware::class);
 Route::post('/admin/bids/store', 'App\Http\Controllers\AdminBidRuleController@store')->name('admin.bidStore')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/bids/list', 'App\Http\Controllers\AdminBidRuleController@list')->name('admin.bidList')->middleware(AdminAuthMiddleware::class);

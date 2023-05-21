@@ -11,7 +11,6 @@ return [
     'remove' => 'Remove all shoes from Cart',
     'cart' => 'Cart',
     'shopping' => 'Shopping Cart',
-    'invalid' => 'Shopping Cart',
     'notAvail' => 'These shoes aren\'t available',
     'noCredits' => 'You don\'t have enough credits',
     'success_order' => 'Order created successfully',

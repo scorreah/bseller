@@ -29,18 +29,18 @@
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
+              <span class="visually-hidden">{{ __('home.previous') }}</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
+              <span class="visually-hidden">{{ __('home.next') }}</span>
             </button>
         </div>
     </div>
 
     <div class="brandSpace">
         <div class="tituloFila">
-            <b>Nuestras marcas</b>
+            <b>{{ __('home.brands') }}</b>
         </div>
         <div class="espacioFila">
             <div class="fila">
@@ -62,13 +62,13 @@
 
     <div class="ourStore">
         <div class="tituloFila">
-            <b>Nuestras tiendas</b>
+            <b>{{ __('home.stores') }}</b>
         </div>
         <div class="espacioFila">
             <div class="fila">
                 <div class="columnaC3">
-                    <h3>Somos expertos en la reventa de sneakers.</h3>
-                    <p>En bseller sabemos que mas que unos sneakers, son una forma de expresion e identidad, por eso contamos con los ultimos modelos y las mejores marcas.</p>
+                    <h3>{{ __('home.experts') }}</h3>
+                    <p>{{ __('home.identity') }}</p>
                 </div>
                 <div class="columnaC3">
                     <img src="{{ URL::asset('/storage/img/index/bogotaStore.svg') }}">
@@ -87,8 +87,8 @@
     </div>
     <footer>
         <div class="footer-content">
-            <h3>BSeller</h3>
-            <p>Bseller, es una tienda online de reventa de sneakers exclusivos. La cual tendrá como elemento diferenciador un sistema de pujas, con el cual se busca vender al mejor postor sus unidades únicas de sneakers.</p>
+            <h3>{{ __('home.bseller') }}</h3>
+            <p>{{ __('home.us') }}</p>
         </div>
     </footer>
 </div>

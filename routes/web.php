@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 
 // Profile Routes
-// Route::get('/profile', 'App\Http\Controllers\ProfileController@index')->name('profile.index');
 Route::get('/profile', 'App\Http\Controllers\ProfileController@show')->name('profile.show');
 
 // Bid Routes

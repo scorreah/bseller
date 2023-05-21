@@ -22,4 +22,6 @@ return [
     'show_page' => 'Show Bid',
     'errors' => 'Errors',
     'bidup' => 'Bid up',
+    'success' => 'Bid created successfully',
+    'noMoney' => 'You can\'t make a bid, you don\'t have money',
 ];

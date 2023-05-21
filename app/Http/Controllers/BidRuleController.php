@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BidRule;
+use App\Models\Shoe;
 use Illuminate\View\View;
 
 class BidRuleController extends Controller
@@ -21,7 +22,9 @@ class BidRuleController extends Controller
         $viewData = [];
         $viewData['title'] = 'Show Bid - BSeller';
         $bid = BidRule::findOrFail($id);
+        $shoe = Shoe::findOrFail($bid->getShoeId());
         $viewData['bid'] = $bid;
+        $viewData['shoe'] = $shoe;
         $viewData['min_price'] = $bid->getCurrentPrice() + 1;
 
         return view('bid.show')->with('viewData', $viewData);

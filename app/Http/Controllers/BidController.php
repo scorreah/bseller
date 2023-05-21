@@ -6,11 +6,11 @@ use App\Models\Bid;
 use App\Models\BidRule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class BidController extends Controller
 {
-    public function store(Request $request, $id): View
+    public function store(Request $request, $id): RedirectResponse
     {
         $bidRule = BidRule::findOrFail($id);
         $bid = new Bid;

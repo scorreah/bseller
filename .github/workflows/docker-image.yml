@@ -14,6 +14,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Create .env file from .env.example and replace placeholders
+      env:
+        DB_HOST: ${{secrets.DB_HOST}}
+        DB_USERNAME: ${{secrets.DB_USERNAME}}
+        DB_PASSWORD: ${{secrets.DB_PASSWORD}}
+      run: |
+        cp .env.example .env
+        sed -i "s/DB_HOST=127.0.0.1/DB_HOST=$DB_HOST/g" .env
+        sed -i "s/DB_USERNAME=root/DB_USERNAME=$DB_USERNAME/g" .env
+        sed -i "s/DB_PASSWORD=/DB_PASSWORD=$DB_PASSWORD/g" .env
     - name: docker login
       env:
         DOCKER_USER: ${{secrets.DOCKERHUB_USER}}
@@ -22,6 +32,6 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASS
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag scorreah/laravel-bseller:latest
-      
+
     - name: Docker Push
       run: docker push scorreah/laravel-bseller

@@ -11,7 +11,7 @@ class ShoeController extends Controller
     public function index(Request $request): View
     {
         $viewData = [];
-        $viewData['title'] = 'Products - Bseller';
+        $viewData['title'] = __('shoes.products') . ' - Bseller';
 
         // Retrieve a list of all the unique brands
         $viewData['brands'] = Shoe::pluck('brand')->unique();
@@ -48,7 +48,7 @@ class ShoeController extends Controller
     {
         $viewData = [];
         $shoeInfo = Shoe::findOrFail($id);
-        $viewData['title'] = 'Products - Bseller';
+        $viewData['title'] = __('shoes.products') . ' - Bseller';
         $viewData['shoe'] = $shoeInfo;
 
         return view('shoe.show')->with('viewData', $viewData);

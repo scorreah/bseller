@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Home Page - BSeller')
+@section('title', $viewData['title'])
 @section('content')
 @if (session('status'))
   <div class="alert alert-success">

@@ -24,4 +24,5 @@ return [
     'search' => 'Search',
     'delete' => 'Delete',
     'errors' => 'Errors',
+    'products' => 'Products',
 ];

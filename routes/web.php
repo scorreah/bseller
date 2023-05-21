@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 // Home Routes
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 
+// Profile Routes
+// Route::get('/profile', 'App\Http\Controllers\ProfileController@index')->name('profile.index');
+Route::get('/profile', 'App\Http\Controllers\ProfileController@show')->name('profile.show');
+
 // Bid Routes
 Route::get('/bids', 'App\Http\Controllers\BidRuleController@index')->name('bid.index');
 Route::get('/bids/{id}', 'App\Http\Controllers\BidRuleController@show')->where('id', '[0-9]+')->name('bid.show');

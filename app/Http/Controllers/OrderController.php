@@ -16,7 +16,7 @@ class OrderController extends Controller
     {
         $viewData = [];
         $viewData['orders'] = Auth::user()->getOrders();
-        $viewData['title'] = 'Order - BSeller';
+        $viewData['title'] = __('orders.order') . ' - Bseller';
 
         return view('order.index')->with('viewData', $viewData);
     }
@@ -24,7 +24,7 @@ class OrderController extends Controller
     public function show(string $id): View
     {
         $viewData = [];
-        $viewData['title'] = 'Show Orders - BSeller';
+        $viewData['title'] = __('orders.show_orders') . ' - Bseller';
         $viewData['orders'] = Order::findOrFail($id);
 
         return view('order.show')->with('viewData', $viewData);

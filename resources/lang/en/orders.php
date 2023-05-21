@@ -17,4 +17,8 @@ return [
     'list' => 'Orders List',
     'details' => 'Order Details',
     'delete' => 'Delete',
+    'placed' => 'Order placed',
+    'order_no' => 'Order #',
+    'order' => 'Order',
+    'show_orders' => 'Show Orders',
 ];

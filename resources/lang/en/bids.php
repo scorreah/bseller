@@ -18,4 +18,8 @@ return [
     'list' => 'Bid List',
     'avail' => 'Available Dates',
     'delete' => 'Delete',
+    'bid_page' => 'Bid Page',
+    'show_page' => 'Show Bid',
+    'errors' => 'Errors',
+    'bidup' => 'Bid up',
 ];

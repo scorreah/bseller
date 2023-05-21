@@ -14,7 +14,7 @@ class AdminBidRuleController extends Controller
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Create Bid - BSeller';
+        $viewData['title'] = __('bids.create_bid') . ' - BSeller';
         $viewData['shoes'] = Shoe::where('is_bid', false)->get();
 
         return view('admin.bidCreate')->with('viewData', $viewData);
@@ -47,7 +47,7 @@ class AdminBidRuleController extends Controller
         $shoe->save();
 
         // Flash success message to the session
-        session()->flash('status', 'Bid Rule created successfully.');
+        session()->flash('status', __('bids.success_bidrule'));
 
         // Redirect to the new BidRule's detail page
         return redirect()->route('admin.bidShow', ['id' => $bidRule->id]);
@@ -56,7 +56,7 @@ class AdminBidRuleController extends Controller
     public function list(): View
     {
         $viewData = [];
-        $viewData['title'] = 'List Bids - BSeller';
+        $viewData['title'] = __('bids.list_bid') . ' - BSeller';
         $viewData['bids'] = BidRule::all();
 
         return view('admin.bidList')->with('viewData', $viewData);
@@ -65,7 +65,7 @@ class AdminBidRuleController extends Controller
     public function show(string $id): View
     {
         $viewData = [];
-        $viewData['title'] = 'Show Bid - BSeller';
+        $viewData['title'] = __('bids.show_page') . ' - BSeller';
         $bid = BidRule::findOrFail($id);
         $viewData['bid'] = $bid;
         $viewData['min_price'] = $bid->getCurrentPrice() + 1;
@@ -78,7 +78,7 @@ class AdminBidRuleController extends Controller
         BidRule::destroy($id);
 
         // Flash success message to the session
-        session()->flash('status', 'Bid deleted successfully');
+        session()->flash('status', __('bids.success_delete'));
 
         return redirect()->route('admin.bidList');
     }

@@ -24,4 +24,8 @@ return [
     'bidup' => 'Bid up',
     'success' => 'Bid created successfully',
     'noMoney' => 'You can\'t make a bid, you don\'t have money',
+    'create_bid' => 'Create Bid',
+    'success_bidrule' => 'Bid Rule created successfully.',
+    'list_bid' => 'List Bids',
+    'success_delete' => 'Bid deleted successfully',
 ];

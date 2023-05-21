@@ -13,4 +13,7 @@ return [
     'view_products' => 'View Products',
     'total_users' => 'Total Users',
     'view_users' => 'View Users',
+    'admin_shoes' => 'Admin - Shoes',
+    'create_shoe' => 'Create New Shoe',
+    'list_shoe' => 'Shoes List',
 ];

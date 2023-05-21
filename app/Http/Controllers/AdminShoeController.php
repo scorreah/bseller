@@ -10,6 +10,14 @@ use Illuminate\View\View;
 
 class AdminShoeController extends Controller
 {
+    public function index(): View
+    {
+        $viewData = [];
+        $viewData['title'] = __('admin.admin_shoes');
+        $viewData['shoes'] = Shoe::all();
+        return view('admin.shoes')->with('viewData', $viewData);
+    }
+
     public function create(): View
     {
         return view('admin.shoeCreate');

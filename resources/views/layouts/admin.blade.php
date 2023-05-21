@@ -36,6 +36,18 @@
       </li>
     </ul>
   </div>
+  <div class = "translator">
+    <form method="POST" action="{{ route('lang.locale') }}">
+        @csrf
+        <select name="locale" onchange="this.form.submit()">
+            @foreach (config('app.available_locales') as $localeName => $localeCode)
+                <option value="{{ $localeCode }}" {{ app()->getLocale() == $localeCode ? 'selected' : '' }}>
+                    {{ $localeName }}
+                </option>
+            @endforeach
+        </select>
+    </form>
+  </div>
 </nav>
 
 @yield('content')

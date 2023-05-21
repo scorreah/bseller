@@ -29,4 +29,5 @@ return [
     'success_delete' => 'Scarpe eliminate con successo.',
     'error_save_img' => 'Si è verificato un errore durante il salvataggio dell\'immagine',
     'success_save' => 'Scarpe create con successo.',
+    'search_model_brand' => 'Cerca per modello o marca',
 ];

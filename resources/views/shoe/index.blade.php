@@ -39,7 +39,7 @@
       </div>
       <div class="form-group">
             <label for="q">{{ __('shoes.search') }}:</label>
-            <input type="text" class="form-control" id="q" name="q" placeholder="Search for model or brand" value="{{ $request->q ?? '' }}">
+            <input type="text" class="form-control" id="q" name="q" placeholder="{{ __('shoes.search_model_brand') }}" value="{{ $request->q ?? '' }}">
         </div>
       <button type="submit" class="btn btn-primary">{{ __('shoes.filter') }}</button>
   </form>
@@ -52,8 +52,8 @@
               <img src="{{ asset($shoe->image) }}">
             </div>
             <div class = "shoeDesc">
-              <h4>Model: {{ $shoe->getModel() }}</h4>
-              <p class="card-text">Price: {{ $shoe->getPrice() }}</p>
+              <h4>{{ __('shoes.model') }}: {{ $shoe->getModel() }}</h4>
+              <p class="card-text">{{ __('shoes.price') }}: {{ $shoe->getPrice() }}</p>
               <h2><a href="{{ route('shoe.show', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">{{ __('shoes.Shoe') }} {{ $shoe->getId() }}</a></h2>
               <h2><a href="{{ route('cart.add', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">{{ __('shoes.cart') }}</a></h2>
             </div>

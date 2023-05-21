@@ -29,4 +29,5 @@ return [
     'success_delete' => 'Zapato eliminado exitosamente.',
     'error_save_img' => 'Ocurrió un error al guardar la imagen',
     'success_save' => 'Zapato creado exitosamente.',
+    'search_model_brand' => 'Buscar por modelo o marca',
 ];

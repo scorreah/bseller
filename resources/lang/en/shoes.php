@@ -29,4 +29,5 @@ return [
     'success_delete' => 'Shoe deleted successfully.',
     'error_save_img' => 'An error occurred while saving the image',
     'success_save' => 'Shoe created successfully.',
+    'search_model_brand' => 'Search for model or brand',
 ];

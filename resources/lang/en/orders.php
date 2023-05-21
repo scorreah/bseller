@@ -21,4 +21,5 @@ return [
     'order_no' => 'Order #',
     'order' => 'Order',
     'show_orders' => 'Show Orders',
+    'bill' => 'Bill generator',
 ];

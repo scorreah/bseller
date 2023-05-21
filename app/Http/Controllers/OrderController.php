@@ -8,7 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
-use Barryvdh\DomPDF\Facade\PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrderController extends Controller
 {
@@ -45,7 +45,7 @@ class OrderController extends Controller
         $viewData["shoes"] = $shoes;
         $viewData["date"] = date("d-m-Y h:i:s");
         $name = 'pdf-order-'.$order->getId().'.pdf';
-        $pdf = PDF::loadView('layouts.pdf', compact('viewData'));
+        $pdf = Pdf::loadView('layouts.pdf', compact('viewData'));
 
         return $pdf->download($name);
     }

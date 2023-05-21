@@ -29,11 +29,11 @@ class AdminShoeController extends Controller
 
         $storeInterface = app(ImageStorage::class);
         if (! $storeInterface->delete($shoe->getImage())) {
-            return redirect()->back()->withInput()->withErrors(['image.save_error' => 'An error occurred while deleting the image']);
+            return redirect()->back()->withInput()->withErrors(['image.save_error' => __('shoes.error_delete_img')]);
         }
 
         Shoe::destroy($shoe->getId());
-        session()->flash('status', 'Shoe deleted Success');
+        session()->flash('status', __('shoes.success_delete'));
 
         return redirect()->route('admin.shoeList');
     }
@@ -47,7 +47,7 @@ class AdminShoeController extends Controller
         $nameImagen = $storeInterface->store($request);
 
         if ($nameImagen == 'Error') {
-            return redirect()->back()->withInput()->withErrors(['image.save_error' => 'An error occurred while saving the image']);
+            return redirect()->back()->withInput()->withErrors(['image.save_error' => __('shoes.error_save_img')]);
         }
 
         $newShoe->setPrice($validatedData['price']);
@@ -57,7 +57,7 @@ class AdminShoeController extends Controller
         $newShoe->setImage($nameImagen);
 
         $newShoe->save();
-        session()->flash('status', 'Shoe created successfully.');
+        session()->flash('status', __('shoes.success_save'));
         // Redirect to the new newShoe's detail page
         return redirect()->route('admin.shoeList');
     }
@@ -66,7 +66,7 @@ class AdminShoeController extends Controller
     {
         $viewData = [];
         $shoeInfo = Shoe::findOrFail($id);
-        $viewData['title'] = 'Products - Bseller';
+        $viewData['title'] = __('shoes.products') . ' - Bseller';
         $viewData['shoe'] = $shoeInfo;
 
         return view('admin.shoeShow')->with('viewData', $viewData);

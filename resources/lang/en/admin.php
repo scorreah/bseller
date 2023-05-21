@@ -16,4 +16,7 @@ return [
     'admin_shoes' => 'Admin - Shoes',
     'create_shoe' => 'Create New Shoe',
     'list_shoe' => 'Shoes List',
+    'admin_orders' => 'Admin - Orders',
+    'create_order' => 'Create New Order',
+    'list_order' => 'Orders List',
 ];

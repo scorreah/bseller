@@ -14,7 +14,6 @@ class AdminShoeController extends Controller
     {
         $viewData = [];
         $viewData['title'] = __('admin.admin_shoes');
-        $viewData['shoes'] = Shoe::all();
         return view('admin.shoes')->with('viewData', $viewData);
     }
 

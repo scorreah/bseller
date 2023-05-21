@@ -29,7 +29,7 @@
         <a class="nav-link" href="{{ route('admin.shoes') }}">{{ __('admin.shoes') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">{{ __('admin.orders') }}</a>
+        <a class="nav-link" href="{{ route('admin.orders') }}">{{ __('admin.orders') }}</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">{{ __('admin.bids') }}</a>

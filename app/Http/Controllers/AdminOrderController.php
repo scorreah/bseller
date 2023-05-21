@@ -10,6 +10,13 @@ use Illuminate\View\View;
 
 class AdminOrderController extends Controller
 {
+    public function index(): View
+    {
+        $viewData = [];
+        $viewData['title'] = __('admin.admin_orders');
+        return view('admin.orders')->with('viewData', $viewData);
+    }
+
     public function create(): View
     {
         $viewData = [];

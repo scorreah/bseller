@@ -52,6 +52,7 @@ Route::delete('/admin/shoes/delete/{id}', 'App\Http\Controllers\AdminShoeControl
 Route::get('/admin/shoes/{id}', 'App\Http\Controllers\AdminShoeController@show')->where('id', '[0-9]+')->name('admin.shoeShow')->middleware(AdminAuthMiddleware::class);
 
 // Admin routes-Order
+Route::get('/admin/orders', 'App\Http\Controllers\AdminOrderController@index')->name('admin.orders')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/orders/create', 'App\Http\Controllers\AdminOrderController@create')->name('admin.orderCreate')->middleware(AdminAuthMiddleware::class);
 Route::post('/admin/orders/store', 'App\Http\Controllers\AdminOrderController@store')->name('admin.orderStore')->middleware(AdminAuthMiddleware::class);
 Route::get('/admin/orders/list', 'App\Http\Controllers\AdminOrderController@list')->name('admin.orderList')->middleware(AdminAuthMiddleware::class);

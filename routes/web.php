@@ -19,7 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 
 // Profile Routes
-Route::get('/profile', 'App\Http\Controllers\ProfileController@show')->name('profile.show');
+Route::get('/profile', 'App\Http\Controllers\ProfileController@show')->name('profile.show')->middleware(Authenticate::class);
+
+//PayMethods Routes
+Route::post('/paypal/pay', 'App\Http\Controllers\PaymentController@payWithPaypal')->name('payment.payWithPaypal');
+Route::get('/paypal/status', 'App\Http\Controllers\PaymentController@payStatus')->name('payment.payStatus');
 
 // Bid Routes
 Route::get('/bids', 'App\Http\Controllers\BidRuleController@index')->name('bid.index');

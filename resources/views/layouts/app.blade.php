@@ -22,7 +22,10 @@
                     <li><a href="{{ route('order.index') }}">{{ __('home.orders') }}</a></li>
                     <li><a href="{{ route('bid.index') }}">{{ __('home.bids') }}</a></li>
                     <li><a href="{{ route('cart.index') }}">{{ __('home.cart') }}</a></li>
-                    <li><a href="{{ route('profile.show') }}">{{ __('Profile') }}</a></li>
+                    @guest
+                    @else
+                        <li><a href="{{ route('profile.show') }}">{{ __('Profile') }}</a></li>
+                    @endguest
                 </ul>
             </div>
                 <div class = "login">

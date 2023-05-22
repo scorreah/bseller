@@ -50,7 +50,9 @@ class AdminShoeController extends Controller
         $newShoe = new Shoe;
         $validatedData = Shoe::validate($request);
 
-        $storeInterface = app(ImageStorage::class);
+        $storage = $request->input('storage');
+
+        $storeInterface = app(ImageStorage::class, ['storage' => $storage]);
         $nameImagen = $storeInterface->store($request);
 
         if ($nameImagen == 'Error') {

@@ -22,16 +22,16 @@
     <div class="col-md-4">
         <div class="card mb-4 box-shadow">
             <p class="card-title">
-            Nombre: {{ $item['name']}}
+            {{ __('api.name') }}: {{ $item['name']}}
             </p>
             <p class="card-title">
-            Id: {{ $item['id']}}
+            {{ __('api.id') }}: {{ $item['id']}}
             </p>
             <p class="card-title">
-            Price: {{ $item['price']}}
+            {{ __('api.price') }}: {{ $item['price']}}
             </p>
             <p class="card-text">
-            Descripcion: {{ $item['description']}}
+            {{ __('api.description') }}: {{ $item['description']}}
             </p>
         </div>
     </div>

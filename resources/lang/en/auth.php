@@ -19,4 +19,5 @@ return [
     'reset' => 'Reset Password',
     'send_reset' => 'Send Password Reset Link',
     'please_confirm_password' => 'Please confirm your password before continuing.',
+    'add_balance' => 'Add balance',
 ];

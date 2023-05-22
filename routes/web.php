@@ -81,4 +81,6 @@ Route::get('/shoes/{id}', 'App\Http\Controllers\ShoeController@show')->where('id
 // Language Routes
 Route::post('/lang', 'App\Http\Controllers\LangController@locale')->name('lang.locale');
 
+// Api External Routes
+Route::get('/api/items', 'App\Http\Controllers\ExternalApiController@show')->name('api.show');
 Auth::routes();

@@ -62,21 +62,21 @@
 		<div>
 			<h2>{{$viewData["title"]}}</h2>
 			<p>Medellin, Colombia</p>
-			<p>Teléfono: 123-456-7890</p>
+			<p>{{ __('pdf.phone') }}: 123-456-7890</p>
 		</div>
 		<div>
-			<h1>Bill</h1>
+			<h1>{{ __('pdf.bill') }}</h1>
 			<p>{{$viewData["date"]}}</p>
-			<p>Number: {{$viewData["order"]->getId()}}</p>
+			<p>{{ __('pdf.number') }}: {{$viewData["order"]->getId()}}</p>
 		</div>
 	</div>
 	<table>
 		<thead>
 			<tr>
 				<th>Id</th>
-				<th>Brand</th>
-				<th>Product</th>
-				<th>Price</th>
+				<th>{{ __('pdf.brand') }}</th>
+				<th>{{ __('pdf.product') }}</th>
+				<th>{{ __('pdf.price') }}</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -91,15 +91,15 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="3">Subtotal</td>
+				<td colspan="3">{{ __('pdf.subtotal') }}</td>
 				<td>{{$viewData["amount"]}}</td>
 			</tr>
 			<tr>
-				<td colspan="3">shipping cost</td>
+				<td colspan="3">{{ __('pdf.shipping') }}</td>
 				<td>$0.00</td>
 			</tr>
 			<tr>
-				<td colspan="3">Total</td>
+				<td colspan="3">{{ __('pdf.total') }}</td>
 				<td>${{$viewData["amount"]}}</td>
 			</tr>
 		</tfoot>

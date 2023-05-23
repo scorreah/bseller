@@ -71,7 +71,7 @@ class PaymentController extends Controller
         $token = $request->input('token');
 
         if (!$paymentId || !$payerId || !$token) {
-            $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';
+            $status = __('payment.error_status');
             return redirect()->route('profile.show')->withInput()->withErrors(compact('status'));
         }
 
@@ -90,11 +90,11 @@ class PaymentController extends Controller
             Auth::user()->setBalance($newBalance);
             Auth::user()->save();
 
-            $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
+            $status = __('payment.success_status');
             return redirect()->route('profile.show')->with(compact('status'));
         }
 
-        $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';
+        $status = __('payment.error_status');
         return redirect()->route('profile.show')->withInput()->withErrors(compact('status'));
     }
 }

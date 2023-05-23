@@ -7,6 +7,7 @@ use App\Models\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Google\Cloud\Storage\StorageClient;
 
 class ImageGCPStorage implements ImageStorage
 {
@@ -14,9 +15,20 @@ class ImageGCPStorage implements ImageStorage
     {
         try {
             if ($request->hasFile('image_shoe')) {
-                $image_shoe = $request->file('image_shoe');
-                $nombreImagen = time().'_'.$image_shoe->getClientOriginalName();
-                $path = Storage::disk('gcs')->put($nombreImagen, File::get($image_shoe));
+                $image = $request->file('image_shoe');
+                $imageName = time().'_'.$image->getClientOriginalName();
+                #$path = Storage::disk('gcp')->put($imageName, File::get($image));
+
+                $gcpKeyFile = file_get_contents(env('GOOGLE_CLOUD_KEY_FILE'));
+                $storage = new StorageClient(['keyFile' => json_decode($gcpKeyFile, true)]);
+                $bucket = $storage->bucket(env('GOOGLE_CLOUD_STORAGE_BUCKET'));
+
+                $storedImage = $bucket->upload(
+                    file_get_contents($image->getRealPath()), [
+                    'name' => $imageName
+                ]);
+
+                $path = 'https://storage.googleapis.com/'.env('GOOGLE_CLOUD_STORAGE_BUCKET').'/'.$imageName;
             } else {
                 $path = 'Error';
             }

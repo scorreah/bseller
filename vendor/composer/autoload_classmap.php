@@ -55,6 +55,7 @@ return array(
     'App\\Providers\\ImageServiceProvider' => $baseDir . '/app/Providers/ImageServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Util\\ImageGCPStorage' => $baseDir . '/app/Util/ImageGCPStorage.php',
+    'App\\Util\\ImageLocalStorage' => $baseDir . '/app/Util/ImageLocalStorage.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Barryvdh\\DomPDF\\Facade\\Pdf' => $vendorDir . '/barryvdh/laravel-dompdf/src/Facade/Pdf.php',
     'Barryvdh\\DomPDF\\PDF' => $vendorDir . '/barryvdh/laravel-dompdf/src/PDF.php',

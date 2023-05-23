@@ -15,7 +15,7 @@ class ImageServiceProvider extends ServiceProvider
             $storage = $params['storage'];
             if ($storage == 'local') {
                 return new ImageLocalStorage();
-            } elseif ($storage == 'gcs') {
+            } elseif ($storage == 'gcp') {
                 return new ImageGCPStorage();
             }
         });

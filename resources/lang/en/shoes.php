@@ -30,4 +30,7 @@ return [
     'error_save_img' => 'An error occurred while saving the image',
     'success_save' => 'Shoe created successfully.',
     'search_model_brand' => 'Search for model or brand',
+    'storage' => 'Storage',
+    'local' => 'Local',
+    'gcs' => 'Google Cloud Storage',
 ];

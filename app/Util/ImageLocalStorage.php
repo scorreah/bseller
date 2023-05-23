@@ -13,9 +13,11 @@ class ImageLocalStorage implements ImageStorage
     public function store(Request $request): string
     {
         try {
-            $image_shoe = $request->file('image_shoe');
-            $nombreImagen = 'img/shoes/'.time().'_'.$image_shoe->getClientOriginalName();
-            Storage::disk('public')->put($nombreImagen, File::get($image_shoe));
+            if ($request->hasFile('image_shoe')) {
+                $image_shoe = $request->file('image_shoe');
+                $nombreImagen = 'img/shoes/'.time().'_'.$image_shoe->getClientOriginalName();
+                Storage::disk('public')->put($nombreImagen, File::get($image_shoe));
+            }
         } catch(Exception $e) {
             $nombreImagen = 'Error';
         }

@@ -50,8 +50,11 @@ class AdminShoeController extends Controller
         $newShoe = new Shoe;
         $validatedData = Shoe::validate($request);
 
-        $storeInterface = app(ImageStorage::class);
+        $storage = $request->input('storage');
+
+        $storeInterface = app(ImageStorage::class, ['storage' => $storage]);
         $nameImagen = $storeInterface->store($request);
+        #dd($nameImagen);
 
         if ($nameImagen == 'Error') {
             return redirect()->back()->withInput()->withErrors(['image.save_error' => __('shoes.error_save_img')]);

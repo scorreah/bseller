@@ -27,6 +27,13 @@
                 <input type="file" class="form-control" id="image" name="image_shoe" accept="image/*" required>
             </div>
             <div class="form-group">
+                <label for="storage">{{ __('shoes.storage') }}:</label>
+                <select class="form-control" id="storage" name="storage">
+                    <option value="local">{{ __('shoes.local') }}</option>
+                    <option value="gcp">{{ __('shoes.gcs') }}</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="status">{{ __('shoes.size') }}</label>
                 <input type="number" class="form-control" id="size" name="size" value="{{ old('size') }}" required>
             </div>

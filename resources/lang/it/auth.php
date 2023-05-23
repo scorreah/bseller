@@ -19,4 +19,5 @@ return [
     'reset' => 'Reimposta la password',
     'send_reset' => 'Invia link per reimpostare la password',
     'please_confirm_password' => 'Per favore conferma la tua password prima di continuare.',
+    'add_balance' => 'Aggiungere equilibrio',
 ];

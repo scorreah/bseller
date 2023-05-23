@@ -19,4 +19,5 @@ return [
     'reset' => 'Restablecer contraseña',
     'send_reset' => 'Enviar enlace para restablecer contraseña',
     'please_confirm_password' => 'Por favor confirma tu contraseña antes de continuar.',
+    'add_balance' => 'Agregar saldo',
 ];

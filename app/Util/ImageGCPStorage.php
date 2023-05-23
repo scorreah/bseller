@@ -15,20 +15,28 @@ class ImageGCPStorage implements ImageStorage
     {
         try {
             if ($request->hasFile('image_shoe')) {
+                $image = $request->file('image_shoe');
+                $imageName = time().'_'.$image->getClientOriginalName();
+                #$path = Storage::disk('gcp')->put($imageName, File::get($image));
+
                 $gcpKeyFile = file_get_contents(env('GOOGLE_CLOUD_KEY_FILE'));
                 $storage = new StorageClient(['keyFile' => json_decode($gcpKeyFile, true)]);
                 $bucket = $storage->bucket(env('GOOGLE_CLOUD_STORAGE_BUCKET'));
-                $gcpStoragePath = 'images/'.$time().'_'.$image_shoe->getClientOriginalName();
-                $image_shoe = $request->file('image_shoe');
-                $bucket->upload(File::get($image_shoe), ['name' => $gcpStoragePath]);
+
+                $storedImage = $bucket->upload(
+                    file_get_contents($image->getRealPath()), [
+                    'name' => $imageName
+                ]);
+
+                $path = 'https://storage.googleapis.com/'.env('GOOGLE_CLOUD_STORAGE_BUCKET').'/'.$imageName;
             } else {
-                $gcpStoragePath = 'Error';
+                $path = 'Error';
             }
         } catch(Exception $e) {
-            $gcpStoragePath = 'Error';
+            $path = 'Error';
         }
 
-        return $gcpStoragePath;
+        return $path;
     }
 
     public function delete(string $dir): bool

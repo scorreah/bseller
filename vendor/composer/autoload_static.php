@@ -641,6 +641,7 @@ class ComposerStaticInit305c34b89b36760c84ff950ecb50e201
         'App\\Providers\\ImageServiceProvider' => __DIR__ . '/../..' . '/app/Providers/ImageServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Util\\ImageGCPStorage' => __DIR__ . '/../..' . '/app/Util/ImageGCPStorage.php',
+        'App\\Util\\ImageLocalStorage' => __DIR__ . '/../..' . '/app/Util/ImageLocalStorage.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Barryvdh\\DomPDF\\Facade\\Pdf' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/Facade/Pdf.php',
         'Barryvdh\\DomPDF\\PDF' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/PDF.php',

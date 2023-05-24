@@ -19,17 +19,11 @@ jobs:
         DB_HOST: ${{secrets.DB_HOST}}
         DB_USERNAME: ${{secrets.DB_USERNAME}}
         DB_PASSWORD: ${{secrets.DB_PASSWORD}}
-        GC_KEY_FILE: ${{secrets.GOOGLECLOUD_KEY_FILE}}
-        GC_PROJECT_ID: ${{secrets.GOOGLECLOUD_KEY_FILE}}
-        GCS_BUCKET: ${{secrets.GOOGLECLOUD_STORAGE_BUCKET}}
       run: |
         cp .env.example .env
         sed -i "s/DB_HOST=127.0.0.1/DB_HOST=$DB_HOST/g" .env
         sed -i "s/DB_USERNAME=root/DB_USERNAME=$DB_USERNAME/g" .env
         sed -i "s/DB_PASSWORD=/DB_PASSWORD=$DB_PASSWORD/g" .env
-        sed -i "s/GOOGLE_CLOUD_PROJECT_ID=/GOOGLE_CLOUD_PROJECT_ID=$GC_KEY_FILE/g" .env
-        sed -i "s/GOOGLE_CLOUD_KEY_FILE=/GOOGLE_CLOUD_KEY_FILE=$GC_PROJECT_ID/g" .env
-        sed -i "s/GOOGLE_CLOUD_STORAGE_BUCKET=/GOOGLE_CLOUD_STORAGE_BUCKET=$GCS_BUCKET/g" .env
     - name: docker login
       env:
         DOCKER_USER: ${{secrets.DOCKERHUB_USER}}

@@ -23,10 +23,8 @@
     @foreach($viewData['shoes'] as $shoe)
       <div class="col-md-4">
         <div class="card mb-4 box-shadow">
+        <img src="{{ asset($shoe->image) }}" class="card-img-top">
           <div class="card-body">
-            <div class = "shoeImg">
-              <img src="{{ asset($shoe->image) }}">
-            </div>
             <div class = "shoeDesc">
               <h4>{{ __('shoes.model') }}: {{ $shoe->getModel() }}</h4>
               <p class="card-text">{{ __('shoes.price') }} {{ $shoe->getPrice() }}</p>

@@ -47,14 +47,12 @@
     @foreach($viewData['shoes'] as $shoe)
       <div class="col-md-4">
         <div class="card mb-4 box-shadow">
+        <img src="{{ asset($shoe->image) }}" class="card-img-top">
           <div class="card-body">
-              <img src="{{ asset($shoe->image) }}" class="card-img-top">
-            <div class = "shoeDesc">
               <h4>{{ __('shoes.model') }}: {{ $shoe->getModel() }}</h4>
               <p class="card-text">{{ __('shoes.price') }}: {{ $shoe->getPrice() }}</p>
               <h2><a href="{{ route('shoe.show', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">{{ __('shoes.Shoe') }} {{ $shoe->getId() }}</a></h2>
               <h2><a href="{{ route('cart.add', ['id'=> $shoe->getId()]) }}" class="btn bg-primary text-white">{{ __('shoes.cart') }}</a></h2>
-            </div>
           </div>
         </div>
       </div>

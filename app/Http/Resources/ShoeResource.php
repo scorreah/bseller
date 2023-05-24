@@ -15,7 +15,7 @@ class ShoeResource extends JsonResource
             'marca' => $this->getBrand(),
             'talla' => $this->getSize(),
             'imagen' => $this->getImage(),
-            'url_producto' => $_ENV['APP_URL']."/shoes/".$this->getId(),
+            'url_producto' => $_ENV['APP_URL']."shoes/".$this->getId(),
         ];
     }
 }

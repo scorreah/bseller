@@ -20,12 +20,6 @@
         <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ __('admin.dashboard') }}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">{{ __('admin.products') }}</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">{{ __('admin.users') }}</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.shoes') }}">{{ __('admin.shoes') }}</a>
       </li>
       <li class="nav-item">
